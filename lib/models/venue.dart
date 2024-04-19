@@ -6,15 +6,15 @@ part 'venue.g.dart';
 // See documentation here https://docs.flutter.dev/data-and-backend/serialization/json#creating-model-classes-the-json_serializable-way
 // After changing this class, it is essential to run `dart run build_runner build --delete-conflicting-outputs` from the root of the project.
 
-
 @JsonSerializable()
-class Venue{
-  Venue({required this.name, 
-         required this.latitude, 
-         required this.longitude, 
-         required this.hasPatio,
-         required this.url});
-  
+class Venue {
+  Venue(
+      {required this.name,
+      required this.latitude,
+      required this.longitude,
+      required this.hasPatio,
+      required this.url});
+
   final String name;
   final double latitude;
   final double longitude;
@@ -26,11 +26,17 @@ class Venue{
   factory Venue.fromJson(Map<String, dynamic> json) => _$VenueFromJson(json);
   Map<String, dynamic> toJson() => _$VenueToJson(this);
 
-  // TODO(you): Add distanceFrom method here
+  double distanceFrom({required double latitude, required double longitude}) {
+    return sqrt(_squared(this.latitude - latitude) +
+        _squared(this.longitude - longitude));
+  }
 
-  double distanceInMeters({required double latitude, required double longitude}){
+  double distanceInMeters(
+      {required double latitude, required double longitude}) {
     return 111139 * distanceFrom(latitude: latitude, longitude: longitude);
   }
 
-  num _squared(num x) { return x * x; }
+  num _squared(num x) {
+    return x * x;
+  }
 }

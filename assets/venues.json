@@ -1,5 +1,12 @@
 [
     {
+        "name": "U:Don",
+        "latitude": 47.66248957041129,
+        "longitude": -122.31285800188569,
+        "url": "https://freshudon.com/udon-university",
+        "has_patio": false
+    },
+    {
         "name": "Saint Bread",
         "latitude": 47.65058,
         "longitude": -122.31297,
@@ -8,7 +15,7 @@
     },
     {
         "name": "Morsel",
-        "latitude": 47.665514059568025, 
+        "latitude": 47.665514059568025,
         "longitude": -122.31287231699613,
         "url": "morselseattle.com",
         "has_patio": false
@@ -16,8 +23,204 @@
     {
         "name": "Agua Verde Cafe",
         "latitude": 47.65172326985612,
-        "longitude":  -122.31400147327928,
+        "longitude": -122.31400147327928,
         "url": "aguaverdecafe.com",
         "has_patio": true
+    },
+    {
+        "name": "Fern Thai Eatery & Bar",
+        "latitude": 47.61311518086259,
+        "longitude": -122.31929794732181,
+        "url": "www.fernthaioncaphill.com",
+        "has_patio": false
+    },
+    {
+        "name": "Pizzeria La Rocca",
+        "latitude": 47.6900977,
+        "longitude": -122.3552034,
+        "url": "pizzalarocca.com",
+        "has_patio": true
+    },
+    {
+        "name": "Bizarro",
+        "latitude": 47.66217889627344,
+        "longitude": -122.34180049162336,
+        "url": "https://www.bizzarroitaliancafe.com/",
+        "has_patio": false
+    },
+    {
+        "name": "Seattle Best Tea",
+        "latitude": 47.6615468359008,
+        "longitude": -122.31318693912908,
+        "url": "https://www.seattlebesttea.com/",
+        "has_patio": false
+    },
+    {
+        "name": "Kamonegi",
+        "latitude": 47.654219370480455,
+        "longitude": -122.34435514465629,
+        "url": "https://www.kamonegiseattle.com/",
+        "has_patio": false
+    },
+    {
+        "name": "Toyoda Sushi",
+        "latitude": 47.721377769862634,
+        "longitude": -122.2950391287354,
+        "url": "https://www.facebook.com/toyodasushi",
+        "has_patio": false
+    },
+    {
+        "name": "Costas",
+        "latitude": 47.66299606567164,
+        "longitude": -122.3133402662642,
+        "url": "https://www.costasseattle.com/",
+        "has_patio": false
+    },
+    {
+        "name": "Arigato Sushi",
+        "latitude": 47.6765399309586,
+        "longitude": -122.35417786739815,
+        "url": "http://arigato.menu11.com/",
+        "has_patio": true
+    },
+    {
+        "name": "Oxbow",
+        "latitude": 47.64040995540413,
+        "longitude": -122.30203964468622,
+        "url": "https://www.oxbowmontlake.com/",
+        "has_patio": false
+    },
+    {
+        "name": "Portage Bay Cafe",
+        "latitude": 47.65771541279295,
+        "longitude": -122.31768283430614,
+        "url": "https://www.portagebaycafe.com/",
+        "has_patio": true
+    },
+    {
+        "name": "Sultan Gyros Grill",
+        "latitude": 47.65916097098205,
+        "longitude": -122.31296787548699,
+        "url": null,
+        "has_patio": false
+    },
+    {
+        "name": "Aladdin CharBurger",
+        "latitude": 47.65809525317369,
+        "longitude": -122.31327179691436,
+        "url": "https://www.aladdincharburger.com/",
+        "has_patio": false
+    },
+    {
+        "name": "Thai Tom",
+        "latitude": 47.66494192435156,
+        "longitude": -122.31306794488486,
+        "url": "https://thaitomseattle.com/",
+        "has_patio": false
+    },
+    {
+        "name": "Issian",
+        "latitude": 47.66164636722708,
+        "longitude": -122.33828702139809,
+        "url": "https://issianjapanesestonegrill.weebly.com/",
+        "has_patio": false
+    },
+    {
+        "name": "Samurai Noodle",
+        "latitude": 47.662150261711396,
+        "longitude": -122.31205702767754,
+        "url": "https://www.samurainoodle.com/",
+        "has_patio": false
+    },
+    {
+        "name": "Ezell's Famous Chicken",
+        "latitude": 47.661791489792776,
+        "longitude": -122.33089907796148,
+        "url": "https://ezellschicken.com/",
+        "has_patio": false
+    },
+    {
+        "name": "Birria Pepe El Toro",
+        "latitude": 47.67042786909221,
+        "longitude": -122.3127671898264,
+        "url": "https://www.birrieria-pepeeltoro.com/",
+        "has_patio": false
+    },
+    {
+        "name": "Cafe on the Ave",
+        "latitude": 47.658593144048815,
+        "longitude": -122.31332774551767,
+        "url": "https://cafeontheave.site/",
+        "has_patio": true
+    },
+    {
+        "name": "Hiroshi's Poke",
+        "latitude": 47.66363330233521,
+        "longitude": -122.31620878961279,
+        "url": null,
+        "has_patio": false
+    },
+    {
+        "name": "One Day Cafe",
+        "latitude": 47.18448638819438,
+        "longitude": -122.48503180040143,
+        "url": "https://www.instagram.com/onedaycafe.wa/",
+        "has_patio": false
+    },
+    {
+        "name": "Local Public Eatery",
+        "latitude": 49.28441068867758,
+        "longitude": -123.10392684758963,
+        "url": "https://localpubliceatery.com/neighbourhoods/gastown/",
+        "has_patio": true
+    },
+    {
+        "name": "Himitsu Teriyaki",
+        "latitude": 47.69381566888056,
+        "longitude": -122.31002692371351,
+        "url": "https://himitsuteriyaki.menu11.com/",
+        "has_patio": false
+    },
+    {
+        "name": "Jacks BBQ",
+        "latitude": 47.5687569628992,
+        "longitude": -122.32207940795915,
+        "url": "https://jacksbbq.com/",
+        "has_patio": true
+    },
+    {
+        "name": "Geraldine's",
+        "latitude": 47.558029,
+        "longitude": -122.2848895,
+        "url": "https://www.geraldinescounter.com/?utm_source=gmb",
+        "has_patio": true
+    },
+    {
+        "name": "Uneeda Burger",
+        "latitude": 47.66121537269227,
+        "longitude": -122.34631087836202,
+        "url": "http://uneedaburger.com/",
+        "has_patio": true
+    },
+    {
+        "name": "Brick'N'Cheese Seattle",
+        "latitude": 47.621353104879674,
+        "longitude": -122.31510526910094,
+        "url": "https://brickncheese.com/",
+        "has_patio": false
+    },
+    {
+        "name": "The Flour Box",
+        "latitude": 47.55263766338159,
+        "longitude": -122.27748799259626,
+        "url": "https://www.theflourboxseattle.com/",
+        "has_patio": true
+    },
+    {
+        "name": "Cafe Javasti",
+        "latitude": 47.69156686391974,
+        "longitude": -122.2908980009539,
+        "url": "http://javasti.com/",
+        "has_patio": false
     }
 ]
