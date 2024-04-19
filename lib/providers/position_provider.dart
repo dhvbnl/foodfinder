@@ -15,14 +15,14 @@ class PositionProvider extends ChangeNotifier {
     /*_determinePosition().then((position) => 
             _updatePosition(position)
           ).catchError((a) => locationFound = false);
-
+*/
     _timer = Timer.periodic(
       const Duration(seconds: 1), 
         (timer) => 
           _determinePosition().then((position) => 
             _updatePosition(position)
           ).catchError((a) => locationFound = false),
-    );*/
+    );
   }
 
   @override

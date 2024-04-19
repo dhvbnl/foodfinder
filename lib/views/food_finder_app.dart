@@ -3,6 +3,7 @@ import 'package:food_finder/models/venue.dart';
 import 'package:food_finder/models/venues_db.dart';
 import 'package:food_finder/helpers/weather_checker.dart';
 import 'package:food_finder/views/custom_grid_tile.dart';
+import 'package:food_finder/views/custom_grid_view.dart';
 import 'package:food_finder/views/top_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:food_finder/providers/position_provider.dart';
@@ -50,7 +51,10 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
         }
         return Scaffold(
           appBar: const TopBar().build(context), 
-          body: CustomGridTile(Venue(name: 'Saint Bread', latitude: 1, longitude: 1, hasPatio: false, url: 'ok'), false),
+          body: CustomGridView(
+            [CustomGridTile(Venue(name: 'Saint Bread', latitude: 1, longitude: 1, hasPatio: false, url: 'ok'), false),
+            CustomGridTile(Venue(name: 'Saint Bread', latitude: 1, longitude: 1, hasPatio: false, url: 'ok'), false)]
+          ),
           bottomNavigationBar: bottomBar(),
         );
       })
