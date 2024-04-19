@@ -6,8 +6,8 @@ import 'package:http/http.dart' as http;
 class WeatherChecker {
   final WeatherProvider weatherProvider;
 
-  final _latitude = '47.96649'; 
-  final _longitude = '-122.34318';
+  var _latitude = 47.96649; 
+  var _longitude = -122.34318;
 
   WeatherChecker(this.weatherProvider);
 
@@ -52,5 +52,10 @@ class WeatherChecker {
       return WeatherCondition.sunny;
     }
     return WeatherCondition.gloomy;
+  }
+
+  void updateLocation(double latitude, double longitude){
+    _latitude = latitude;
+    _longitude = longitude;
   }
 }
