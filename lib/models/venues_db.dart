@@ -10,7 +10,12 @@ class VenuesDB{
     return List<Venue>.from(_venues, growable: false);
   }
 
-  // TODO(you): Add nearestTo method here
+  nearestTo({int max = 999, required double latitude, required double longitude}){
+    _venues.sort((v1, v2) => 
+      v1.distanceFrom(latitude: latitude, longitude: longitude).compareTo(v2.distanceFrom(latitude: latitude, longitude: longitude))
+    );
+    return _venues.take(max);
+  }
 
 
   VenuesDB.initializeFromJson(String jsonString) : _venues = _decodeVenueListJson(jsonString);

@@ -11,13 +11,18 @@ class PositionProvider extends ChangeNotifier {
   late final Timer _timer;
 
   PositionProvider(){
+    print('called');
+    /*_determinePosition().then((position) => 
+            _updatePosition(position)
+          ).catchError((a) => locationFound = false);
+
     _timer = Timer.periodic(
       const Duration(seconds: 1), 
         (timer) => 
           _determinePosition().then((position) => 
-            updatePosition(position)
-          ),
-    );
+            _updatePosition(position)
+          ).catchError((a) => locationFound = false),
+    );*/
   }
 
   @override
@@ -26,9 +31,10 @@ class PositionProvider extends ChangeNotifier {
     _timer.cancel();
   }
 
-  void updatePosition(Position currentPosition){
+  void _updatePosition(Position currentPosition){
     latitude = currentPosition.latitude;
     longitude = currentPosition.longitude;
+    print('updated position');
     notifyListeners();
   }
 

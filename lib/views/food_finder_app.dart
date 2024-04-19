@@ -19,25 +19,29 @@ class FoodFinderApp extends StatefulWidget {
 }
 
 
-
 class _FoodFinderAppState extends State<FoodFinderApp> {
   late final Timer _checkerTimer;
   late final WeatherChecker _weatherChecker;
 
   @override
   initState(){
-    // TODO(you): Initialize the _checkerTimer and _weatherChecker here
-    // ---> Your code from the Weather app may be helpful to refer to 
+    super.initState();
+    _weatherChecker = WeatherChecker(Provider.of<WeatherProvider>(context, listen: false));
+    _weatherChecker.fetchAndUpdateCurrentWeather();
 
-    // This way we don't have to wait a minute from after the app starts to first attempt a weather check.
-    _weatherChecker.fetchAndUpdateCurrentSeattleWeather();
+    _checkerTimer = Timer.periodic(
+      const Duration(seconds: 60), 
+        (timer) => 
+          _weatherChecker.fetchAndUpdateCurrentWeather()
+    );
 
 
   }
 
   @override 
   dispose(){
-    // TODO(you):  Cancel our timer when we are no longer needed so we don't leak
+    super.dispose();
+    _checkerTimer.cancel();
   }
 
   @override
@@ -49,8 +53,10 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
               // needing to nest Consumers inside each other 
               body: Consumer2<PositionProvider, WeatherProvider>( 
                 builder: (context, positionProvider, weatherProvider, child) {
-                  // TODO(you): If position is known, call weatherChecker.updateLocation with our current position
-
+                  if(positionProvider.positionKnown){
+                    _weatherChecker.updateLocation(positionProvider.latitude, positionProvider.longitude);
+                  }
+                  
                   // TODO(you): Remove this placeholder, and add your views here.
                   // Keep this as tidy and readable as you can by, relying on custom Widgets you define 
                   // to create the view tree. 
