@@ -12,4 +12,8 @@ class WeatherProvider extends ChangeNotifier {
     condition = newCondition;
     notifyListeners();
   }
+
+  isSunny(){
+    return condition == WeatherCondition.sunny;
+  }
 }

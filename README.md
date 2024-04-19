@@ -27,6 +27,10 @@ https://pub.dev/packages/geolocator
 https://raphaeldelio.medium.com/getting-started-with-flutter-map-9cf4113f22e9
 Used Shared JSON file as well as AI(chat gpt) to reformat
 https://pub.dev/packages/google_fonts
+https://github.com/shawnchan2014/haversine-dart
+https://www.mapdevelopers.com/distance_from_to.php
+https://stackoverflow.com/questions/28419255/how-do-you-round-a-double-in-dart-to-a-given-degree-of-precision-after-the-decim
+
 
 ## Reflection Prompts
 

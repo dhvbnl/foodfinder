@@ -51,14 +51,16 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
         }
         return Scaffold(
           appBar: const TopBar().build(context), 
-          body: CustomGridView(
-            [CustomGridTile(Venue(name: 'Saint Bread', latitude: 1, longitude: 1, hasPatio: false, url: 'ok'), false),
-            CustomGridTile(Venue(name: 'Saint Bread', latitude: 1, longitude: 1, hasPatio: false, url: 'ok'), false)]
-          ),
+          body: CustomGridView(tiles(30, positionProvider.latitude, positionProvider.longitude, weatherProvider.isSunny())),
           bottomNavigationBar: bottomBar(),
         );
       })
     ));
+  }
+
+  List<CustomGridTile> tiles(int max, double latitude, double longitude, bool isSunny){
+    return widget.venues.nearestTo(max: max, latitude: latitude, longitude: longitude)
+      .map((venue) => CustomGridTile(venue, isSunny, latitude, longitude)).toList();
   }
 
   Widget bottomBar(){
