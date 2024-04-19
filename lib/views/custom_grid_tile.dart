@@ -9,7 +9,7 @@ class CustomGridTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var backgroundColor = const Color.fromARGB(255, 200, 200, 200);
+    var backgroundColor = const Color.fromARGB(255, 199, 199, 199);
     //add code to change based on sunny or not
     return Card(
       color: backgroundColor,
