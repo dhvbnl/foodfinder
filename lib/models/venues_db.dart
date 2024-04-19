@@ -10,7 +10,7 @@ class VenuesDB{
     return List<Venue>.from(_venues, growable: false);
   }
 
-  nearestTo({int max = 999, required double latitude, required double longitude}){
+  Iterable<Venue> nearestTo({int max = 999, required double latitude, required double longitude}){
     _venues.sort((v1, v2) => 
       v1.distanceFrom(latitude: latitude, longitude: longitude).compareTo(v2.distanceFrom(latitude: latitude, longitude: longitude))
     );

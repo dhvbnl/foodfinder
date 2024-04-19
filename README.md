@@ -26,6 +26,7 @@ Answer here: (delete this prompt)
 https://pub.dev/packages/geolocator
 https://raphaeldelio.medium.com/getting-started-with-flutter-map-9cf4113f22e9
 Used Shared JSON file as well as AI(chat gpt) to reformat
+https://pub.dev/packages/google_fonts
 
 ## Reflection Prompts
 
