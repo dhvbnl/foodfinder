@@ -30,6 +30,9 @@ https://pub.dev/packages/google_fonts
 https://github.com/shawnchan2014/haversine-dart
 https://www.mapdevelopers.com/distance_from_to.php
 https://stackoverflow.com/questions/28419255/how-do-you-round-a-double-in-dart-to-a-given-degree-of-precision-after-the-decim
+https://stackoverflow.com/questions/52489458/how-to-change-status-bar-color-in-flutter
+https://stackoverflow.com/questions/70922830/flutter-how-can-i-add-dynamic-number-of-columns-depending-on-device-width-or-or
+
 
 
 ## Reflection Prompts

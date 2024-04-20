@@ -15,7 +15,7 @@ class PositionProvider extends ChangeNotifier {
     _timer = Timer.periodic(
       const Duration(seconds: 1),
       (timer) => _determinePosition()
-          .then((position) => _updatePosition(position))
+          .then((position) => _updatePosition(position), onError: (a) => _locationNotFound())
           .catchError((a) => locationFound = false),
     );
   }
@@ -24,6 +24,10 @@ class PositionProvider extends ChangeNotifier {
   dispose() {
     super.dispose();
     _timer.cancel();
+  }
+
+  void _locationNotFound(){
+    locationFound = false;
   }
 
   void _updatePosition(Position currentPosition) {

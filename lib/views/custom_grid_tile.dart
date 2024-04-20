@@ -12,14 +12,18 @@ class CustomGridTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var backgroundColor = const Color.fromARGB(255, 100, 100, 100);
-    if(_isSunny){
-      backgroundColor = const Color.fromARGB(255, 200, 200, 200);
-    }
-    
     //add code to change based on sunny or not
+    var color = const Color.fromARGB(255, 198, 219, 207);
+    double elevation = 10;
+    if(_isSunny && !_venue.hasPatio){
+      color = Color.fromARGB(255, 178, 198, 186);
+      elevation = 0;
+    }
+    //add code to scale text
     return Card(
-      color: backgroundColor,
+      color: color,
+      elevation: elevation,
+      surfaceTintColor: const Color.fromARGB(255, 255, 255, 255),
       margin: const EdgeInsets.all(8.0),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -27,20 +31,18 @@ class CustomGridTile extends StatelessWidget {
           children: [
             Text(
               _venue.name,
-              textAlign: TextAlign.left,
+              textAlign: TextAlign.center,
               style: const TextStyle(
-                fontSize: 20,
+                fontSize: 30,
                 fontWeight: FontWeight.w400
               )
             ),
             const Spacer(),
-            // TODO(data): fixed nearest to data to be arricuate to miles 
             Text(
-              //'${_venue.distanceFrom(latitude: _latitude, longitude: _longitude).toStringAsFixed(3)} miles away',
               '${Haversine.haversine(_latitude, _longitude, _venue.latitude, _venue.longitude).toStringAsFixed(2)} miles away',
               textAlign: TextAlign.left,
               style: const TextStyle(
-                fontSize: 15,
+                fontSize: 20,
                 fontWeight: FontWeight.w200
               )
             )

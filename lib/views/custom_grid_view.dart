@@ -7,9 +7,21 @@ class CustomGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO(axixcount): adjust to make more granular
+    int crossAxisCount = 1;
+    var windowSize = MediaQuery.of(context).size.width;
+    if(windowSize <= 300){
+      crossAxisCount = 1;
+    } else if(windowSize <= 800){
+      crossAxisCount = 2;
+    } else if(windowSize <= 1200){
+      crossAxisCount = 3;
+    } else if(windowSize <= 1600){
+      crossAxisCount = 4;
+    }
     return GridView.count(
       padding: const EdgeInsets.all(8),
-      crossAxisCount: 2,
+      crossAxisCount: crossAxisCount,
       children: _tiles,
     );
   }

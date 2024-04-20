@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_finder/models/venue.dart';
 import 'package:food_finder/models/venues_db.dart';
 import 'package:food_finder/helpers/weather_checker.dart';
 import 'package:food_finder/views/custom_grid_tile.dart';
@@ -43,19 +42,19 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: SafeArea(child:
-      Consumer2<PositionProvider, WeatherProvider>(
+    return MaterialApp(
+      home:  Consumer2<PositionProvider, WeatherProvider>(
                 builder: (context, positionProvider, weatherProvider, child) {
         if (positionProvider.positionKnown) {
           _weatherChecker.updateLocation(positionProvider.latitude, positionProvider.longitude);
         }
         return Scaffold(
           appBar: const TopBar().build(context), 
-          body: CustomGridView(tiles(30, positionProvider.latitude, positionProvider.longitude, weatherProvider.isSunny())),
+          body: SafeArea(child: CustomGridView(tiles(30, positionProvider.latitude, positionProvider.longitude, weatherProvider.isSunny()))),
           bottomNavigationBar: bottomBar(),
         );
       })
-    ));
+    );
   }
 
   List<CustomGridTile> tiles(int max, double latitude, double longitude, bool isSunny){
