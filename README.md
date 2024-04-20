@@ -35,6 +35,8 @@ https://stackoverflow.com/questions/70922830/flutter-how-can-i-add-dynamic-numbe
 https://www.edureka.co/community/234752/how-to-dynamically-resize-text-in-flutter#:~:text=You%20can%20use%20the%20FittedBox,properties%20of%20the%20Text%20widget.
 Adit and Lauren helped in 4/19 section, with follow up help from Ben on EdStem in order to remove errors from PositionProvider
 https://pub.dev/packages/flutter_platform_widgets
+https://pub.dev/packages/platform_maps_flutter
+
 
 
 ## Reflection Prompts

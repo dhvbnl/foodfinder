@@ -63,7 +63,7 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
         return PlatformScaffold(
           appBar: const TopBar().build(context), 
           body: SafeArea(
-            child: CustomGridView(tiles(10, positionProvider.latitude, positionProvider.longitude, weatherProvider.isSunny()))
+            child: bodyWidget(10, positionProvider.latitude, positionProvider.longitude, weatherProvider.isSunny())
           ),
           bottomNavBar: bottomBar(),
         );
@@ -98,6 +98,6 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
     if(_currentTabIndex == 0){
       return CustomGridView(tiles(10, latitude, longitude, isSunny));
     }
-    return MapView();
+    return MapView(latitude, longitude);
   }
 }

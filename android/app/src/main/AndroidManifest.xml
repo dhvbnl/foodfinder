@@ -3,6 +3,9 @@
         android:label="food_finder"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyA3o7HGJO_A01FbCgbBlmINsXwrw1H7taE"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
