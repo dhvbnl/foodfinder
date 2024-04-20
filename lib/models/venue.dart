@@ -1,3 +1,4 @@
+import 'package:food_finder/helpers/haversine.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'dart:math';
 
@@ -29,6 +30,10 @@ class Venue {
   double distanceFrom({required double latitude, required double longitude}) {
     return sqrt(_squared(this.latitude - latitude) +
         _squared(this.longitude - longitude));
+  }
+  
+  double haversineDistanceFrom({required double latitude, required double longitude}){
+    return Haversine.haversine(this.latitude, this.longitude, latitude, longitude);
   }
 
   double distanceInMeters(

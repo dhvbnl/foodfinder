@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:food_finder/helpers/haversine.dart';
 import 'package:food_finder/models/venue.dart';
 
@@ -16,7 +18,7 @@ class CustomGridTile extends StatelessWidget {
     var color = const Color.fromARGB(255, 198, 219, 207);
     double elevation = 10;
     if(_isSunny && !_venue.hasPatio){
-      color = Color.fromARGB(255, 178, 198, 186);
+      color = const Color.fromARGB(255, 153, 170, 160);
       elevation = 0;
     }
     //add code to scale text
@@ -29,22 +31,26 @@ class CustomGridTile extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Text(
-              _venue.name,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.w400
-              )
+            FittedBox(
+              child: Text(
+                _venue.name,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w400
+                )
+              ),
             ),
             const Spacer(),
-            Text(
-              '${Haversine.haversine(_latitude, _longitude, _venue.latitude, _venue.longitude).toStringAsFixed(2)} miles away',
-              textAlign: TextAlign.left,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w200
-              )
+            FittedBox(
+              child: Text(
+                '${Haversine.haversine(_latitude, _longitude, _venue.latitude, _venue.longitude).toStringAsFixed(2)} miles away',
+                textAlign: TextAlign.left,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w200
+                )
+              ),
             )
           ]
         ),

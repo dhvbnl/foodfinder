@@ -43,6 +43,9 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 198, 219, 207))
+      ),
       home:  Consumer2<PositionProvider, WeatherProvider>(
                 builder: (context, positionProvider, weatherProvider, child) {
         if (positionProvider.positionKnown) {
