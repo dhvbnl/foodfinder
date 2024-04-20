@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:food_finder/helpers/haversine.dart';
 import 'package:food_finder/models/venue.dart';
 
@@ -14,14 +12,12 @@ class CustomGridTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //add code to change based on sunny or not
     var color = const Color.fromARGB(255, 198, 219, 207);
     double elevation = 10;
     if(_isSunny && !_venue.hasPatio){
       color = const Color.fromARGB(255, 153, 170, 160);
       elevation = 0;
     }
-    //add code to scale text
     return Card(
       color: color,
       elevation: elevation,

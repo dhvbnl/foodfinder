@@ -8,6 +8,9 @@ import 'package:provider/provider.dart';
 import 'package:food_finder/providers/position_provider.dart';
 import 'package:food_finder/providers/weather_provider.dart';
 import 'dart:async';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+
+
 
 class FoodFinderApp extends StatefulWidget {
   final VenuesDB venues;
@@ -51,10 +54,17 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
         if (positionProvider.positionKnown) {
           _weatherChecker.updateLocation(positionProvider.latitude, positionProvider.longitude);
         }
-        return Scaffold(
+        if(!positionProvider.locationFound){
+          return const CircularProgressIndicator.adaptive(
+            backgroundColor: Colors.white,
+          );
+        }
+        return PlatformScaffold(
           appBar: const TopBar().build(context), 
-          body: SafeArea(child: CustomGridView(tiles(30, positionProvider.latitude, positionProvider.longitude, weatherProvider.isSunny()))),
-          bottomNavigationBar: bottomBar(),
+          body: SafeArea(
+            child: CustomGridView(tiles(10, positionProvider.latitude, positionProvider.longitude, weatherProvider.isSunny()))
+          ),
+          bottomNavBar: bottomBar(),
         );
       })
     );
@@ -65,20 +75,20 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
       .map((venue) => CustomGridTile(venue, isSunny, latitude, longitude)).toList();
   }
 
-  Widget bottomBar(){
-    return NavigationBar(
-        onDestinationSelected: (int index){
+  PlatformNavBar bottomBar(){
+    return PlatformNavBar(
+        itemChanged: (int index){
           setState((){ // Executes code and then causes widget to re-build()
             _currentTabIndex = index;
           });
         },
         //indicatorColor: theme.primaryColor,
-        selectedIndex: _currentTabIndex,
+        currentIndex: _currentTabIndex,
 
         // This defines what is in the nav bar 
-        destinations: const <Widget>[
-          NavigationDestination(icon: Icon(Icons.restaurant), label: 'Restaurants'),
-          NavigationDestination(icon: Icon(Icons.map), label: 'Map'),
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.restaurant), label: 'Restaurants'),
+          BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Map'),
         ],
       );
   }

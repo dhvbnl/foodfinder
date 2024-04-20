@@ -33,6 +33,7 @@ class PositionProvider extends ChangeNotifier {
   void _updatePosition(Position currentPosition) {
     latitude = currentPosition.latitude;
     longitude = currentPosition.longitude;
+    locationFound = true;
     notifyListeners();
   }
 
