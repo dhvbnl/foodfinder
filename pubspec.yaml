@@ -9,13 +9,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_map: ^6.1.0
+  flutter_map_location_marker: ^8.0.8
   flutter_platform_widgets: ^6.1.0
   geolocator: ^11.0.0
   google_fonts: ^6.2.1
   http: ^1.2.1
   json_annotation: ^4.8.1
+  latlong2: ^0.9.1
   platform_maps_flutter: ^1.0.2
   provider: ^6.1.2
+  syncfusion_flutter_maps: ^25.1.40
 
 dev_dependencies:
   flutter_test:
