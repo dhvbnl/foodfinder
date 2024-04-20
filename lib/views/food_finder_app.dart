@@ -3,6 +3,7 @@ import 'package:food_finder/models/venues_db.dart';
 import 'package:food_finder/helpers/weather_checker.dart';
 import 'package:food_finder/views/custom_grid_tile.dart';
 import 'package:food_finder/views/custom_grid_view.dart';
+import 'package:food_finder/views/map.dart';
 import 'package:food_finder/views/top_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:food_finder/providers/position_provider.dart';
@@ -91,5 +92,12 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
           BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Map'),
         ],
       );
+  }
+
+  Widget bodyWidget(int max, double latitude, double longitude, bool isSunny){
+    if(_currentTabIndex == 0){
+      return CustomGridView(tiles(10, latitude, longitude, isSunny));
+    }
+    return MapView();
   }
 }

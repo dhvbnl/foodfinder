@@ -9,10 +9,6 @@ class TopBar extends StatelessWidget {
   @override
   PlatformAppBar build(BuildContext context) {
     return PlatformAppBar(
-      /*systemOverlayStyle: const SystemUiOverlayStyle(
-        statusBarBrightness: Brightness.light
-      ),*/
-      
       title: FittedBox(
         child: Text(
           'The Seattle Food Guide',

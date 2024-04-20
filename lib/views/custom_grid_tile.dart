@@ -19,38 +19,42 @@ class CustomGridTile extends StatelessWidget {
       elevation = 0;
     }
     return Card(
-      color: color,
-      elevation: elevation,
-      surfaceTintColor: const Color.fromARGB(255, 255, 255, 255),
-      margin: const EdgeInsets.all(8.0),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            FittedBox(
-              child: Text(
-                _venue.name,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w400
-                )
+        color: color,
+        elevation: elevation,
+        surfaceTintColor: const Color.fromARGB(255, 255, 255, 255),
+        margin: const EdgeInsets.all(8.0),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              FittedBox(
+                child: Text(
+                  _venue.name,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w400
+                  )
+                ),
               ),
-            ),
-            const Spacer(),
-            FittedBox(
-              child: Text(
-                '${Haversine.haversine(_latitude, _longitude, _venue.latitude, _venue.longitude).toStringAsFixed(2)} miles away',
-                textAlign: TextAlign.left,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w200
-                )
-              ),
-            )
-          ]
-        ),
-      )
+              const Spacer(),
+              FittedBox(
+                child: Text(
+                  '${Haversine.haversine(_latitude, _longitude, _venue.latitude, _venue.longitude).toStringAsFixed(2)} miles away',
+                  textAlign: TextAlign.left,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w200
+                  )
+                ),
+              )
+            ]
+          ),
+        )
     );
+  }
+
+  void buttonAction(){
+    print('${_venue.name} tapped!');
   }
 }
