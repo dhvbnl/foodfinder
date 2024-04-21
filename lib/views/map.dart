@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
-import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+import 'package:food_finder/models/venue.dart';
 import 'package:food_finder/models/venues_db.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:food_finder/helpers/url.dart';
 
 var apiKey = 'pk.eyJ1IjoiZGh2YmFuc2FsIiwiYSI6ImNsdjhqZnBxeDBrMHcya254cGtvajhycTAifQ.WN0eHO9lxwtu_otR_5Au-w';
 
@@ -14,8 +16,20 @@ class MapView extends StatelessWidget {
   final VenuesDB _venues;
   final bool _isSunny;
 
-  const MapView(this._latitude, this._longitude, this._venues, this._isSunny, {super.key});
+  final _positionStream =
+      const LocationMarkerDataStreamFactory().fromGeolocatorPositionStream(
+    stream: Geolocator.getPositionStream(
+      locationSettings: const LocationSettings(
+        accuracy: LocationAccuracy.medium,
+        distanceFilter: 50,
+        timeLimit: Duration(minutes: 1),
+      ),
+    ),
+  );
 
+  MapView(this._latitude, this._longitude, this._venues, this._isSunny, {super.key});
+
+  
   @override
   Widget build(BuildContext context) {
     return crossPlatformMap(context);
@@ -25,7 +39,7 @@ class MapView extends StatelessWidget {
     return FlutterMap(
       options: MapOptions(
         initialCenter: LatLng(_latitude, _longitude),
-        initialZoom: 16,
+        initialZoom: 15,
         maxZoom: 18,
         minZoom: 13,
 
@@ -41,7 +55,7 @@ class MapView extends StatelessWidget {
               padding: const EdgeInsets.all(50),
               maxZoom: 15,        
               markers: _venues.nearestTo(latitude: _latitude, longitude: _longitude).map(
-            (venue) => Marker(point: LatLng(venue.latitude, venue.longitude), child: locationButton(context, venue.hasPatio))).toList(),
+            (venue) => Marker(point: LatLng(venue.latitude, venue.longitude), child: locationButton(context, venue))).toList(),
               builder: (context, markers) {
                 return Container(
                   decoration: BoxDecoration(
@@ -62,7 +76,9 @@ class MapView extends StatelessWidget {
               },
             ),
           ),
-        CurrentLocationLayer(),
+        CurrentLocationLayer(
+          positionStream: _positionStream,
+        ),
         mapBoxAttribution() 
       ],
     );
@@ -92,13 +108,13 @@ class MapView extends StatelessWidget {
     );
   }
 
-  Widget locationButton(BuildContext context, bool hasPatio){
+  Widget locationButton(BuildContext context, Venue venue){
     var locationColor = Theme.of(context).primaryColor;
-    if(_isSunny && !hasPatio){
+    if(_isSunny && !venue.hasPatio){
       locationColor = Color.fromARGB(255, 172, 171, 171);
     }
     return GestureDetector(
-      onTap: () => openPlacePage(context),
+      onTapDown: (tapDetails) => openPlacePage(context, tapDetails, venue),
       child: Container(
           width: 10.0,
           height: 10.0,
@@ -114,13 +130,36 @@ class MapView extends StatelessWidget {
     );
   }
 
-  openPlacePage(BuildContext context){
-    print('tapped');
-    Navigator.push(
-      context, 
-      MaterialPageRoute(
-        builder: (context) => const Text('test')
-      )
+  openPlacePage(BuildContext context, TapDownDetails tapDetails, Venue venue){
+    print(tapDetails.globalPosition.dx);
+    final offset = tapDetails.globalPosition;
+
+    showMenu(
+      context: context,
+      position: RelativeRect.fromLTRB(
+      offset.dx,
+      offset.dy,
+      MediaQuery.of(context).size.width - offset.dx,
+      MediaQuery.of(context).size.height - offset.dy,
+    ),
+      items: [
+        PopupMenuItem(
+          value: 1, 
+          child: Text(
+            venue.name,
+            style: const TextStyle(
+              fontSize: 15
+            ),
+            )
+        ),
+        const PopupMenuItem(value: 2, child: Text('Directions')),
+        PopupMenuItem(
+          value: 2, 
+          onTap: () => Url.openUrl(venue.url),
+          child: const Text('Website')
+          )
+
+      ]
     );
   }
 }

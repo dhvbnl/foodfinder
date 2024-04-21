@@ -18,7 +18,6 @@ dependencies:
   http: ^1.2.1
   json_annotation: ^4.8.1
   latlong2: ^0.9.1
-  platform_maps_flutter: ^1.0.2
   provider: ^6.1.2
   syncfusion_flutter_maps: ^25.1.40
   url_launcher: ^6.2.6

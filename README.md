@@ -38,6 +38,9 @@ https://pub.dev/packages/flutter_platform_widgets
 https://pub.dev/packages/platform_maps_flutter
 https://pub.dev/packages/flutter_map_location_marker
 https://github.com/lpongetti/flutter_map_marker_cluster?tab=readme-ov-file
+https://stackoverflow.com/questions/73709040/manage-the-position-of-showmenu-in-flutter
+https://stackoverflow.com/questions/70193457/flutter-gesturedector-on-tap-doesnt-work-with-popupmenubutton
+https://pub.dev/packages/url_launcher
 
 
 

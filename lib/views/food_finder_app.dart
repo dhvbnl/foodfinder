@@ -55,15 +55,10 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
         if (positionProvider.positionKnown) {
           _weatherChecker.updateLocation(positionProvider.latitude, positionProvider.longitude);
         }
-        if(!positionProvider.locationFound){
-          return const CircularProgressIndicator.adaptive(
-            backgroundColor: Colors.white,
-          );
-        }
         return PlatformScaffold(
           appBar: const TopBar().build(context), 
           body: SafeArea(
-            child: bodyWidget(10, positionProvider.latitude, positionProvider.longitude, weatherProvider.isSunny())
+            child: bodyWidget(10, positionProvider.latitude, positionProvider.longitude, weatherProvider.isSunny(), positionProvider.positionKnown)
           ),
           bottomNavBar: bottomBar(),
         );
@@ -94,7 +89,15 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
       );
   }
 
-  Widget bodyWidget(int max, double latitude, double longitude, bool isSunny){
+  Widget bodyWidget(int max, double latitude, double longitude, bool isSunny, bool positionKnown ){
+    if(!positionKnown){
+      return Container(
+        alignment: Alignment.center,
+        child: const CircularProgressIndicator.adaptive(
+              backgroundColor: Colors.white,
+            ),
+      );
+    }
     if(_currentTabIndex == 0){
       return CustomGridView(tiles(999, latitude, longitude, isSunny));
     }
