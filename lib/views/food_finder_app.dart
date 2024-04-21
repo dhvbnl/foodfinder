@@ -96,8 +96,8 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
 
   Widget bodyWidget(int max, double latitude, double longitude, bool isSunny){
     if(_currentTabIndex == 0){
-      return CustomGridView(tiles(10, latitude, longitude, isSunny));
+      return CustomGridView(tiles(999, latitude, longitude, isSunny));
     }
-    return MapView(latitude, longitude);
+    return MapView(latitude, longitude, widget.venues);
   }
 }
