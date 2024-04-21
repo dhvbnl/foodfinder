@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:food_finder/helpers/haversine.dart';
 import 'package:food_finder/models/venue.dart';
@@ -27,23 +28,32 @@ class CustomGridTile extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              FittedBox(
-                child: Text(
+              /*FittedBox(
+                child:*/ AutoSizeText(
                   _venue.name,
                   textAlign: TextAlign.center,
+                  maxLines: 2,
                   style: const TextStyle(
-                    fontSize: 30,
+                    fontSize: 23,
                     fontWeight: FontWeight.w400
                   )
                 ),
+              //),
+              Text(
+                _venue.description ?? '',
+                style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w300
+                  )
               ),
+
               const Spacer(),
               FittedBox(
                 child: Text(
                   '${Haversine.haversine(_latitude, _longitude, _venue.latitude, _venue.longitude).toStringAsFixed(2)} miles away',
                   textAlign: TextAlign.left,
                   style: const TextStyle(
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.w200
                   )
                 ),

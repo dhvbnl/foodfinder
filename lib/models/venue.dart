@@ -10,16 +10,29 @@ part 'venue.g.dart';
 @JsonSerializable()
 class Venue {
   Venue(
-      {required this.name,
-      required this.latitude,
-      required this.longitude,
-      required this.hasPatio,
-      required this.url});
+      {
+        required this.name,
+        required this.latitude,
+        required this.longitude,
+        required this.hasPatio,
+        required this.website,
+        required this.reviewCount,
+        required this.averageRating,
+        required this.phone,
+        required this.description, 
+        required this.fulladdress, 
+      });
 
   final String name;
   final double latitude;
   final double longitude;
-  final String url;
+  final String? website;
+  final int reviewCount;
+  final double averageRating;
+  final String? phone;
+  final String? description;
+  final String fulladdress;
+
 
   @JsonKey(name: 'has_patio')
   final bool hasPatio;
@@ -40,6 +53,8 @@ class Venue {
       {required double latitude, required double longitude}) {
     return 111139 * distanceFrom(latitude: latitude, longitude: longitude);
   }
+
+  
 
   num _squared(num x) {
     return x * x;

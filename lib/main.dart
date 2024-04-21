@@ -14,7 +14,7 @@ Future<VenuesDB> loadVenuesDB(String dataPath) async {
 }
 
 void main() {
-  const dataPath = 'assets/venues.json';
+  const dataPath = 'assets/venuesDetailed.json';
   WidgetsFlutterBinding.ensureInitialized();
   loadVenuesDB(dataPath).then((value) => runApp(
     MultiProvider(

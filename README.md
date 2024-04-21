@@ -41,6 +41,12 @@ https://github.com/lpongetti/flutter_map_marker_cluster?tab=readme-ov-file
 https://stackoverflow.com/questions/73709040/manage-the-position-of-showmenu-in-flutter
 https://stackoverflow.com/questions/70193457/flutter-gesturedector-on-tap-doesnt-work-with-popupmenubutton
 https://pub.dev/packages/url_launcher
+https://gmapsextractor.com/
+https://jsonformatter.org
+https://www.google.com/maps
+https://stackoverflow.com/questions/65822604/fittedbox-with-maximum-two-lines-in-flutter
+https://pub.dev/packages/auto_size_text
+
 
 
 
