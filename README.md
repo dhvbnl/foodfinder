@@ -37,6 +37,7 @@ Adit and Lauren helped in 4/19 section, with follow up help from Ben on EdStem i
 https://pub.dev/packages/flutter_platform_widgets
 https://pub.dev/packages/platform_maps_flutter
 https://pub.dev/packages/flutter_map_location_marker
+https://github.com/lpongetti/flutter_map_marker_cluster?tab=readme-ov-file
 
 
 
