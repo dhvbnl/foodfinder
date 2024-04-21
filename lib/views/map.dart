@@ -7,6 +7,7 @@ import 'package:food_finder/models/venues_db.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:food_finder/helpers/url.dart';
+import 'package:maps_launcher/maps_launcher.dart';
 
 var apiKey =
     'pk.eyJ1IjoiZGh2YmFuc2FsIiwiYSI6ImNsdjhqZnBxeDBrMHcya254cGtvajhycTAifQ.WN0eHO9lxwtu_otR_5Au-w';
@@ -137,7 +138,14 @@ class MapView extends StatelessWidget {
         )
       )
     );
-    menu.add(const PopupMenuItem(value: 2, child: Text('Directions')));
+    var address = venue.fulladdress;
+    menu.add(
+      PopupMenuItem(
+        value: 2, 
+        onTap: () => MapsLauncher.launchQuery(address),
+        child: const Text('Directions')
+      )
+    );
     var website = venue.website;
     print(website);
     if(website != null){
