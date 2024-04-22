@@ -58,7 +58,7 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
             appBar: const TopBar().build(context),
             body: SafeArea(
                 child: bodyWidget(
-                    10,
+                    30,
                     positionProvider.latitude,
                     positionProvider.longitude,
                     weatherProvider.isSunny(),
@@ -70,8 +70,9 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
 
   List<CustomGridTile> tiles(int max, double latitude, double longitude,
       bool isSunny, bool positionKnown) {
+    
     return widget.venues
-        .nearestTo(max: max, latitude: latitude, longitude: longitude)
+        .customSort(max: max, latitude: latitude, longitude: longitude, isSunny: isSunny)
         .map((venue) =>
             CustomGridTile(venue, isSunny, latitude, longitude, positionKnown))
         .toList();
@@ -99,7 +100,7 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
   Widget bodyWidget(int max, double latitude, double longitude, bool isSunny, bool positionKnown) {
     if (_currentTabIndex == 0) {
       return CustomGridView(
-          tiles(30, latitude, longitude, isSunny, positionKnown));
+          tiles(max, latitude, longitude, isSunny, positionKnown));
     }
     return MapView(latitude, longitude, widget.venues, isSunny);
   }

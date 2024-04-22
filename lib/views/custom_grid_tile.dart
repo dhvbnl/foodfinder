@@ -32,14 +32,14 @@ class CustomGridTile extends StatelessWidget {
             debugPrint('Card tapped.');
           },
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(6.0),
             child: Column(children: [
               AutoSizeText(_venue.name,
                   textAlign: TextAlign.center,
                   maxLines: 2,
                   minFontSize: 23,
                   style: TextStyle(
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w300,
                       color: Theme.of(context).colorScheme.inverseSurface)),
               Padding(
                 padding: const EdgeInsets.all(1.0),
@@ -48,11 +48,20 @@ class CustomGridTile extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: AutoSizeText(
                         minFontSize: 20,
-                        ' ${_venue.averageRating} ',
+                        ' ${_venue.averageRating}',
                         style: TextStyle(
                             color: Theme.of(context).colorScheme.secondary)),
                   ),
                   Align(alignment: Alignment.center, child: reviewStars(context)),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: AutoSizeText(
+                        minFontSize: 2,
+                        maxFontSize: 12,
+                        '(${_venue.reviewCount}) ',
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.secondary,)),
+                  ),
                 ]),
               ),
               const Spacer(),

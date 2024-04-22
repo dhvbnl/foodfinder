@@ -11,7 +11,6 @@ class PositionProvider extends ChangeNotifier {
   late final Timer _timer;
 
   PositionProvider() {
-    print('called');
     _timer = Timer.periodic(
       const Duration(seconds: 1),
       (timer) => _determinePosition()

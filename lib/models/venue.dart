@@ -7,6 +7,12 @@ part 'venue.g.dart';
 // See documentation here https://docs.flutter.dev/data-and-backend/serialization/json#creating-model-classes-the-json_serializable-way
 // After changing this class, it is essential to run `dart run build_runner build --delete-conflicting-outputs` from the root of the project.
 
+var ratingFactor = 3;
+var distanceFactor = 2.5;
+var patioFactor = 2.5;
+var reviewCountFactor = 0.0001;
+
+
 @JsonSerializable()
 class Venue {
   Venue(
@@ -52,6 +58,14 @@ class Venue {
   double distanceInMeters(
       {required double latitude, required double longitude}) {
     return 111139 * distanceFrom(latitude: latitude, longitude: longitude);
+  }
+
+  double powerRanking({required double latitude, required double longitude, bool isSunny = false}){
+    double distanceTo = haversineDistanceFrom(latitude: latitude, longitude: longitude);
+    return -(distanceTo * distanceFactor) + 
+      averageRating * ratingFactor + 
+      (hasPatio ? 1 : 0) * (isSunny ? 1 : 0) * patioFactor +
+      reviewCount.toDouble() * reviewCountFactor; 
   }
 
   

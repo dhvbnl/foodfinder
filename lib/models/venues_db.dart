@@ -18,6 +18,18 @@ class VenuesDB{
   }
 
 
+  //custom sorting function
+  Iterable<Venue> customSort({int max = 999, required double latitude, required double longitude, bool isSunny = false}){
+    _venues.sort((v1, v2) => 
+      v2.powerRanking(latitude: latitude, longitude: longitude, isSunny: isSunny)
+      .compareTo(v1.powerRanking(latitude: latitude, longitude: longitude,  isSunny: isSunny))
+    );
+    return _venues.take(max);
+  }
+
+
+
+
   VenuesDB.initializeFromJson(String jsonString) : _venues = _decodeVenueListJson(jsonString);
 
   static List<Venue> _decodeVenueListJson(String jsonString){
