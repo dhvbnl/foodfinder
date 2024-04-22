@@ -147,12 +147,18 @@ class MapView extends StatelessWidget {
       )
     );
     var website = venue.website;
-    print(website);
     if(website != null){
       menu.add(PopupMenuItem(
               value: 2,
               onTap: () => Url.openUrl(website),
               child: const Text('Website')));
+    }
+    var phone = venue.phone;
+    if(phone != null){
+      menu.add(PopupMenuItem(
+              value: 2,
+              onTap: () => Url.openUrl('tel: $phone'),
+              child: const Text('Call')));
     }
     
     showMenu(

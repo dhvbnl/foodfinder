@@ -66,9 +66,9 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
     );
   }
 
-  List<CustomGridTile> tiles(int max, double latitude, double longitude, bool isSunny){
+  List<CustomGridTile> tiles(int max, double latitude, double longitude, bool isSunny, bool positionKnown){
     return widget.venues.nearestTo(max: max, latitude: latitude, longitude: longitude)
-      .map((venue) => CustomGridTile(venue, isSunny, latitude, longitude)).toList();
+      .map((venue) => CustomGridTile(venue, isSunny, latitude, longitude, positionKnown)).toList();
   }
 
   PlatformNavBar bottomBar(){
@@ -89,17 +89,17 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
       );
   }
 
-  Widget bodyWidget(int max, double latitude, double longitude, bool isSunny, bool positionKnown ){
-    if(!positionKnown){
+  Widget bodyWidget(int max, double latitude, double longitude, bool isSunny, bool positionKnown){
+    /*if(!positionKnown){
       return Container(
         alignment: Alignment.center,
         child: const CircularProgressIndicator.adaptive(
               backgroundColor: Colors.white,
             ),
       );
-    }
+    }*/
     if(_currentTabIndex == 0){
-      return CustomGridView(tiles(999, latitude, longitude, isSunny));
+      return CustomGridView(tiles(999, latitude, longitude, isSunny, positionKnown));
     }
     return MapView(latitude, longitude, widget.venues, isSunny);
   }

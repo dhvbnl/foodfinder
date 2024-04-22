@@ -8,9 +8,9 @@ class CustomGridTile extends StatelessWidget {
   final bool _isSunny;
   final double _latitude;
   final double _longitude;
-
+  final bool _locationFound;
   const CustomGridTile(
-      this._venue, this._isSunny, this._latitude, this._longitude,
+      this._venue, this._isSunny, this._latitude, this._longitude, this._locationFound,
       {super.key});
 
   @override
@@ -29,35 +29,27 @@ class CustomGridTile extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(children: [
-            AutoSizeText(
-                _venue.name,
+            AutoSizeText(_venue.name,
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 minFontSize: 23,
                 style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  color: Theme.of(context).colorScheme.inverseSurface
-                )
-            ),
+                    fontWeight: FontWeight.w400,
+                    color: Theme.of(context).colorScheme.inverseSurface)),
             Padding(
               padding: const EdgeInsets.all(1.0),
-              child: Stack(
-                alignment: Alignment.center,
-                children:[
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: AutoSizeText(
+              child: Stack(alignment: Alignment.center, children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: AutoSizeText(
                       minFontSize: 20,
                       ' ${_venue.averageRating} ',
                       style: TextStyle(
-                        color: Theme.of(context).colorScheme.secondary
-                      )
-                    ),
-                  ),
-                  Align(
+                          color: Theme.of(context).colorScheme.secondary)),
+                ),
+                Align(
                     alignment: Alignment.center,
-                    child: reviewStars(_venue.averageRating, context)
-                  ),
+                    child: reviewStars(context)),
               ]),
             ),
             const Spacer(),
@@ -72,32 +64,27 @@ class CustomGridTile extends StatelessWidget {
         ));
   }
 
-  Widget reviewStars(double averageRating, BuildContext context){
+  Widget reviewStars(BuildContext context) {
     List<Icon> stars = [];
     const size = 15.0;
     var color = Theme.of(context).colorScheme.secondary;
-    for(int i = 0; i < averageRating.floor(); i++){
-      stars.add(
-        Icon(
-          Icons.star,
-          fill: 1.0,
-          size: size,
-          color: color
-        )
-      );
+    for (int i = 0; i < _venue.averageRating.floor(); i++) {
+      stars.add(Icon(Icons.star, fill: 1.0, size: size, color: color));
     }
-    if(averageRating % 1 != 0){
-      stars.add(
-        Icon(
-          Icons.star_half,
-          size: size,
-          color: color
-        )
-      );
+    if (_venue.averageRating % 1 != 0) {
+      stars.add(Icon(Icons.star_half, size: size, color: color));
     }
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: stars);
+    return Row(mainAxisAlignment: MainAxisAlignment.center, children: stars);
+  }
+
+  Widget distanceAway() {
+    if(!_locationFound){
+      return const Text('');
+    }
+    return Text(
+        '${Haversine.haversine(_latitude, _longitude, _venue.latitude, _venue.longitude).toStringAsFixed(2)} miles away',
+        textAlign: TextAlign.left,
+        style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w200));
   }
 
   void buttonAction() {
