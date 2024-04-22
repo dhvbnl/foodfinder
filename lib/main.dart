@@ -8,7 +8,6 @@ import 'package:food_finder/providers/weather_provider.dart';
 import 'package:food_finder/views/food_finder_app.dart';
 import 'package:provider/provider.dart';
 
-
 Future<VenuesDB> loadVenuesDB(String dataPath) async {
   return VenuesDB.initializeFromJson(await rootBundle.loadString(dataPath));
 }
@@ -16,11 +15,19 @@ Future<VenuesDB> loadVenuesDB(String dataPath) async {
 void main() {
   const dataPath = 'assets/venuesDetailed.json';
   WidgetsFlutterBinding.ensureInitialized();
-  loadVenuesDB(dataPath).then((value) => runApp(
-    MultiProvider(
-      providers: [
-       ChangeNotifierProvider<WeatherProvider>( create: (context) => WeatherProvider()),
-       ChangeNotifierProvider<PositionProvider>( create: (context) => PositionProvider())
-      ],
-      child: FoodFinderApp(venues: value))));
+  loadVenuesDB(dataPath).then(
+    (value) => runApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider<WeatherProvider>(
+            create: (context) => WeatherProvider(),
+          ),
+          ChangeNotifierProvider<PositionProvider>(
+            create: (context) => PositionProvider(),
+          ),
+        ],
+        child: FoodFinderApp(venues: value),
+      ),
+    ),
+  );
 }

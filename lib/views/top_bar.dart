@@ -11,8 +11,11 @@ class TopBar extends StatelessWidget {
       title: FittedBox(
         child: Text(
           'The Seattle Food Guide',
-          style: GoogleFonts.robotoSlab(fontSize: 37, color:  const Color.fromARGB(255, 59, 93, 74))
+          style: GoogleFonts.robotoSlab(
+            fontSize: 37,
+            color: const Color.fromARGB(255, 59, 93, 74),
           ),
+        ),
       ),
     );
   }

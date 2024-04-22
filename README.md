@@ -63,6 +63,7 @@ https://stackoverflow.com/questions/70193457/flutter-gesturedector-on-tap-doesnt
 https://stackoverflow.com/questions/65822604/fittedbox-with-maximum-two-lines-in-flutter
 https://stackoverflow.com/questions/51587003/how-to-center-only-one-element-in-a-row-of-2-elements-in-flutter
 https://stackoverflow.com/questions/43928702/how-to-change-the-application-launcher-icon-on-flutter
+https://www.owner.com/blog/how-people-choose-restaurants-top-10-factors
 
 Online Tools:
 https://gmapsextractor.com/
@@ -72,7 +73,7 @@ https://www.appicon.co/#app-icon
 
 
 Data Source:
-https://www.google.com/maps
+https://www.google.com/maps (Used GMaps Extractor to take restaurant data)
 
 Various:
 Adit and Lauren helped in 4/19 section, with follow up help from Ben on EdStem in order to remove errors from PositionProvider

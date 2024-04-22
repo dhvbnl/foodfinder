@@ -14,7 +14,10 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 class FoodFinderApp extends StatefulWidget {
   final VenuesDB venues;
 
-  const FoodFinderApp({super.key, required this.venues});
+  const FoodFinderApp({
+    super.key,
+    required this.venues,
+  });
 
   @override
   State<FoodFinderApp> createState() => _FoodFinderAppState();
@@ -28,12 +31,15 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
   @override
   initState() {
     super.initState();
-    _weatherChecker =
-        WeatherChecker(Provider.of<WeatherProvider>(context, listen: false));
+    _weatherChecker = WeatherChecker(
+      Provider.of<WeatherProvider>(context, listen: false),
+    );
     _weatherChecker.fetchAndUpdateCurrentWeather();
 
-    _checkerTimer = Timer.periodic(const Duration(seconds: 60),
-        (timer) => _weatherChecker.fetchAndUpdateCurrentWeather());
+    _checkerTimer = Timer.periodic(
+      const Duration(seconds: 60),
+      (timer) => _weatherChecker.fetchAndUpdateCurrentWeather(),
+    );
   }
 
   @override
@@ -42,44 +48,80 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
     _checkerTimer.cancel();
   }
 
+  /// Builds the Food_finder view as well as establishes the theme
+  /// Parameters:
+  ///  - context: context for build
+  /// Returns: Widget of whole app view
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(
-                seedColor: const Color.fromARGB(255, 198, 219, 207))),
-        home: Consumer2<PositionProvider, WeatherProvider>(
-            builder: (context, positionProvider, weatherProvider, child) {
-          if (positionProvider.positionKnown) {
-            _weatherChecker.updateLocation(
-                positionProvider.latitude, positionProvider.longitude);
-          }
-          return PlatformScaffold(
-            appBar: const TopBar().build(context),
-            body: SafeArea(
-                child: bodyWidget(
-                    30,
-                    positionProvider.latitude,
-                    positionProvider.longitude,
-                    weatherProvider.isSunny(),
-                    positionProvider.positionKnown)),
-            bottomNavBar: bottomBar(),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 198, 219, 207),
+        ),
+      ),
+      home: Consumer2<PositionProvider, WeatherProvider>(builder: (
+        context,
+        positionProvider,
+        weatherProvider,
+        child,
+      ) {
+        if (positionProvider.positionKnown) {
+          _weatherChecker.updateLocation(
+            positionProvider.latitude,
+            positionProvider.longitude,
           );
-        }));
+        }
+        return PlatformScaffold(
+          appBar: const TopBar().build(context),
+          body: SafeArea(
+            child: bodyWidget(
+              30,
+              positionProvider,
+              weatherProvider.isSunny(),
+              positionProvider.positionKnown,
+            ),
+          ),
+          bottomNavBar: bottomBar(),
+        );
+      }),
+    );
   }
 
-  List<CustomGridTile> tiles(int max, double latitude, double longitude,
-      bool isSunny, bool positionKnown) {
-    
+  /// Makes tiles sorted based on customSort function
+  /// Parameters:
+  ///  - max: number of tiles for gridView
+  ///  - latitude: current latitude
+  ///  - longitude: current longituded
+  ///  - isSunny: if current weather is weatherCondition.sunny
+  ///  - positionKnown: if latitude and longitude is updated
+  /// Returns: List of all tiles in order of the custom function
+  List<CustomGridTile> tiles(
+    int max,
+    PositionProvider positionProvider,
+    bool isSunny,
+    bool locationFound,
+  ) {
     return widget.venues
-        .customSort(max: max, latitude: latitude, longitude: longitude, isSunny: isSunny)
-        .map((venue) =>
-            CustomGridTile(venue, isSunny, latitude, longitude, positionKnown))
+        .customSort(
+          max: max,
+          latitude: positionProvider.latitude,
+          longitude: positionProvider.longitude,
+          isSunny: isSunny,
+        )
+        .map(
+          (venue) => CustomGridTile(
+            venue: venue,
+            isSunny: isSunny,
+            positionProvider: positionProvider,
+            locationFound: locationFound,
+          ),
+        )
         .toList();
   }
 
-  //
-  // Returns: A Platform native navigation bar
+  /// Builds a platform native navigation bar with two tabs: restaurant and map
+  /// Returns: A Platform native navigation bar
   PlatformNavBar bottomBar() {
     return PlatformNavBar(
       itemChanged: (int index) {
@@ -88,7 +130,6 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
         });
       },
       currentIndex: _currentTabIndex,
-
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
             icon: Icon(Icons.restaurant), label: 'Restaurants'),
@@ -97,11 +138,34 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
     );
   }
 
-  Widget bodyWidget(int max, double latitude, double longitude, bool isSunny, bool positionKnown) {
+  /// Builds a widget depending on which tab is open
+  /// Parameters:
+  ///  - max: number of tiles for gridView
+  ///  - latitude: current latitude
+  ///  - longitude: current longituded
+  ///  - isSunny: if current weather is weatherCondition.sunny
+  ///  - positionKnown: if latitude and longitude is updated
+  /// Returns: view of either a grid view with tiles or the map view
+  Widget bodyWidget(
+    int max,
+    PositionProvider positionProvider,
+    bool isSunny,
+    bool positionKnown,
+  ) {
     if (_currentTabIndex == 0) {
       return CustomGridView(
-          tiles(max, latitude, longitude, isSunny, positionKnown));
+        tiles(
+          max,
+          positionProvider,
+          isSunny,
+          positionKnown,
+        ),
+      );
     }
-    return MapView(latitude, longitude, widget.venues, isSunny);
+    return MapView(
+      positionProvider: positionProvider,
+      venues: widget.venues,
+      isSunny: isSunny,
+    );
   }
 }

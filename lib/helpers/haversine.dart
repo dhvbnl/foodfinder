@@ -1,9 +1,10 @@
 import 'dart:math';
 
+//taken from https://github.com/shawnchan2014/haversine-dart
 class Haversine {
   static const R = 3958.8; // In miles
 
-  static double haversine(double lat1, lon1, lat2, lon2) {
+  static double haversine(double lat1, lon1, lat2, lon2,) {
     double dLat = _toRadians(lat2 - lat1);
     double dLon = _toRadians(lon2 - lon1);
     lat1 = _toRadians(lat1);

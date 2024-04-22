@@ -4,6 +4,7 @@ import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
 import 'package:food_finder/models/venue.dart';
 import 'package:food_finder/models/venues_db.dart';
+import 'package:food_finder/providers/position_provider.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:food_finder/helpers/url.dart';
@@ -13,10 +14,9 @@ var apiKey =
     'pk.eyJ1IjoiZGh2YmFuc2FsIiwiYSI6ImNsdjhqZnBxeDBrMHcya254cGtvajhycTAifQ.WN0eHO9lxwtu_otR_5Au-w';
 
 class MapView extends StatelessWidget {
-  final double _latitude;
-  final double _longitude;
-  final VenuesDB _venues;
-  final bool _isSunny;
+  final PositionProvider positionProvider;
+  final VenuesDB venues;
+  final bool isSunny;
 
   final _positionStream =
       const LocationMarkerDataStreamFactory().fromGeolocatorPositionStream(
@@ -29,8 +29,12 @@ class MapView extends StatelessWidget {
     ),
   );
 
-  MapView(this._latitude, this._longitude, this._venues, this._isSunny,
-      {super.key});
+  MapView({
+    required this.positionProvider,
+    required this.venues,
+    required this.isSunny,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +44,10 @@ class MapView extends StatelessWidget {
   Widget crossPlatformMap(BuildContext context) {
     return FlutterMap(
       options: MapOptions(
-        initialCenter: LatLng(_latitude, _longitude),
+        initialCenter: LatLng(
+          positionProvider.latitude,
+          positionProvider.longitude,
+        ),
         initialZoom: 15,
         maxZoom: 19,
         minZoom: 13,
@@ -54,11 +61,20 @@ class MapView extends StatelessWidget {
             alignment: Alignment.center,
             padding: const EdgeInsets.all(50),
             maxZoom: 15,
-            markers: _venues
-                .nearestTo(latitude: _latitude, longitude: _longitude)
-                .map((venue) => Marker(
-                    point: LatLng(venue.latitude, venue.longitude),
-                    child: locationButton(context, venue)))
+            markers: venues
+                .nearestTo(
+                  latitude: positionProvider.latitude,
+                  longitude: positionProvider.latitude,
+                )
+                .map(
+                  (venue) => Marker(
+                    point: LatLng(
+                      venue.latitude,
+                      venue.longitude,
+                    ),
+                    child: locationButton(context, venue),
+                  ),
+                )
                 .toList(),
             builder: (context, markers) {
               return Container(
@@ -69,10 +85,11 @@ class MapView extends StatelessWidget {
                   child: Text(
                     markers.length.toString(),
                     style: const TextStyle(
-                        color: Colors.white,
-                        decoration: TextDecoration.none,
-                        fontSize: 20,
-                        fontWeight: FontWeight.normal),
+                      color: Colors.white,
+                      decoration: TextDecoration.none,
+                      fontSize: 20,
+                      fontWeight: FontWeight.normal,
+                    ),
                   ),
                 ),
               );
@@ -91,14 +108,16 @@ class MapView extends StatelessWidget {
     return TileLayer(
       urlTemplate:
           'https://api.mapbox.com/styles/v1/mapbox/streets-v12/tiles/512/{z}/{x}/{y}@2x?access_token=$apiKey',
-      //urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
       userAgentPackageName: 'com.food_finder.app',
     );
   }
 
   DefaultTextStyle mapBoxAttribution() {
     return const DefaultTextStyle(
-      style: TextStyle(fontSize: 15, color: Colors.black),
+      style: TextStyle(
+        fontSize: 15,
+        color: Colors.black,
+      ),
       child: RichAttributionWidget(
         attributions: [
           TextSourceAttribution(
@@ -114,8 +133,8 @@ class MapView extends StatelessWidget {
 
   Widget locationButton(BuildContext context, Venue venue) {
     var locationColor = Theme.of(context).primaryColor;
-    if (_isSunny && !venue.hasPatio) {
-      locationColor = Color.fromARGB(255, 172, 171, 171);
+    if (isSunny && !venue.hasPatio) {
+      locationColor = const Color.fromARGB(255, 172, 171, 171);
     }
     return GestureDetector(
       onTapDown: (tapDetails) => openPlacePage(context, tapDetails, venue),
@@ -125,7 +144,10 @@ class MapView extends StatelessWidget {
         decoration: BoxDecoration(
             color: locationColor.withOpacity(0.8),
             shape: BoxShape.circle,
-            border: Border.all(width: 2, color: locationColor)),
+            border: Border.all(
+              width: 2,
+              color: locationColor,
+            )),
       ),
     );
   }
@@ -133,45 +155,53 @@ class MapView extends StatelessWidget {
   openPlacePage(BuildContext context, TapDownDetails tapDetails, Venue venue) {
     final offset = tapDetails.globalPosition;
     List<PopupMenuEntry<int>> menu = [];
-    menu.add(PopupMenuItem(
+    menu.add(
+      PopupMenuItem(
         value: 1,
         child: Text(
           venue.name,
           style: const TextStyle(fontSize: 15),
-        )
-      )
+        ),
+      ),
     );
     var address = venue.fulladdress;
     menu.add(
       PopupMenuItem(
-        value: 2, 
+        value: 2,
         onTap: () => MapsLauncher.launchQuery(address),
-        child: const Text('Directions')
-      )
+        child: const Text('Directions'),
+      ),
     );
     var website = venue.website;
-    if(website != null){
-      menu.add(PopupMenuItem(
-              value: 2,
-              onTap: () => Url.openUrl(website),
-              child: const Text('Website')));
+    if (website != null) {
+      menu.add(
+        PopupMenuItem(
+          value: 2,
+          onTap: () => Url.openUrl(website),
+          child: const Text('Website'),
+        ),
+      );
     }
     var phone = venue.phone;
-    if(phone != null){
-      menu.add(PopupMenuItem(
-              value: 2,
-              onTap: () => Url.openUrl('tel: $phone'),
-              child: const Text('Call')));
-    }
-    
-    showMenu(
-        context: context,
-        position: RelativeRect.fromLTRB(
-          offset.dx,
-          offset.dy,
-          MediaQuery.of(context).size.width - offset.dx,
-          MediaQuery.of(context).size.height - offset.dy,
+    if (phone != null) {
+      menu.add(
+        PopupMenuItem(
+          value: 2,
+          onTap: () => Url.openUrl('tel: $phone'),
+          child: const Text('Call'),
         ),
-        items: menu);
+      );
+    }
+
+    showMenu(
+      context: context,
+      position: RelativeRect.fromLTRB(
+        offset.dx,
+        offset.dy,
+        MediaQuery.of(context).size.width - offset.dx,
+        MediaQuery.of(context).size.height - offset.dy,
+      ),
+      items: menu,
+    );
   }
 }
