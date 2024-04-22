@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+/// Creates a platform native App bar 
 class TopBar extends StatelessWidget {
   const TopBar({super.key});
 
@@ -13,7 +14,7 @@ class TopBar extends StatelessWidget {
           'The Seattle Food Guide',
           style: GoogleFonts.robotoSlab(
             fontSize: 37,
-            color: const Color.fromARGB(255, 59, 93, 74),
+            color: Theme.of(context).colorScheme.primary
           ),
         ),
       ),

@@ -3,7 +3,7 @@ import 'package:food_finder/models/venues_db.dart';
 import 'package:food_finder/helpers/weather_checker.dart';
 import 'package:food_finder/views/custom_grid_tile.dart';
 import 'package:food_finder/views/custom_grid_view.dart';
-import 'package:food_finder/views/map.dart';
+import 'package:food_finder/views/map_view.dart';
 import 'package:food_finder/views/top_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:food_finder/providers/position_provider.dart';
@@ -55,36 +55,42 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      //generates theme from light green color
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color.fromARGB(255, 198, 219, 207),
         ),
       ),
-      home: Consumer2<PositionProvider, WeatherProvider>(builder: (
-        context,
-        positionProvider,
-        weatherProvider,
-        child,
-      ) {
-        if (positionProvider.positionKnown) {
-          _weatherChecker.updateLocation(
-            positionProvider.latitude,
-            positionProvider.longitude,
-          );
-        }
-        return PlatformScaffold(
-          appBar: const TopBar().build(context),
-          body: SafeArea(
-            child: bodyWidget(
-              30,
-              positionProvider,
-              weatherProvider.isSunny(),
-              positionProvider.positionKnown,
+      //main view of app
+      home: Consumer2<PositionProvider, WeatherProvider>(
+        builder: (
+          context,
+          positionProvider,
+          weatherProvider,
+          child,
+        ) {
+          //update weatherProvider is position is known
+          if (positionProvider.positionKnown) {
+            _weatherChecker.updateLocation(
+              positionProvider.latitude,
+              positionProvider.longitude,
+            );
+          }
+          //cross platform scaffold
+          return PlatformScaffold(
+            appBar: const TopBar().build(context),
+            body: SafeArea(
+              child: bodyWidget(
+                30,
+                positionProvider,
+                weatherProvider.isSunny(),
+                positionProvider.positionKnown,
+              ),
             ),
-          ),
-          bottomNavBar: bottomBar(),
-        );
-      }),
+            bottomNavBar: bottomBar(),
+          );
+        },
+      ),
     );
   }
 
@@ -114,7 +120,6 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
             venue: venue,
             isSunny: isSunny,
             positionProvider: positionProvider,
-            locationFound: locationFound,
           ),
         )
         .toList();
@@ -154,7 +159,7 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
   ) {
     if (_currentTabIndex == 0) {
       return CustomGridView(
-        tiles(
+        tiles: tiles(
           max,
           positionProvider,
           isSunny,

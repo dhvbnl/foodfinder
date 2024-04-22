@@ -11,14 +11,17 @@ import 'package:food_finder/helpers/url.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
 
+//API Key to get access to Mapbox maps
 var mapboxApiKey =
     'pk.eyJ1IjoiZGh2YmFuc2FsIiwiYSI6ImNsdjhqZnBxeDBrMHcya254cGtvajhycTAifQ.WN0eHO9lxwtu_otR_5Au-w';
 
+//Creates a map using flutter_map and associated packages
 class MapView extends StatelessWidget {
   final PositionProvider positionProvider;
   final VenuesDB venues;
   final bool isSunny;
 
+  //creates a positionStream for currentLocation marker on map
   final _positionStream =
       const LocationMarkerDataStreamFactory().fromGeolocatorPositionStream(
     stream: Geolocator.getPositionStream(
@@ -39,10 +42,6 @@ class MapView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return crossPlatformMap(context);
-  }
-
-  Widget crossPlatformMap(BuildContext context) {
     return FlutterMap(
       options: MapOptions(
         initialCenter: LatLng(
@@ -55,48 +54,7 @@ class MapView extends StatelessWidget {
       ),
       children: [
         mapBoxOverlay(),
-        MarkerClusterLayerWidget(
-          options: MarkerClusterLayerOptions(
-            maxClusterRadius: 60,
-            size: const Size(40, 40),
-            alignment: Alignment.center,
-            padding: const EdgeInsets.all(50),
-            maxZoom: 15,
-            markers: venues
-                .nearestTo(
-                  latitude: positionProvider.latitude,
-                  longitude: positionProvider.latitude,
-                )
-                .map(
-                  (venue) => Marker(
-                    point: LatLng(
-                      venue.latitude,
-                      venue.longitude,
-                    ),
-                    child: locationButton(context, venue),
-                  ),
-                )
-                .toList(),
-            builder: (context, markers) {
-              return Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Theme.of(context).colorScheme.secondary),
-                child: Center(
-                  child: Text(
-                    markers.length.toString(),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      decoration: TextDecoration.none,
-                      fontSize: 20,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                ),
-              );
-            },
-          ),
-        ),
+        markerWithClusters(context),
         CurrentLocationLayer(
           positionStream: _positionStream,
         ),
@@ -111,6 +69,51 @@ class MapView extends StatelessWidget {
           'https://api.mapbox.com/styles/v1/mapbox/light-v11/tiles/512/{z}/{x}/{y}@2x?access_token=$mapboxApiKey',
       userAgentPackageName: 'com.food_finder.app',
       tileProvider: CancellableNetworkTileProvider(),
+    );
+  }
+
+  markerWithClusters(BuildContext context) {
+    return MarkerClusterLayerWidget(
+      options: MarkerClusterLayerOptions(
+        maxClusterRadius: 60,
+        size: const Size(40, 40),
+        alignment: Alignment.center,
+        padding: const EdgeInsets.all(50),
+        maxZoom: 15,
+        markers: venues
+            .nearestTo(
+              latitude: positionProvider.latitude,
+              longitude: positionProvider.latitude,
+            )
+            .map(
+              (venue) => Marker(
+                point: LatLng(
+                  venue.latitude,
+                  venue.longitude,
+                ),
+                child: locationButton(context, venue),
+              ),
+            )
+            .toList(),
+        builder: (context, markers) {
+          return Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Theme.of(context).colorScheme.secondary),
+            child: Center(
+              child: Text(
+                markers.length.toString(),
+                style: const TextStyle(
+                  color: Colors.white,
+                  decoration: TextDecoration.none,
+                  fontSize: 20,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 

@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:food_finder/views/custom_grid_tile.dart';
 
+  /// Creates a 2D expandable grid with given tiles
+  /// Parameters:
+  ///  - tiles: tiles of type CustomGridTile
 class CustomGridView extends StatelessWidget {
-  final List<CustomGridTile> _tiles;
-  const CustomGridView(this._tiles, {super.key});
+  final List<CustomGridTile> tiles;
+  const CustomGridView({required this.tiles, super.key});
 
   @override
   Widget build(BuildContext context) {
     int crossAxisCount = 1;
     var windowSize = MediaQuery.of(context).size.width;
+    //changes horizontal tiles based on the window size;
     if(windowSize <= 375){
       crossAxisCount = 1;
     } else if(windowSize <= 600){
@@ -23,7 +27,7 @@ class CustomGridView extends StatelessWidget {
     return GridView.count(
       padding: const EdgeInsets.all(8),
       crossAxisCount: crossAxisCount,
-      children: _tiles,
+      children: tiles,
     );
   }
 }
