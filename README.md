@@ -49,6 +49,7 @@ https://pub.dev/packages/platform_maps_flutter
 https://pub.dev/packages/flutter_map_location_marker
 https://pub.dev/packages/url_launcher
 https://pub.dev/packages/auto_size_text
+https://pub.dev/packages/flutter_launcher_icons
 https://github.com/lpongetti/flutter_map_marker_cluster?tab=readme-ov-file
 
 Articles and Blogs:
@@ -61,10 +62,14 @@ https://stackoverflow.com/questions/73709040/manage-the-position-of-showmenu-in-
 https://stackoverflow.com/questions/70193457/flutter-gesturedector-on-tap-doesnt-work-with-popupmenubutton
 https://stackoverflow.com/questions/65822604/fittedbox-with-maximum-two-lines-in-flutter
 https://stackoverflow.com/questions/51587003/how-to-center-only-one-element-in-a-row-of-2-elements-in-flutter
+https://stackoverflow.com/questions/43928702/how-to-change-the-application-launcher-icon-on-flutter
 
 Online Tools:
 https://gmapsextractor.com/
 https://jsonformatter.org
+https://perchance.org/ai-icon-generator
+https://www.appicon.co/#app-icon
+
 
 Data Source:
 https://www.google.com/maps
