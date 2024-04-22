@@ -9,8 +9,9 @@ import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:food_finder/helpers/url.dart';
 import 'package:maps_launcher/maps_launcher.dart';
+import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
 
-var apiKey =
+var mapboxApiKey =
     'pk.eyJ1IjoiZGh2YmFuc2FsIiwiYSI6ImNsdjhqZnBxeDBrMHcya254cGtvajhycTAifQ.WN0eHO9lxwtu_otR_5Au-w';
 
 class MapView extends StatelessWidget {
@@ -107,8 +108,9 @@ class MapView extends StatelessWidget {
   TileLayer mapBoxOverlay() {
     return TileLayer(
       urlTemplate:
-          'https://api.mapbox.com/styles/v1/mapbox/streets-v12/tiles/512/{z}/{x}/{y}@2x?access_token=$apiKey',
+          'https://api.mapbox.com/styles/v1/mapbox/light-v11/tiles/512/{z}/{x}/{y}@2x?access_token=$mapboxApiKey',
       userAgentPackageName: 'com.food_finder.app',
+      tileProvider: CancellableNetworkTileProvider(),
     );
   }
 

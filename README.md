@@ -51,6 +51,7 @@ https://pub.dev/packages/url_launcher
 https://pub.dev/packages/auto_size_text
 https://pub.dev/packages/flutter_launcher_icons
 https://github.com/lpongetti/flutter_map_marker_cluster?tab=readme-ov-file
+https://pub.dev/packages/flutter_map_cancellable_tile_provider/
 
 Articles and Blogs:
 https://stackoverflow.com/questions/28419255/how-do-you-round-a-double-in-dart-to-a-given-degree-of-precision-after-the-decim

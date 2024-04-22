@@ -9,13 +9,13 @@ class CustomGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     int crossAxisCount = 1;
     var windowSize = MediaQuery.of(context).size.width;
-    if(windowSize <= 300){
+    if(windowSize <= 375){
       crossAxisCount = 1;
     } else if(windowSize <= 600){
       crossAxisCount = 2;
-    } else if(windowSize <= 900){
+    } else if(windowSize <= 800){
       crossAxisCount = 3;
-    } else if(windowSize <= 1200){
+    } else if(windowSize <= 1100){
       crossAxisCount = 4;
     } else {
       crossAxisCount = 5;
