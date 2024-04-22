@@ -104,6 +104,9 @@ class MapView extends StatelessWidget {
           TextSourceAttribution(
             'Mapbox, © OpenStreetMap',
           ),
+          TextSourceAttribution(
+            'Restaurant Data from Google Maps',
+          ),
         ],
       ),
     );

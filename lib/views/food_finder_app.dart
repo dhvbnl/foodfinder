@@ -77,17 +77,17 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
         .toList();
   }
 
+  //
+  // Returns: A Platform native navigation bar
   PlatformNavBar bottomBar() {
     return PlatformNavBar(
       itemChanged: (int index) {
         setState(() {
-          // Executes code and then causes widget to re-build()
           _currentTabIndex = index;
         });
       },
       currentIndex: _currentTabIndex,
 
-      // This defines what is in the nav bar
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
             icon: Icon(Icons.restaurant), label: 'Restaurants'),
@@ -96,8 +96,7 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
     );
   }
 
-  Widget bodyWidget(int max, double latitude, double longitude, bool isSunny,
-      bool positionKnown) {
+  Widget bodyWidget(int max, double latitude, double longitude, bool isSunny, bool positionKnown) {
     if (_currentTabIndex == 0) {
       return CustomGridView(
           tiles(30, latitude, longitude, isSunny, positionKnown));

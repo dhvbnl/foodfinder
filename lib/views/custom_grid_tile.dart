@@ -9,8 +9,8 @@ class CustomGridTile extends StatelessWidget {
   final double _latitude;
   final double _longitude;
   final bool _locationFound;
-  const CustomGridTile(
-      this._venue, this._isSunny, this._latitude, this._longitude, this._locationFound,
+  const CustomGridTile(this._venue, this._isSunny, this._latitude,
+      this._longitude, this._locationFound,
       {super.key});
 
   @override
@@ -26,41 +26,45 @@ class CustomGridTile extends StatelessWidget {
         elevation: elevation,
         surfaceTintColor: const Color.fromARGB(255, 255, 255, 255),
         margin: const EdgeInsets.all(8.0),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(children: [
-            AutoSizeText(_venue.name,
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                minFontSize: 23,
-                style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    color: Theme.of(context).colorScheme.inverseSurface)),
-            Padding(
-              padding: const EdgeInsets.all(1.0),
-              child: Stack(alignment: Alignment.center, children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: AutoSizeText(
-                      minFontSize: 20,
-                      ' ${_venue.averageRating} ',
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.secondary)),
-                ),
-                Align(
-                    alignment: Alignment.center,
-                    child: reviewStars(context)),
-              ]),
-            ),
-            const Spacer(),
-            FittedBox(
-              child: Text(
-                  '${Haversine.haversine(_latitude, _longitude, _venue.latitude, _venue.longitude).toStringAsFixed(2)} miles away',
-                  textAlign: TextAlign.left,
-                  style: const TextStyle(
-                      fontSize: 14, fontWeight: FontWeight.w200)),
-            )
-          ]),
+        child: InkWell(
+          splashColor: Theme.of(context).colorScheme.background,
+          onTap: () {
+            debugPrint('Card tapped.');
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(children: [
+              AutoSizeText(_venue.name,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  minFontSize: 23,
+                  style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      color: Theme.of(context).colorScheme.inverseSurface)),
+              Padding(
+                padding: const EdgeInsets.all(1.0),
+                child: Stack(alignment: Alignment.center, children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: AutoSizeText(
+                        minFontSize: 20,
+                        ' ${_venue.averageRating} ',
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.secondary)),
+                  ),
+                  Align(alignment: Alignment.center, child: reviewStars(context)),
+                ]),
+              ),
+              const Spacer(),
+              FittedBox(
+                child: Text(
+                    '${Haversine.haversine(_latitude, _longitude, _venue.latitude, _venue.longitude).toStringAsFixed(2)} miles away',
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.w200)),
+              )
+            ]),
+          ),
         ));
   }
 
@@ -78,7 +82,7 @@ class CustomGridTile extends StatelessWidget {
   }
 
   Widget distanceAway() {
-    if(!_locationFound){
+    if (!_locationFound) {
       return const Text('');
     }
     return Text(
