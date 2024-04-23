@@ -41,7 +41,10 @@ class ExpandedTile extends StatelessWidget {
       ),
     );
   }
-
+  /// Builds portrait for Expanded Tile View
+  /// Parameters:
+  ///  - context: context of widget build
+  /// Returns: Column widget with all data
   Widget portraitView(BuildContext context) {
     return Column(
       children: [
@@ -55,6 +58,10 @@ class ExpandedTile extends StatelessWidget {
     );
   }
 
+  /// Builds landscape for Expanded Tile View
+  /// Parameters:
+  ///  - context: context of widget build
+  /// Returns: Column widget with all data
   Widget landscapeView(BuildContext context) {
     return Column(
       children: [
@@ -211,10 +218,10 @@ class ExpandedTile extends StatelessWidget {
     );
   }
 
-  /// Builds a Row for Expanded Tile View with all buttons possible with data
+  /// Builds a Column for Expanded Tile View with all buttons possible with data
   /// Parameters:
   ///  - context: context of widget build
-  /// Returns: Row widget with buttons evenly placed
+  /// Returns: Column widget with buttons evenly placed
   Widget formattedButtonColumn(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -285,10 +292,9 @@ class ExpandedTile extends StatelessWidget {
     );
   }
 
-  /// Builds a PlatformElevatedButton for Expanded Tile View Landscape
+  /// Builds a PlatformElevatedButton for Expanded Tile View Landscape with no text
   /// Parameters:
   ///  - context: context of widget build
-  ///  - text: text to display on button
   ///  - icon: icon to display on button
   ///  - urlLaunch: function to launch when button it tapped
   /// Returns: PlatformElevatedButton widget with data embedded

@@ -35,26 +35,29 @@ class CustomGridTile extends StatelessWidget {
       color = const Color.fromARGB(255, 153, 170, 160);
       elevation = 0;
     }
-    return Card(
-      color: color,
-      elevation: elevation,
-      surfaceTintColor: Colors.white,
-      margin: const EdgeInsets.all(8.0),
-      //sets up child for clickability
-      child: InkWell(
-        splashColor: Theme.of(context).colorScheme.background,
-        onTap: () {
-          buttonAction(context);
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(6.0),
-          child: Column(
-            children: [
-              venueName(context),
-              venue.reviewInformationCard(context),
-              const Spacer(),
-              distanceAway(),
-            ],
+    return Semantics(
+      label: 'Venue: ${venue.name}, Rating: ${venue.averageRating} Stars, It is ${venue.haversineDistanceFrom(latitude: positionProvider.latitude, longitude: positionProvider.longitude)} miles away',
+      child: Card(
+        color: color,
+        elevation: elevation,
+        surfaceTintColor: Colors.white,
+        margin: const EdgeInsets.all(8.0),
+        //sets up child for clickability
+        child: InkWell(
+          splashColor: Theme.of(context).colorScheme.background,
+          onTap: () {
+            buttonAction(context);
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: Column(
+              children: [
+                venueName(context),
+                venue.reviewInformationCard(context),
+                const Spacer(),
+                distanceAway(),
+              ],
+            ),
           ),
         ),
       ),
