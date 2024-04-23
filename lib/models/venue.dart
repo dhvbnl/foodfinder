@@ -85,7 +85,7 @@ class Venue {
     required double longitude,
     double ratingFactor = 2.5,
     double distanceFactor = 4,
-    double patioFactor = 2.5,
+    double patioFactor = 2,
     double reviewCountFactor = 0.0003,
     bool isSunny = false,
   }) {

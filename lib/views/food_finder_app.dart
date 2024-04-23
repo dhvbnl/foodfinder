@@ -27,6 +27,7 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
   late final Timer _checkerTimer;
   late final WeatherChecker _weatherChecker;
   var _currentTabIndex = 0;
+  bool overrideWeather = false;
 
   @override
   initState() {
@@ -78,12 +79,12 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
           }
           //cross platform scaffold
           return PlatformScaffold(
-            appBar: topBar(context),
+            appBar: topBar(context, weatherProvider.isSunny()),
             body: SafeArea(
               child: bodyWidget(
                 30,
                 positionProvider,
-                weatherProvider.isSunny(),
+                weatherProvider.isSunny() ^ overrideWeather,
                 positionProvider.positionKnown,
               ),
             ),
@@ -94,14 +95,45 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
     );
   }
 
-  PlatformAppBar topBar(BuildContext context) {
+  /// creates a platform native app bar with a sunny icon if its sunny
+  /// Parameters:
+  ///  - context: context for build
+  ///  - isSunny: if current weather is sunny
+  /// Returns: PlatformAppBar with text and icon
+  PlatformAppBar topBar(BuildContext context, bool isSunny) {
+    var iconColor = Theme.of(context).colorScheme.primary;
+    //override weather condition to display alternate data
+    var icon = Icons.sunny;
+    if(overrideWeather){
+      iconColor = Colors.black;
+    }
+    if(isSunny && overrideWeather || !isSunny && !overrideWeather){
+      icon = Icons.cloud;
+    } else {
+      icon = Icons.sunny;
+    }
+    
     return PlatformAppBar(
-      title: FittedBox(
-        child: Text(
-          'The Seattle Food Guide',
-          style: GoogleFonts.robotoSlab(
-            fontSize: 37,
-            color: Theme.of(context).colorScheme.primary
+      title: GestureDetector(
+        onTap:() => overrideWeather = !overrideWeather,
+        child: FittedBox(
+          child: Row(
+            children: [
+              Text(
+                'The Seattle Food Guide',
+                style: GoogleFonts.robotoSlab(
+                  fontSize: 37,
+                  color: Theme.of(context).colorScheme.primary
+                ), 
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(
+                  icon,
+                  size: 22,
+                  color: iconColor,),
+              )
+            ],
           ),
         ),
       ),

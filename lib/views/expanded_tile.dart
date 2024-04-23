@@ -5,6 +5,7 @@ import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_ti
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:food_finder/helpers/url.dart';
 import 'package:food_finder/models/venue.dart';
+import 'package:food_finder/providers/position_provider.dart';
 import 'package:food_finder/views/map_view.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:maps_launcher/maps_launcher.dart';
@@ -14,8 +15,14 @@ import 'package:maps_launcher/maps_launcher.dart';
 ///  - venue: venue to get data from
 class ExpandedTile extends StatelessWidget {
   final Venue venue;
+  final PositionProvider positionProvider;
+  final bool isSunny;
 
-  const ExpandedTile({required this.venue, super.key});
+  const ExpandedTile(
+      {required this.venue,
+      required this.positionProvider,
+      required this.isSunny,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,25 +39,7 @@ class ExpandedTile extends StatelessWidget {
                 const SizedBox(height: 5),
                 cardWithMapData(context),
                 const SizedBox(height: 5),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    if (venue.website != null)
-                      formattedButton(
-                        context,
-                        'Website',
-                        Icons.language,
-                        () => Url.openUrl(venue.website ?? ''),
-                      ),
-                    if (venue.phone != null)
-                      formattedButton(
-                        context,
-                        'Call',
-                        Icons.call,
-                        () => Url.openUrl('tel: ${venue.phone ?? ''}'),
-                      )
-                  ],
-                )
+                formattedButtonRow(context),
               ],
             ),
           ),
@@ -99,6 +88,10 @@ class ExpandedTile extends StatelessWidget {
     );
   }
 
+  /// Builds a Card with map data of venue for Expanded Tile View
+  /// Parameters:
+  ///  - context: context of widget build
+  /// Returns: Card widget with map embedded using flutter_map
   Widget cardWithMapData(BuildContext context) {
     return Card.outlined(
       shape: RoundedRectangleBorder(
@@ -151,6 +144,48 @@ class ExpandedTile extends StatelessWidget {
     );
   }
 
+  /// Builds a Row for Expanded Tile View with all buttons possible with data
+  /// Parameters:
+  ///  - context: context of widget build
+  /// Returns: Row widget with buttons evenly placed
+  Widget formattedButtonRow(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        if (venue.website != null)
+          formattedButton(
+            context,
+            'Website',
+            Icons.language,
+            () => Url.openUrl(venue.website ?? ''),
+          ),
+        if (venue.phone != null)
+          formattedButton(
+            context,
+            'Call',
+            Icons.call,
+            () => Url.openUrl(
+              'tel: ${venue.phone ?? ''}',
+            ),
+          ),
+        if (venue.hasPatio)
+          powerRankingToolTip(context, 'Patio', 'This venue has a patio!', Icons.deck, () => null),
+        formattedButton(
+          context,
+          venue
+              .powerRanking(
+                latitude: positionProvider.latitude,
+                longitude: positionProvider.longitude,
+                isSunny: isSunny,
+              )
+              .toStringAsFixed(2),
+          Icons.analytics,
+          () => null,
+        ),
+      ],
+    );
+  }
+
   /// Builds a PlatformElevatedButton for Expanded Tile View
   /// Parameters:
   ///  - context: context of widget build
@@ -162,10 +197,10 @@ class ExpandedTile extends StatelessWidget {
     BuildContext context,
     String text,
     IconData icon,
-    Function() urlLaunch,
+    Function() function,
   ) {
     return PlatformElevatedButton(
-      onPressed: urlLaunch,
+      onPressed: function,
       padding: const EdgeInsets.only(left: 10, right: 10, top: 2, bottom: 2),
       color: const Color.fromARGB(255, 198, 219, 207),
       child: Row(
@@ -181,12 +216,26 @@ class ExpandedTile extends StatelessWidget {
             text,
             style: TextStyle(
               fontSize: 15,
-              fontWeight: FontWeight.w300,
+              fontWeight: FontWeight.w400,
               color: Theme.of(context).colorScheme.inverseSurface,
             ),
           ),
         ],
       ),
+    );
+  }
+
+  Widget powerRankingToolTip(
+    BuildContext context,
+    String text,
+    String message,
+    IconData icon,
+    Function() function,
+  ) {
+    return Tooltip(
+      message: message,
+      preferBelow: false,
+      child: formattedButton(context, text, icon, function),
     );
   }
 }

@@ -111,14 +111,14 @@ class CustomGridTile extends StatelessWidget {
       Navigator.push(
         context,
         CupertinoPageRoute(
-          builder: (context) => ExpandedTile(venue: venue),
+          builder: (context) => ExpandedTile(venue: venue, positionProvider: positionProvider, isSunny: isSunny,),
         ),
       );
     } else {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => ExpandedTile(venue: venue),
+          builder: (context) => ExpandedTile(venue: venue, positionProvider: positionProvider, isSunny: isSunny,),
         ),
       );
     }

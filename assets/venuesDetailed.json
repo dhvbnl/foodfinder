@@ -1,5 +1,19 @@
 [
   {
+    "name": "Cedar's of Lebanon",
+    "description": "Mediterranean eatery serving falafel and gyros in a cheery green space with colorful wall murals.",
+    "fulladdress": "1319 NE 43rd St, Seattle, WA 98105",
+    "phone": "(206) 632-7708",
+    "reviewCount": 375,
+    "averageRating": 4.6,
+    "googleMapsURL": "https://www.google.com/maps?cid=10504378121437824757",
+    "latitude": 47.6597151,
+    "longitude":  -122.3135296,
+    "website": "https://www.cedarsoflebanonuw.com",
+    "has_patio": true,
+    "openingHours": "Tuesday: [11 AM-8 PM], Wednesday: [11 AM-8 PM], Thursday: [11 AM-8 PM], Friday: [11 AM-8 PM], Saturday: [11 AM-8 PM], Sunday: [Closed], Monday: [11 AM-8 PM]"
+  },
+  {
     "name": "Thai Tom",
     "description": "Popular, cash-only Thai restaurant serving spicy wok creations in a no-frills dining room.",
     "fulladdress": "4543 University Wy NE, Seattle, WA 98105",
