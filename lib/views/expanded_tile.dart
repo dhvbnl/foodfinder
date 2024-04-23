@@ -105,7 +105,7 @@ class ExpandedTile extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.aspectRatio < 0.6 ? MediaQuery.of(context).size.width : MediaQuery.of(context).size.width / 4,
           child: FlutterMap(
             options: MapOptions(
                 initialCenter: LatLng(
