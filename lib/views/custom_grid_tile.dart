@@ -4,6 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:food_finder/helpers/haversine.dart';
 import 'package:food_finder/models/venue.dart';
 import 'package:food_finder/providers/position_provider.dart';
+import 'package:food_finder/views/expanded_tile.dart';
+import 'package:food_finder/views/top_bar.dart';
 
 /// Creates a tile based on venue and location information
 /// Parameters:
@@ -169,36 +171,80 @@ class CustomGridTile extends StatelessWidget {
     BuildContext context,
   ) {
     print('${venue.name} tapped!');
-    
+    /*var width;
+    var height;
+    if (MediaQuery.of(context).size.width >
+        MediaQuery.of(context).size.height) {
+      width = MediaQuery.of(context).size.height;
+      height = width;
+    } else {
+      width = MediaQuery.of(context).size.width;
+      height = width;
+    }
     late OverlayEntry overlay;
-
-    overlay = OverlayEntry(builder: (BuildContext context) {
-      return Card(
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: IconButton(
-                    icon: const Icon(Icons.close),
-                    onPressed: () => (overlay.remove()),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.center,
-                  child: Text(venue.name),
-                ),
-              ],
-            ),
-            const Spacer(),
-          ],
-        ),
+    overlay = OverlayEntry(builder: (context) {
+      return Align(
+        alignment: Alignment.center,
+        child: Container(
+            width: 200,
+              height: 200,
+            color: Colors.blue,
+            child: Text('hey'),
+          )
       );
-    });
+    });*/
+    late OverlayEntry overlay;
+    overlay = OverlayEntry(
+      builder: (BuildContext context) {
+        return ExpandedTile(venue: venue, overlay: overlay,);
+      });
+    /*var width;
+    var height;
+    if (MediaQuery.of(context).size.width >
+        MediaQuery.of(context).size.height) {
+      width = MediaQuery.of(context).size.height;
+      height = width;
+    } else {
+      width = MediaQuery.of(context).size.width;
+      height = width;
+    }
+    overlay = OverlayEntry(
+      builder: (BuildContext context) {
+        return Align(
+          alignment: Alignment.bottomCenter,
+          child: SizedBox(
+            width: width,
+            height: MediaQuery.of(context).size.height - kToolbarHeight - MediaQuery.of(context).viewPadding.top - kBottomNavigationBarHeight,
+            child: Card(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: IconButton(
+                            icon: const Icon(Icons.close),
+                            onPressed: () => (overlay.remove()),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(venue.name),
+                        ),
+                      ],
+                    ),
+                    //const Spacer(),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );*/
 
-    Overlay.of(
-      context,
-    ).insert(overlay);
+    Overlay.of(context).insert(overlay);
   }
 }
