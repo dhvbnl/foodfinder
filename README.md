@@ -66,6 +66,8 @@ https://stackoverflow.com/questions/51587003/how-to-center-only-one-element-in-a
 https://stackoverflow.com/questions/43928702/how-to-change-the-application-launcher-icon-on-flutter
 https://www.owner.com/blog/how-people-choose-restaurants-top-10-factors
 https://stackoverflow.com/questions/71119493/how-can-i-properly-remove-an-overlayentry-in-flutter
+https://stackoverflow.com/questions/50756745/custom-card-shape-flutter-sdk
+https://stackoverflow.com/questions/63232038/how-to-add-elements-to-a-column-if-there-is-a-condition-in-flutter
 
 Online Tools:
 https://gmapsextractor.com/

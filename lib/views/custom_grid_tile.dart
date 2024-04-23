@@ -1,11 +1,12 @@
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:food_finder/helpers/haversine.dart';
 import 'package:food_finder/models/venue.dart';
 import 'package:food_finder/providers/position_provider.dart';
 import 'package:food_finder/views/expanded_tile.dart';
-import 'package:food_finder/views/top_bar.dart';
 
 /// Creates a tile based on venue and location information
 /// Parameters:
@@ -50,7 +51,7 @@ class CustomGridTile extends StatelessWidget {
           child: Column(
             children: [
               venueName(context),
-              reviewInformation(context),
+              venue.reviewInformationCard(context),
               const Spacer(),
               distanceAway(),
             ],
@@ -77,76 +78,6 @@ class CustomGridTile extends StatelessWidget {
     );
   }
 
-  /// Builds a widget containg review data
-  /// Parameters:
-  ///  - context: context of widget build
-  /// Returns: Stack widget with average review, stars, and review count
-  Widget reviewInformation(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(1.0),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: AutoSizeText(
-              minFontSize: 20,
-              ' ${venue.averageRating}',
-              style: TextStyle(color: Theme.of(context).colorScheme.secondary),
-            ),
-          ),
-          Align(alignment: Alignment.center, child: reviewStars(context)),
-          Align(
-            alignment: Alignment.centerRight,
-            child: AutoSizeText(
-              minFontSize: 2,
-              maxFontSize: 12,
-              '(${venue.reviewCount}) ',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.secondary,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  /// Builds a widget containg review stars
-  /// Parameters:
-  ///  - context: context of widget build
-  /// Returns: Row widget with stars matching rating
-  Row reviewStars(BuildContext context) {
-    List<Icon> stars = [];
-    const size = 15.0;
-    var color = Theme.of(context).colorScheme.secondary;
-    //adds full stars
-    for (int i = 0; i < venue.averageRating.floor(); i++) {
-      stars.add(
-        Icon(
-          Icons.star,
-          fill: 1.0,
-          size: size,
-          color: color,
-        ),
-      );
-    }
-    //adds half star if rating isn't even
-    if (venue.averageRating % 1 != 0) {
-      stars.add(
-        Icon(
-          Icons.star_half,
-          size: size,
-          color: color,
-        ),
-      );
-    }
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: stars,
-    );
-  }
-
   /// Builds a widget containg distance to venue
   /// Returns: FittedBox with formatted distance to venue
   Widget distanceAway() {
@@ -162,89 +93,34 @@ class CustomGridTile extends StatelessWidget {
           venue.longitude,
         ).toStringAsFixed(2)} miles away',
         textAlign: TextAlign.left,
-        style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w200),
+        style: const TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w200,
+        ),
       ),
     );
   }
 
+  /// Pushes a ExpandedTile widget onto the NavigatorStack of current venue
+  /// Parameters:
+  ///  - context: context of widget build
   void buttonAction(
     BuildContext context,
   ) {
-    print('${venue.name} tapped!');
-    /*var width;
-    var height;
-    if (MediaQuery.of(context).size.width >
-        MediaQuery.of(context).size.height) {
-      width = MediaQuery.of(context).size.height;
-      height = width;
-    } else {
-      width = MediaQuery.of(context).size.width;
-      height = width;
-    }
-    late OverlayEntry overlay;
-    overlay = OverlayEntry(builder: (context) {
-      return Align(
-        alignment: Alignment.center,
-        child: Container(
-            width: 200,
-              height: 200,
-            color: Colors.blue,
-            child: Text('hey'),
-          )
+    if (Platform.isIOS || Platform.isMacOS) {
+      Navigator.push(
+        context,
+        CupertinoPageRoute(
+          builder: (context) => ExpandedTile(venue: venue),
+        ),
       );
-    });*/
-    late OverlayEntry overlay;
-    overlay = OverlayEntry(
-      builder: (BuildContext context) {
-        return ExpandedTile(venue: venue, overlay: overlay,);
-      });
-    /*var width;
-    var height;
-    if (MediaQuery.of(context).size.width >
-        MediaQuery.of(context).size.height) {
-      width = MediaQuery.of(context).size.height;
-      height = width;
     } else {
-      width = MediaQuery.of(context).size.width;
-      height = width;
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ExpandedTile(venue: venue),
+        ),
+      );
     }
-    overlay = OverlayEntry(
-      builder: (BuildContext context) {
-        return Align(
-          alignment: Alignment.bottomCenter,
-          child: SizedBox(
-            width: width,
-            height: MediaQuery.of(context).size.height - kToolbarHeight - MediaQuery.of(context).viewPadding.top - kBottomNavigationBarHeight,
-            child: Card(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Stack(
-                      children: [
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: IconButton(
-                            icon: const Icon(Icons.close),
-                            onPressed: () => (overlay.remove()),
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.center,
-                          child: Text(venue.name),
-                        ),
-                      ],
-                    ),
-                    //const Spacer(),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        );
-      },
-    );*/
-
-    Overlay.of(context).insert(overlay);
   }
 }

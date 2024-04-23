@@ -4,7 +4,7 @@ import 'package:food_finder/helpers/weather_checker.dart';
 import 'package:food_finder/views/custom_grid_tile.dart';
 import 'package:food_finder/views/custom_grid_view.dart';
 import 'package:food_finder/views/map_view.dart';
-import 'package:food_finder/views/top_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:food_finder/providers/position_provider.dart';
 import 'package:food_finder/providers/weather_provider.dart';
@@ -78,7 +78,7 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
           }
           //cross platform scaffold
           return PlatformScaffold(
-            appBar: const TopBar().build(context),
+            appBar: topBar(context),
             body: SafeArea(
               child: bodyWidget(
                 30,
@@ -90,6 +90,20 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
             bottomNavBar: bottomBar(),
           );
         },
+      ),
+    );
+  }
+
+  PlatformAppBar topBar(BuildContext context) {
+    return PlatformAppBar(
+      title: FittedBox(
+        child: Text(
+          'The Seattle Food Guide',
+          style: GoogleFonts.robotoSlab(
+            fontSize: 37,
+            color: Theme.of(context).colorScheme.primary
+          ),
+        ),
       ),
     );
   }

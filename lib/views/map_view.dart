@@ -149,7 +149,7 @@ class MapView extends StatelessWidget {
       ),
     );
   }
-  
+
   /// Forms marker with clustering depending on zoom
   /// Parameters:
   ///  - context: context for build
@@ -179,9 +179,10 @@ class MapView extends StatelessWidget {
   /// Opens menu with various information of provided venue
   /// Parameters:
   ///  - context: context for build
-  ///  - tapDetails: location of tap 
+  ///  - tapDetails: location of tap
   ///  - venue: Venue for menu
-  void openPlacePage(BuildContext context, TapDownDetails tapDetails, Venue venue) {
+  void openPlacePage(
+      BuildContext context, TapDownDetails tapDetails, Venue venue) {
     final offset = tapDetails.globalPosition;
     List<PopupMenuEntry<int>> menu = [];
     //adds name of venue
@@ -210,7 +211,7 @@ class MapView extends StatelessWidget {
       menu.add(
         PopupMenuItem(
           value: 2,
-          onTap: () => Url.openUrl(website).ignore(),
+          onTap: () => Url.openUrl(website),
           child: const Text('Website'),
         ),
       );
