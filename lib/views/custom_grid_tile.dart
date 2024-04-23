@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:food_finder/helpers/haversine.dart';
 import 'package:food_finder/models/venue.dart';
 import 'package:food_finder/providers/position_provider.dart';
@@ -40,7 +41,7 @@ class CustomGridTile extends StatelessWidget {
       child: InkWell(
         splashColor: Theme.of(context).colorScheme.background,
         onTap: () {
-          debugPrint('Card tapped.');
+          buttonAction(context);
         },
         child: Padding(
           padding: const EdgeInsets.all(6.0),
@@ -164,7 +165,40 @@ class CustomGridTile extends StatelessWidget {
     );
   }
 
-  void buttonAction() {
+  void buttonAction(
+    BuildContext context,
+  ) {
     print('${venue.name} tapped!');
+    
+    late OverlayEntry overlay;
+
+    overlay = OverlayEntry(builder: (BuildContext context) {
+      return Card(
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: IconButton(
+                    icon: const Icon(Icons.close),
+                    onPressed: () => (overlay.remove()),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(venue.name),
+                ),
+              ],
+            ),
+            const Spacer(),
+          ],
+        ),
+      );
+    });
+
+    Overlay.of(
+      context,
+    ).insert(overlay);
   }
 }

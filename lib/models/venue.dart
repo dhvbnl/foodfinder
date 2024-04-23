@@ -74,25 +74,25 @@ class Venue {
   ///  - longitude: longitude for current location
   ///  - ratingFactor: increase score by 'ratingFactor' for every star
   ///  - distanceFactor: decreases score by 'distanceFactor' for every mile
-  ///  - patioFactor: increases score by 2.5 is it's sunny and venue has a patio
-  ///  - reviewCountFactor: increases score by 0.0005 for every review
+  ///  - patioFactor: increases score by 'paioFactor' is it's sunny and venue has a patio
+  ///  - reviewCountFactor: increases score by 'reviewCountFactor' for every review
   ///  - isSunny: enbales patioFactor mattering
-  /// Returns: overal power ranking based on factors
+  /// Returns: overall power ranking based on factors
   double powerRanking({
     required double latitude,
     required double longitude,
-    double ratingFactor = 3,
-    double distanceFactor = 2.5,
+    double ratingFactor = 2.5,
+    double distanceFactor = 4,
     double patioFactor = 2.5,
-    double reviewCountFactor = 0.0005,
+    double reviewCountFactor = 0.0003,
     bool isSunny = false,
   }) {
     double distanceTo =
         haversineDistanceFrom(latitude: latitude, longitude: longitude);
     return -(distanceTo * distanceFactor) +
-        averageRating * ratingFactor +
+        log(averageRating) * ratingFactor +
         (hasPatio ? 1 : 0) * (isSunny ? 1 : 0) * patioFactor +
-        reviewCount.toDouble() * reviewCountFactor;
+        max(reviewCount.toDouble() * reviewCountFactor, 2);
   }
 
   /// squares number

@@ -65,6 +65,7 @@ https://stackoverflow.com/questions/65822604/fittedbox-with-maximum-two-lines-in
 https://stackoverflow.com/questions/51587003/how-to-center-only-one-element-in-a-row-of-2-elements-in-flutter
 https://stackoverflow.com/questions/43928702/how-to-change-the-application-launcher-icon-on-flutter
 https://www.owner.com/blog/how-people-choose-restaurants-top-10-factors
+https://stackoverflow.com/questions/71119493/how-can-i-properly-remove-an-overlayentry-in-flutter
 
 Online Tools:
 https://gmapsextractor.com/
