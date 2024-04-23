@@ -48,7 +48,7 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
     _checkerTimer.cancel();
   }
 
-  /// Builds the Food_finder view as well as establishes the theme
+  /// Builds the food_finder view as well as establishes the theme
   /// Parameters:
   ///  - context: context for build
   /// Returns: Widget of whole app view

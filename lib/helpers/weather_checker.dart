@@ -6,11 +6,12 @@ import 'package:http/http.dart' as http;
 class WeatherChecker {
   final WeatherProvider weatherProvider;
 
-  var _latitude = 47.96649; 
+  var _latitude = 47.96649;
   var _longitude = -122.34318;
 
   WeatherChecker(this.weatherProvider);
 
+  /// Updates weather with current latitude and longitude using weather.gov
   fetchAndUpdateCurrentWeather() async {
     var client = http.Client();
     try {
@@ -33,7 +34,7 @@ class WeatherChecker {
             final condition = _shortForecastToCondition(shortForecast);
             print('temperature: $temperature, condition: $condition');
             weatherProvider.updateWeather(temperature, condition);
-          } else{
+          } else {
             weatherProvider.updateWeather(null, WeatherCondition.unknown);
           }
         }
@@ -45,6 +46,10 @@ class WeatherChecker {
     }
   }
 
+  /// Converts weather data to weather condition found
+  /// Parameters:
+  ///  - shortForecast: weather.gov current forecast data
+  /// Returns: WeatherCondition of current data
   WeatherCondition _shortForecastToCondition(String shortForecast) {
     final lowercased = shortForecast.toLowerCase();
     if (lowercased.startsWith('rain')) return WeatherCondition.rainy;
@@ -54,7 +59,11 @@ class WeatherChecker {
     return WeatherCondition.gloomy;
   }
 
-  void updateLocation(double latitude, double longitude){
+  /// Updates data location
+  /// Parameters:
+  ///  - latitude: current device latitude
+  ///  - longitude: current device longitude
+  void updateLocation(double latitude, double longitude) {
     _latitude = latitude;
     _longitude = longitude;
   }

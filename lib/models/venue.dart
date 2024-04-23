@@ -7,11 +7,7 @@ part 'venue.g.dart';
 // See documentation here https://docs.flutter.dev/data-and-backend/serialization/json#creating-model-classes-the-json_serializable-way
 // After changing this class, it is essential to run `dart run build_runner build --delete-conflicting-outputs` from the root of the project.
 
-var ratingFactor = 3;
-var distanceFactor = 2.5;
-var patioFactor = 2.5;
-var reviewCountFactor = 0.0001;
-
+//saves data for a venue used to populate view information
 @JsonSerializable()
 class Venue {
   Venue({
@@ -40,9 +36,17 @@ class Venue {
   @JsonKey(name: 'has_patio')
   final bool hasPatio;
 
+  //creates venue from Json
   factory Venue.fromJson(Map<String, dynamic> json) => _$VenueFromJson(json);
+
+  //converts venue to json
   Map<String, dynamic> toJson() => _$VenueToJson(this);
 
+  /// Finds distance between two coordinates using basic geometry
+  /// Parameters:
+  ///  - latitude: latitude for current location
+  ///  - longitude: longitude for current location
+  /// Returns: relative distance between locations
   double distanceFrom({
     required double latitude,
     required double longitude,
@@ -51,6 +55,11 @@ class Venue {
         _squared(this.longitude - longitude));
   }
 
+  /// Finds distance between two coordinates using the haversine formula
+  /// Parameters:
+  ///  - latitude: latitude for current location
+  ///  - longitude: longitude for current location
+  /// Returns: distance in miles between locations
   double haversineDistanceFrom({
     required double latitude,
     required double longitude,
@@ -59,16 +68,23 @@ class Venue {
         this.latitude, this.longitude, latitude, longitude);
   }
 
-  double distanceInMeters({
-    required double latitude,
-    required double longitude,
-  }) {
-    return 111139 * distanceFrom(latitude: latitude, longitude: longitude);
-  }
-
+  /// Creates a power ranking score for a venue based on constant factors
+  /// Parameters:
+  ///  - latitude: latitude for current location
+  ///  - longitude: longitude for current location
+  ///  - ratingFactor: increase score by 'ratingFactor' for every star
+  ///  - distanceFactor: decreases score by 'distanceFactor' for every mile
+  ///  - patioFactor: increases score by 2.5 is it's sunny and venue has a patio
+  ///  - reviewCountFactor: increases score by 0.0005 for every review
+  ///  - isSunny: enbales patioFactor mattering
+  /// Returns: overal power ranking based on factors
   double powerRanking({
     required double latitude,
     required double longitude,
+    double ratingFactor = 3,
+    double distanceFactor = 2.5,
+    double patioFactor = 2.5,
+    double reviewCountFactor = 0.0005,
     bool isSunny = false,
   }) {
     double distanceTo =
@@ -79,6 +95,10 @@ class Venue {
         reviewCount.toDouble() * reviewCountFactor;
   }
 
+  /// squares number
+  /// Parameters:
+  ///  - num: any number
+  /// Returns: num * num
   num _squared(num x) {
     return x * x;
   }

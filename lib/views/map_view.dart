@@ -40,6 +40,10 @@ class MapView extends StatelessWidget {
     super.key,
   });
 
+  /// Builds the flupper map with overlays
+  /// Parameters:
+  ///  - context: context for build
+  /// Returns: FlutterMap widget centered around current location
   @override
   Widget build(BuildContext context) {
     return FlutterMap(
@@ -63,6 +67,10 @@ class MapView extends StatelessWidget {
     );
   }
 
+  /// Builds the Food_finder view as well as establishes the theme
+  /// Parameters:
+  ///  - context: context for build
+  /// Returns: Widget of whole app view
   TileLayer mapBoxOverlay() {
     return TileLayer(
       urlTemplate:
@@ -72,7 +80,11 @@ class MapView extends StatelessWidget {
     );
   }
 
-  markerWithClusters(BuildContext context) {
+  /// Forms markers with clustering depending on zoom
+  /// Parameters:
+  ///  - context: context for build
+  /// Returns: MarkerClusterLayerWidget with constants for shapes
+  MarkerClusterLayerWidget markerWithClusters(BuildContext context) {
     return MarkerClusterLayerWidget(
       options: MarkerClusterLayerOptions(
         maxClusterRadius: 60,
@@ -117,6 +129,8 @@ class MapView extends StatelessWidget {
     );
   }
 
+  /// Creates attribution for Map
+  /// Returns: DefaultTextStyle with RichAttributionWidget with attributes
   DefaultTextStyle mapBoxAttribution() {
     return const DefaultTextStyle(
       style: TextStyle(
@@ -135,8 +149,13 @@ class MapView extends StatelessWidget {
       ),
     );
   }
-
-  Widget locationButton(BuildContext context, Venue venue) {
+  
+  /// Forms marker with clustering depending on zoom
+  /// Parameters:
+  ///  - context: context for build
+  ///  - venue: Venue for menu
+  /// Returns: GestureDetector shpaed as a circle with path to popup menu
+  GestureDetector locationButton(BuildContext context, Venue venue) {
     var locationColor = Theme.of(context).primaryColor;
     if (isSunny && !venue.hasPatio) {
       locationColor = const Color.fromARGB(255, 172, 171, 171);
@@ -157,9 +176,15 @@ class MapView extends StatelessWidget {
     );
   }
 
-  openPlacePage(BuildContext context, TapDownDetails tapDetails, Venue venue) {
+  /// Opens menu with various information of provided venue
+  /// Parameters:
+  ///  - context: context for build
+  ///  - tapDetails: location of tap 
+  ///  - venue: Venue for menu
+  void openPlacePage(BuildContext context, TapDownDetails tapDetails, Venue venue) {
     final offset = tapDetails.globalPosition;
     List<PopupMenuEntry<int>> menu = [];
+    //adds name of venue
     menu.add(
       PopupMenuItem(
         value: 1,
@@ -169,24 +194,28 @@ class MapView extends StatelessWidget {
         ),
       ),
     );
+    menu.add(const PopupMenuDivider(height: 2));
+    //adds address of venue
     var address = venue.fulladdress;
     menu.add(
       PopupMenuItem(
         value: 2,
-        onTap: () => MapsLauncher.launchQuery(address),
+        onTap: () => MapsLauncher.launchQuery(address).ignore(),
         child: const Text('Directions'),
       ),
     );
+    //adds website of venue if exists
     var website = venue.website;
     if (website != null) {
       menu.add(
         PopupMenuItem(
           value: 2,
-          onTap: () => Url.openUrl(website),
+          onTap: () => Url.openUrl(website).ignore(),
           child: const Text('Website'),
         ),
       );
     }
+    //adds phone of venue if exists
     var phone = venue.phone;
     if (phone != null) {
       menu.add(
@@ -198,6 +227,7 @@ class MapView extends StatelessWidget {
       );
     }
 
+    //opens context menu
     showMenu(
       context: context,
       position: RelativeRect.fromLTRB(
