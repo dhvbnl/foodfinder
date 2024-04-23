@@ -68,6 +68,7 @@ https://www.owner.com/blog/how-people-choose-restaurants-top-10-factors
 https://stackoverflow.com/questions/71119493/how-can-i-properly-remove-an-overlayentry-in-flutter
 https://stackoverflow.com/questions/50756745/custom-card-shape-flutter-sdk
 https://stackoverflow.com/questions/63232038/how-to-add-elements-to-a-column-if-there-is-a-condition-in-flutter
+https://stackoverflow.com/questions/49713189/how-to-use-conditional-statement-within-child-attribute-of-a-flutter-widget-cen
 
 Online Tools:
 https://gmapsextractor.com/

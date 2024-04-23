@@ -31,20 +31,44 @@ class ExpandedTile extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
-            clipBehavior: Clip.none,
-            child: Column(
-              children: [
-                cardWithVenueData(context),
-                const SizedBox(height: 5),
-                cardWithMapData(context),
-                const SizedBox(height: 5),
-                formattedButtonRow(context),
-              ],
-            ),
-          ),
+          child: () {
+            if(MediaQuery.of(context).size.aspectRatio < 0.7){
+              return portraitView(context);
+            }
+            return landscapeView(context);
+          }(),
         ),
       ),
+    );
+  }
+
+  Widget portraitView(BuildContext context) {
+    return Column(
+      children: [
+        cardWithVenueData(context),
+        const SizedBox(height: 5),
+        Expanded(child: cardWithMapData(context)),
+        const SizedBox(height: 5),
+        formattedButtonRow(context),
+        const SizedBox(height: 10),
+      ],
+    );
+  }
+
+  Widget landscapeView(BuildContext context) {
+    return Column(
+      children: [
+        cardWithVenueData(context),
+        Expanded(
+          child: Row(
+            children: [
+              Expanded(child: cardWithMapData(context)),
+              formattedButtonColumn(context)
+            ],
+          ),
+        ),
+        const SizedBox(height: 10),
+      ],
     );
   }
 
@@ -105,7 +129,7 @@ class ExpandedTile extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.aspectRatio < 0.6 ? MediaQuery.of(context).size.width : MediaQuery.of(context).size.width / 4,
+          //height: MediaQuery.of(context).size.width,
           child: FlutterMap(
             options: MapOptions(
                 initialCenter: LatLng(
@@ -169,7 +193,8 @@ class ExpandedTile extends StatelessWidget {
             ),
           ),
         if (venue.hasPatio)
-          powerRankingToolTip(context, 'Patio', 'This venue has a patio!', Icons.deck, () => null),
+          powerRankingToolTip(context, 'Patio', 'This venue has a patio!',
+              Icons.deck, () => null),
         formattedButton(
           context,
           venue
@@ -186,6 +211,39 @@ class ExpandedTile extends StatelessWidget {
     );
   }
 
+  /// Builds a Row for Expanded Tile View with all buttons possible with data
+  /// Parameters:
+  ///  - context: context of widget build
+  /// Returns: Row widget with buttons evenly placed
+  Widget formattedButtonColumn(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        if (venue.website != null)
+          formattedButtonNoText(
+            context,
+            Icons.language,
+            () => Url.openUrl(venue.website ?? ''),
+          ),
+        if (venue.phone != null)
+          formattedButtonNoText(
+            context,
+            Icons.call,
+            () => Url.openUrl(
+              'tel: ${venue.phone ?? ''}',
+            ),
+          ),
+        if (venue.hasPatio)
+          formattedButtonNoText(context, Icons.deck, () => null),
+        formattedButtonNoText(
+          context,
+          Icons.analytics,
+          () => null,
+        ),
+      ],
+    );
+  }
+
   /// Builds a PlatformElevatedButton for Expanded Tile View
   /// Parameters:
   ///  - context: context of widget build
@@ -195,7 +253,7 @@ class ExpandedTile extends StatelessWidget {
   /// Returns: PlatformElevatedButton widget with data embedded
   Widget formattedButton(
     BuildContext context,
-    String text,
+    String? text,
     IconData icon,
     Function() function,
   ) {
@@ -209,25 +267,54 @@ class ExpandedTile extends StatelessWidget {
             icon,
             color: Theme.of(context).colorScheme.inverseSurface,
           ),
-          const SizedBox(
-            width: 7,
-          ),
-          AutoSizeText(
-            text,
-            style: TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w400,
-              color: Theme.of(context).colorScheme.inverseSurface,
+          if (text != null)
+            const SizedBox(
+              width: 7,
             ),
-          ),
+          if (text != null)
+            AutoSizeText(
+              text,
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w400,
+                color: Theme.of(context).colorScheme.inverseSurface,
+              ),
+            ),
         ],
+      ),
+    );
+  }
+
+  /// Builds a PlatformElevatedButton for Expanded Tile View Landscape
+  /// Parameters:
+  ///  - context: context of widget build
+  ///  - text: text to display on button
+  ///  - icon: icon to display on button
+  ///  - urlLaunch: function to launch when button it tapped
+  /// Returns: PlatformElevatedButton widget with data embedded
+  Widget formattedButtonNoText(
+    BuildContext context,
+    IconData icon,
+    Function() function,
+  ) {
+    return SizedBox(
+      width: 37,
+      height: 37,
+      child: PlatformElevatedButton(
+        onPressed: function,
+        padding: const EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 0),
+        color: const Color.fromARGB(255, 198, 219, 207),
+        child: Icon(
+          icon,
+          color: Theme.of(context).colorScheme.inverseSurface,
+        ),
       ),
     );
   }
 
   Widget powerRankingToolTip(
     BuildContext context,
-    String text,
+    String? text,
     String message,
     IconData icon,
     Function() function,
