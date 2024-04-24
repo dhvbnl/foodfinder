@@ -11,6 +11,7 @@
     "longitude":  -122.3135296,
     "website": "https://www.cedarsoflebanonuw.com",
     "has_patio": true,
+    "cuisine": "Mediterranean",
     "openingHours": "Tuesday: [11 AM-8 PM], Wednesday: [11 AM-8 PM], Thursday: [11 AM-8 PM], Friday: [11 AM-8 PM], Saturday: [11 AM-8 PM], Sunday: [Closed], Monday: [11 AM-8 PM]"
   },
   {
@@ -25,6 +26,7 @@
     "longitude": -122.3132366,
     "website": "https://thaitomseattle.com/",
     "has_patio": false,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [12-9 PM], Monday: [11:30 AM-9 PM], Tuesday: [11:30 AM-9 PM], Wednesday: [11:30 AM-9 PM], Thursday: [11:30 AM-9 PM], Friday: [11:30 AM-9 PM], Saturday: [11:30 AM-9 PM]"
   },
   {
@@ -39,6 +41,7 @@
     "longitude": -122.3129889,
     "website": "https://www.facebook.com/Thai65Seattle/",
     "has_patio": false,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [11 AM-10 PM], Monday: [Closed], Tuesday: [11 AM-10 PM], Wednesday: [11 AM-10 PM], Thursday: [11 AM-10 PM], Friday: [11 AM-10 PM], Saturday: [11 AM-10 PM]"
   },
   {
@@ -53,6 +56,7 @@
     "longitude": -122.3385771,
     "website": "http://sisikaythai.com/",
     "has_patio": true,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [12-9:30 PM], Monday: [11 AM-9:30 PM], Tuesday: [11 AM-9:30 PM], Wednesday: [11 AM-9:30 PM], Thursday: [11 AM-9:30 PM], Friday: [11 AM-10 PM], Saturday: [12-10 PM]"
   },
   {
@@ -67,6 +71,7 @@
     "longitude": -122.2873985,
     "website": "http://www.marlaithai.com/",
     "has_patio": false,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [11 AM-9 PM], Monday: [11 AM-9 PM], Tuesday: [11 AM-9 PM], Wednesday: [11 AM-9 PM], Thursday: [11 AM-9 PM], Friday: [11 AM-9 PM], Saturday: [11 AM-9 PM]"
   },
   {
@@ -80,6 +85,7 @@
     "longitude": -122.31306289999999,
     "website": "https://jaithairestaurant.com",
     "has_patio": false,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [11 AM-9:30 PM], Monday: [11 AM-9:30 PM], Tuesday: [11 AM-9:30 PM], Wednesday: [11 AM-9:30 PM], Thursday: [11 AM-9:30 PM], Friday: [11 AM-9:30 PM], Saturday: [11 AM-9:30 PM]"
   },
   {
@@ -93,6 +99,7 @@
     "longitude": -122.33690379999999,
     "website": "http://www.45thvegetarianthai.com/",
     "has_patio": false,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [11 AM-9 PM], Monday: [11 AM-9 PM], Tuesday: [11 AM-9 PM], Wednesday: [11 AM-9 PM], Thursday: [11 AM-9 PM], Friday: [11 AM-9 PM], Saturday: [11 AM-9 PM]"
   },
   {
@@ -107,6 +114,7 @@
     "longitude": -122.29977939999999,
     "website": "http://www.kruaseattle.com/",
     "has_patio": false,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [12-8:30 PM], Monday: [Closed], Tuesday: [11:30 AM-8:30 PM], Wednesday: [11:30 AM-8:30 PM], Thursday: [11:30 AM-8:30 PM], Friday: [11:30 AM-9 PM], Saturday: [12-9 PM]"
   },
   {
@@ -121,6 +129,7 @@
     "longitude": -122.33362779999999,
     "website": "http://www.silvertraythai.com/",
     "has_patio": true,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [12-9 PM], Monday: [11 AM-9 PM], Tuesday: [Closed], Wednesday: [11 AM-9 PM], Thursday: [11 AM-9 PM], Friday: [11 AM-9 PM], Saturday: [12-9 PM]"
   },
   {
@@ -134,6 +143,7 @@
     "latitude": 47.659959799999996,
     "longitude": -122.31360679999999,
     "has_patio": false,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [12-10 PM], Monday: [11 AM-10 PM], Tuesday: [11 AM-10 PM], Wednesday: [11 AM-1 AM], Thursday: [11 AM-1 AM], Friday: [11 AM-1 AM], Saturday: [12 PM-1 AM]"
   },
   {
@@ -148,6 +158,7 @@
     "longitude": -122.3254317,
     "website": "http://www.djans.com/",
     "has_patio": true,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [12-10 PM], Monday: [11 AM-3 PM, 4-10 PM], Tuesday: [11 AM-3 PM, 4-10 PM], Wednesday: [11 AM-3 PM, 4-10 PM], Thursday: [11 AM-10 PM], Friday: [11 AM-10 PM], Saturday: [12-10 PM]"
   },
   {
@@ -162,6 +173,7 @@
     "longitude": -122.32115189999999,
     "website": "http://www.rommaithai.com/",
     "has_patio": false,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [12-9:30 PM], Monday: [11 AM-2:30 PM, 4-9:30 PM], Tuesday: [11 AM-2:30 PM, 4-9:30 PM], Wednesday: [11 AM-2:30 PM, 4-9:30 PM], Thursday: [11 AM-2:30 PM, 4-9:30 PM], Friday: [11 AM-2:30 PM, 4-9:30 PM], Saturday: [11 AM-9:30 PM]"
   },
   {
@@ -175,6 +187,7 @@
     "longitude": -122.33605879999999,
     "website": "http://www.thaithanikitchen.com/SouthLakeUnion.html",
     "has_patio": false,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [12-8:30 PM], Monday: [11 AM-8:30 PM], Tuesday: [11 AM-8:30 PM], Wednesday: [11 AM-8:30 PM], Thursday: [11 AM-8:30 PM], Friday: [11 AM-9 PM], Saturday: [12-9 PM]"
   },
   {
@@ -189,6 +202,7 @@
     "longitude": -122.32075549999999,
     "website": "http://www.pintobistro.com/",
     "has_patio": false,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [11:45 AM-9 PM], Monday: [10:45 AM-9 PM], Tuesday: [10:45 AM-9 PM], Wednesday: [10:45 AM-9 PM], Thursday: [10:45 AM-9 PM], Friday: [10:45 AM-9 PM], Saturday: [11:45 AM-9 PM]"
   },
   {
@@ -203,6 +217,7 @@
     "longitude": -122.33344269999999,
     "website": "https://kativeganthai.com/",
     "has_patio": false,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [11:30 AM-3 PM, 4:30-9 PM], Monday: [11:30 AM-3 PM, 4:30-9 PM], Tuesday: [11:30 AM-3 PM, 4:30-9 PM], Wednesday: [11:30 AM-3 PM, 4:30-9 PM], Thursday: [11:30 AM-3 PM, 4:30-9 PM], Friday: [11:30 AM-3 PM, 4:30-9:30 PM], Saturday: [11:30 AM-3 PM, 4:30-9:30 PM]"
   },
   {
@@ -217,6 +232,7 @@
     "longitude": -122.31289,
     "website": "https://www.jamjuree.com/",
     "has_patio": true,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [11:30 AM-9 PM], Monday: [11:30 AM-9 PM], Tuesday: [11:30 AM-9 PM], Wednesday: [11:30 AM-9 PM], Thursday: [11:30 AM-9 PM], Friday: [11:30 AM-9 PM], Saturday: [11:30 AM-9 PM]"
   },
   {
@@ -231,6 +247,7 @@
     "longitude": -122.34837719999999,
     "website": "http://www.bahnthaimenu.com/",
     "has_patio": false,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [12-9:30 PM], Monday: [11:30 AM-3 PM, 4:30-9:30 PM], Tuesday: [11:30 AM-3 PM, 4:30-9:30 PM], Wednesday: [11:30 AM-3 PM, 4:30-9:30 PM], Thursday: [11:30 AM-3 PM, 4:30-9:30 PM], Friday: [11:30 AM-3 PM, 4:30-10 PM], Saturday: [12-10 PM]"
   },
   {
@@ -245,6 +262,7 @@
     "longitude": -122.3157919,
     "website": "https://linktr.ee/manaoseattle",
     "has_patio": false,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [12-9 PM], Monday: [11 AM-10 PM], Tuesday: [11 AM-10 PM], Wednesday: [11 AM-10 PM], Thursday: [11 AM-10 PM], Friday: [11 AM-10 PM], Saturday: [12-10 PM]"
   },
   {
@@ -258,6 +276,7 @@
     "latitude": 47.624033999999995,
     "longitude": -122.312266,
     "has_patio": true,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [11 AM-10 PM], Monday: [11 AM-10 PM], Tuesday: [11 AM-10 PM], Wednesday: [11 AM-10 PM], Thursday: [11 AM-10 PM], Friday: [11 AM-10 PM], Saturday: [11 AM-10 PM]"
   },
   {
@@ -272,6 +291,7 @@
     "longitude": -122.3387501,
     "website": "http://www.seattle.noithaicuisine.com/",
     "has_patio": false,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [12-9:30 PM], Monday: [12-9:30 PM], Tuesday: [12-9:30 PM], Wednesday: [12-9:30 PM], Thursday: [12-2 PM, 4-7:30 PM], Friday: [12-10:30 PM], Saturday: [12-10:30 PM]"
   },
   {
@@ -286,6 +306,7 @@
     "longitude": -122.3526325,
     "website": "http://www.thaion1.com/",
     "has_patio": false,
+    "cuisine": "Thai",
     "openingHours": "Sunday: [12-9 PM], Monday: [11 AM-9 PM], Tuesday: [11 AM-9 PM], Wednesday: [11 AM-9 PM], Thursday: [11 AM-9 PM], Friday: [11 AM-9 PM], Saturday: [12-9 PM]"
   },
   {
@@ -300,6 +321,7 @@
     "longitude": -122.32125479999999,
     "website": "https://mirchmasalaseattle.com/",
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [11 AM-9:30 PM], Monday: [11 AM-9:30 PM], Tuesday: [11 AM-9:30 PM], Wednesday: [11 AM-9:30 PM], Thursday: [11 AM-9:30 PM], Friday: [11 AM-9:30 PM], Saturday: [11 AM-9:30 PM]"
   },
   {
@@ -313,6 +335,7 @@
     "longitude": -122.33350659999999,
     "website": "http://foodjunctionseattle.com/",
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [10:30 AM-2:30 PM, 3:30-9 PM], Monday: [10:30 AM-2:30 PM, 3:30-9 PM], Tuesday: [Closed], Wednesday: [10:30 AM-2:30 PM, 3:30-9 PM], Thursday: [10:30 AM-2:30 PM, 3:30-9 PM], Friday: [10:30 AM-2:30 PM, 3:30-9 PM], Saturday: [10:30 AM-2:30 PM, 3:30-9 PM]"
   },
   {
@@ -327,6 +350,7 @@
     "longitude": -122.3212573,
     "website": "https://www.ammispakwanseattle.com/",
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [11 AM-9:45 PM], Monday: [11 AM-9:45 PM], Tuesday: [11 AM-9:45 PM], Wednesday: [11 AM-9:45 PM], Thursday: [11 AM-9:45 PM], Friday: [11 AM-9:45 PM], Saturday: [11 AM-9:45 PM]"
   },
   {
@@ -341,6 +365,7 @@
     "longitude": -122.32055989999999,
     "website": "https://www.motimahalindiancuisine.com/",
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [11 AM-3 AM], Monday: [11 AM-3 AM], Tuesday: [11 AM-3 AM], Wednesday: [11 AM-3 AM], Thursday: [11 AM-3 AM], Friday: [11 AM-3 AM], Saturday: [11 AM-3 AM]"
   },
   {
@@ -355,6 +380,7 @@
     "longitude": -122.3565301,
     "website": "http://www.rotirestaurantseattle.com/",
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [11 AM-2:30 PM, 4-9:30 PM], Monday: [11 AM-2:30 PM, 4-9:30 PM], Tuesday: [11 AM-2:30 PM, 4-9:30 PM], Wednesday: [11 AM-2:30 PM, 4-9:30 PM], Thursday: [11 AM-2:30 PM, 4-9:30 PM], Friday: [11 AM-2:30 PM, 4-9:30 PM], Saturday: [11 AM-2:30 PM, 4-9:30 PM]"
   },
   {
@@ -368,6 +394,7 @@
     "longitude": -122.31297529999999,
     "website": "http://www.tandooriflameindiangrill.com/",
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [11:30 AM-9 PM], Monday: [11 AM-10 PM], Tuesday: [11 AM-10 PM], Wednesday: [11 AM-10 PM], Thursday: [11 AM-10 PM], Friday: [11 AM-10 PM], Saturday: [11 AM-10 PM]"
   },
   {
@@ -382,6 +409,7 @@
     "longitude": -122.34328479999999,
     "website": "http://www.kanakindianseattle.com/",
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [11:30 AM-10 PM], Monday: [11 AM-10 PM], Tuesday: [11 AM-10 PM], Wednesday: [11 AM-10 PM], Thursday: [11 AM-10 PM], Friday: [11 AM-10 PM], Saturday: [11 AM-10 PM]"
   },
   {
@@ -396,6 +424,7 @@
     "longitude": -122.3314142,
     "website": "http://www.daawatgrillbar.com/?utm_source=gmb&utm_medium=website",
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [12-9:30 PM], Monday: [11 AM-9:30 PM], Tuesday: [11 AM-9:30 PM], Wednesday: [11 AM-9:30 PM], Thursday: [11 AM-9:30 PM], Friday: [11 AM-9:30 PM], Saturday: [11 AM-9:30 PM]"
   },
   {
@@ -410,6 +439,7 @@
     "longitude": -122.3158802,
     "website": "http://www.theguilttriprestaurant.com/",
     "has_patio": true,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [11 AM-11 PM], Monday: [Closed], Tuesday: [11 AM-11 PM], Wednesday: [11 AM-11 PM], Thursday: [11 AM-2 AM], Friday: [11 AM-2 AM], Saturday: [11 AM-2 AM]"
   },
   {
@@ -424,6 +454,7 @@
     "longitude": -122.3205576,
     "website": "http://www.spiceboxseattlewa.com/?utm_source=gmb&utm_medium=website",
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [11 AM-3 AM], Monday: [11 AM-3 AM], Tuesday: [11 AM-3 AM], Wednesday: [11 AM-3 AM], Thursday: [11 AM-3 AM], Friday: [11 AM-3 AM], Saturday: [11 AM-3 AM]"
   },
   {
@@ -438,6 +469,7 @@
     "longitude": -122.32051469999999,
     "website": "https://www.rondojapanesekitchen.com/",
     "has_patio": true,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [11:30 AM-9:30 PM], Monday: [11:30 AM-9:30 PM], Tuesday: [Closed], Wednesday: [11:30 AM-9:30 PM], Thursday: [11:30 AM-9:30 PM], Friday: [11:30 AM-9:30 PM], Saturday: [11:30 AM-9:30 PM]"
   },
   {
@@ -452,6 +484,7 @@
     "longitude": -122.3210823,
     "website": "http://www.sumoexpress.com/",
     "has_patio": false,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [11 AM-1:30 AM], Monday: [11 AM-1:30 AM], Tuesday: [11 AM-1:30 AM], Wednesday: [11 AM-1:30 AM], Thursday: [11 AM-1:30 AM], Friday: [11 AM-1:30 AM], Saturday: [11 AM-1:30 AM]"
   },
   {
@@ -466,6 +499,7 @@
     "longitude": -122.3400841,
     "website": "http://www.hurrycurryoftokyo-seattle.com/",
     "has_patio": true,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [10 AM-9:30 PM], Monday: [10 AM-10 PM], Tuesday: [10 AM-10 PM], Wednesday: [10 AM-10 PM], Thursday: [10 AM-10 PM], Friday: [10 AM-10 PM], Saturday: [10 AM-10 PM]"
   },
   {
@@ -480,6 +514,7 @@
     "longitude": -122.3164182,
     "website": "https://freshudon.com/udon-capitolhill",
     "has_patio": false,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [11 AM-8:30 PM], Monday: [11 AM-8:30 PM], Tuesday: [11 AM-8:30 PM], Wednesday: [11 AM-8:30 PM], Thursday: [11 AM-8:30 PM], Friday: [11 AM-9 PM], Saturday: [11 AM-9 PM]"
   },
   {
@@ -491,6 +526,7 @@
     "latitude": 47.6147749,
     "longitude": -122.3281061,
     "has_patio": false,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [1-6 PM], Monday: [1-6 PM], Tuesday: [1-4 PM], Wednesday: [Closed], Thursday: [1-7 PM], Friday: [1-7 PM], Saturday: [1-7 PM]"
   },
   {
@@ -504,6 +540,7 @@
     "latitude": 47.609941199999994,
     "longitude": -122.3420987,
     "has_patio": false,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [11 AM-9 PM], Monday: [11 AM-9 PM], Tuesday: [Closed], Wednesday: [11 AM-9 PM], Thursday: [11 AM-9 PM], Friday: [11 AM-9 PM], Saturday: [11 AM-9 PM]"
   },
   {
@@ -518,6 +555,7 @@
     "longitude": -122.32051089999999,
     "website": "https://teriyakiandwok.com/",
     "has_patio": true,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [10 AM-10 PM], Monday: [10 AM-10 PM], Tuesday: [10 AM-10 PM], Wednesday: [10 AM-10 PM], Thursday: [10 AM-10 PM], Friday: [10 AM-10 PM], Saturday: [10 AM-10 PM]"
   },
   {
@@ -532,6 +570,7 @@
     "longitude": -122.3477633,
     "website": "http://karaagesetsuna.com/",
     "has_patio": false,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [11:30 AM-2 PM, 5-9 PM], Monday: [11:30 AM-2:30 PM, 5-9 PM], Tuesday: [11:30 AM-2 PM, 5-9 PM], Wednesday: [11:30 AM-2 PM, 5-9 PM], Thursday: [11:30 AM-2 PM, 5-9 PM], Friday: [11:30 AM-2 PM, 5-9 PM], Saturday: [11:30 AM-2 PM, 5-9 PM]"
   },
   {
@@ -546,6 +585,7 @@
     "longitude": -122.32678469999999,
     "website": "https://www.onibabaseattle.com/",
     "has_patio": false,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [12-9 PM], Monday: [12-2 PM, 5-9 PM], Tuesday: [Closed], Wednesday: [Closed], Thursday: [12-2 PM, 5-9 PM], Friday: [12-2 PM, 5-9 PM], Saturday: [12-2 PM, 5-9 PM]"
   },
   {
@@ -560,6 +600,7 @@
     "longitude": -122.31649829999999,
     "website": "https://www.gomigoto.com/",
     "has_patio": false,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [12-9 PM], Monday: [12-9 PM], Tuesday: [12-9 PM], Wednesday: [12-9 PM], Thursday: [12-9 PM], Friday: [12-9:30 PM], Saturday: [12-9:30 PM]"
   },
   {
@@ -574,6 +615,7 @@
     "longitude": -122.34049019999999,
     "website": "https://musashiswa.wixsite.com/musashis",
     "has_patio": false,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [11:30 AM-2:30 PM, 4:45-8:45 PM], Monday: [11:30 AM-2:30 PM, 4:45-8:45 PM], Tuesday: [11:30 AM-2:30 PM, 4:45-8:45 PM], Wednesday: [11:30 AM-2:30 PM, 4:45-8:45 PM], Thursday: [11:30 AM-2:30 PM, 4:45-8:45 PM], Friday: [11:30 AM-2:30 PM, 4:45-8:45 PM], Saturday: [11:30 AM-2:30 PM, 4:45-8:45 PM]"
   },
   {
@@ -588,6 +630,7 @@
     "longitude": -122.31340349999999,
     "website": "https://freshudon.com/udon-university",
     "has_patio": false,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [11 AM-8:30 PM], Monday: [11 AM-8:30 PM], Tuesday: [11 AM-8:30 PM], Wednesday: [11 AM-8:30 PM], Thursday: [11 AM-8:30 PM], Friday: [11 AM-9 PM], Saturday: [11 AM-9 PM]"
   },
   {
@@ -601,6 +644,7 @@
     "longitude": -122.31342599999999,
     "website": "https://www.ijsushiburrito.com/",
     "has_patio": false,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [11 AM-9 PM], Monday: [11 AM-9 PM], Tuesday: [11 AM-9 PM], Wednesday: [11 AM-9 PM], Thursday: [11 AM-9 PM], Friday: [11 AM-9 PM], Saturday: [11 AM-9 PM]"
   },
   {
@@ -615,6 +659,7 @@
     "longitude": -122.31307779999999,
     "website": "http://www.samurainoodle.com/",
     "has_patio": false,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [11:30 AM-4 PM, 5-8 PM], Monday: [11:30 AM-4 PM, 5-8 PM], Tuesday: [11:30 AM-4 PM, 5-8 PM], Wednesday: [11:30 AM-4 PM, 5-8 PM], Thursday: [11:30 AM-4 PM, 5-8 PM], Friday: [11:30 AM-4 PM, 5-8 PM], Saturday: [11:30 AM-4 PM, 5-8 PM]"
   },
   {
@@ -629,6 +674,7 @@
     "longitude": -122.2983848,
     "website": "https://bamboosushi.com/location/university-village/details",
     "has_patio": true,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [11 AM-9 PM], Monday: [11 AM-9 PM], Tuesday: [11 AM-9 PM], Wednesday: [11 AM-9 PM], Thursday: [11 AM-9 PM], Friday: [11 AM-9 PM], Saturday: [11 AM-9 PM]"
   },
   {
@@ -642,6 +688,7 @@
     "longitude": -122.33841419999999,
     "website": "https://minatoseattle.com/",
     "has_patio": false,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [12-8 PM], Monday: [Closed], Tuesday: [Closed], Wednesday: [12-8 PM], Thursday: [12-8 PM], Friday: [12-8 PM], Saturday: [12-8 PM]"
   },
   {
@@ -656,6 +703,7 @@
     "longitude": -122.3344206,
     "website": "http://yoroshikuseattle.com/",
     "has_patio": false,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [11:30 AM-2 PM, 4:30-9:30 PM], Monday: [Closed], Tuesday: [Closed], Wednesday: [11:30 AM-2 PM, 4:30-9:30 PM], Thursday: [11:30 AM-2 PM, 4:30-9:30 PM], Friday: [11:30 AM-2 PM, 4:30-9:30 PM], Saturday: [11:30 AM-2 PM, 4:30-9:30 PM]"
   },
   {
@@ -669,6 +717,7 @@
     "longitude": -122.29886979999999,
     "website": "https://www.santouka-usa.com/",
     "has_patio": true,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [11 AM-9 PM], Monday: [11 AM-9 PM], Tuesday: [11 AM-9 PM], Wednesday: [11 AM-9 PM], Thursday: [11 AM-9 PM], Friday: [11 AM-9:30 PM], Saturday: [11 AM-9:30 PM]"
   },
   {
@@ -683,6 +732,7 @@
     "longitude": -122.3331082,
     "website": "http://www.kisaku.com/",
     "has_patio": false,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [5-8 PM], Monday: [11:30 AM-2 PM, 5-8 PM], Tuesday: [11:30 AM-2 PM, 5-8 PM], Wednesday: [11:30 AM-2 PM, 5-8 PM], Thursday: [11:30 AM-2 PM, 5-8 PM], Friday: [11:30 AM-2 PM, 4:30-8:30 PM], Saturday: [11:30 AM-2 PM, 4:30-8:30 PM]"
   },
   {
@@ -697,6 +747,7 @@
     "longitude": -122.3320725,
     "website": "http://www.kokkakuseattle.com/",
     "has_patio": true,
+    "cuisine": "Japanese",
     "openingHours": "Sunday: [4:30-9 PM], Monday: [Closed], Tuesday: [4:30-9 PM], Wednesday: [4:30-9 PM], Thursday: [4:30-9 PM], Friday: [4:30-9 PM], Saturday: [4:30-9 PM]"
   },
   {
@@ -711,6 +762,7 @@
     "longitude": -122.31334919999999,
     "website": "https://cafeontheave.site/",
     "has_patio": true,
+    "cuisine": "Cafe",
     "openingHours": "Sunday: [7 AM-11 PM], Monday: [7 AM-11 PM], Tuesday: [7 AM-11 PM], Wednesday: [7 AM-11 PM], Thursday: [7 AM-11 PM], Friday: [7 AM-2 AM], Saturday: [7 AM-2 AM]"
   },
   {
@@ -723,6 +775,7 @@
     "latitude": 47.6574076,
     "longitude": -122.31293699999999,
     "has_patio": true,
+    "cuisine": "Cafe",
     "openingHours": "Sunday: [7 AM-5 PM], Monday: [6:30 AM-5 PM], Tuesday: [6:30 AM-5 PM], Wednesday: [6:30 AM-5 PM], Thursday: [6:30 AM-5 PM], Friday: [6:30 AM-5 PM], Saturday: [7 AM-5 PM]"
   },
   {
@@ -736,6 +789,7 @@
     "longitude": -122.31383179999999,
     "website": "http://www.uglymugseattle.com/",
     "has_patio": true,
+    "cuisine": "Cafe",
     "openingHours": "Sunday: [9 AM-3 PM], Monday: [8 AM-5 PM], Tuesday: [8 AM-5 PM], Wednesday: [8 AM-5 PM], Thursday: [8 AM-5 PM], Friday: [8 AM-5 PM], Saturday: [9 AM-3 PM]"
   },
   {
@@ -749,6 +803,7 @@
     "longitude": -122.31298389999999,
     "website": "http://cafe-happy.com/",
     "has_patio": false,
+    "cuisine": "Cafe",
     "openingHours": "Sunday: [12-11 PM], Monday: [12 PM-12 AM], Tuesday: [12 PM-12 AM], Wednesday: [12 PM-12 AM], Thursday: [12 PM-12 AM], Friday: [12 PM-12 AM], Saturday: [12-11 PM]"
   },
   {
@@ -763,6 +818,7 @@
     "longitude": -122.32532769999999,
     "website": "https://amuddycupcafe.com/",
     "has_patio": false,
+    "cuisine": "Cafe",
     "openingHours": "Sunday: [8 AM-3 PM], Monday: [7 AM-3 PM], Tuesday: [7 AM-3 PM], Wednesday: [7 AM-3 PM], Thursday: [7 AM-3 PM], Friday: [7 AM-3 PM], Saturday: [8 AM-3 PM]"
   },
   {
@@ -776,6 +832,7 @@
     "longitude": -122.31448719999999,
     "website": "http://www.siphousewa.com/",
     "has_patio": true,
+    "cuisine": "Cafe",
     "openingHours": "Sunday: [8 AM-5 PM], Monday: [8 AM-6 PM], Tuesday: [8 AM-6 PM], Wednesday: [8 AM-6 PM], Thursday: [8 AM-6 PM], Friday: [8 AM-6 PM], Saturday: [8 AM-6 PM]"
   },
   {
@@ -790,6 +847,7 @@
     "longitude": -122.3328306,
     "website": "http://www.irwinsbakeryseattle.com/",
     "has_patio": true,
+    "cuisine": "Cafe",
     "openingHours": "Sunday: [7 AM-6 PM], Monday: [7 AM-6 PM], Tuesday: [7 AM-6 PM], Wednesday: [7 AM-6 PM], Thursday: [7 AM-6 PM], Friday: [7 AM-6 PM], Saturday: [7 AM-6 PM]"
   },
   {
@@ -803,6 +861,7 @@
     "longitude": -122.31577019999999,
     "website": "http://www.kitanda.com/",
     "has_patio": true,
+    "cuisine": "Cafe",
     "openingHours": "Sunday: [8 AM-4 PM], Monday: [8 AM-5:30 PM], Tuesday: [8 AM-5:30 PM], Wednesday: [8 AM-5:30 PM], Thursday: [8 AM-5:30 PM], Friday: [8 AM-5:30 PM], Saturday: [8 AM-5 PM]"
   },
   {
@@ -816,6 +875,7 @@
     "longitude": -122.317251,
     "website": "https://linktr.ee/fomocafe",
     "has_patio": false,
+    "cuisine": "Cafe",
     "openingHours": "Sunday: [6 AM-2 PM], Monday: [6 AM-4 PM], Tuesday: [6 AM-4 PM], Wednesday: [6 AM-4 PM], Thursday: [6 AM-4 PM], Friday: [6 AM-4 PM], Saturday: [6 AM-2 PM]"
   },
   {
@@ -830,6 +890,7 @@
     "longitude": -122.31768679999999,
     "website": "https://www.portagebaycafe.com/",
     "has_patio": true,
+    "cuisine": "Cafe",
     "openingHours": "Sunday: [8 AM-2 PM], Monday: [8 AM-1 PM], Tuesday: [8 AM-1 PM], Wednesday: [8 AM-1 PM], Thursday: [8 AM-1 PM], Friday: [8 AM-1 PM], Saturday: [8 AM-2 PM]"
   },
   {
@@ -844,6 +905,7 @@
     "longitude": -122.3386161,
     "website": "https://pabloypablo.com/",
     "has_patio": true,
+    "cuisine": "Mexican",
     "openingHours": "Sunday: [10:30 AM-8 PM], Monday: [4-9 PM], Tuesday: [4-9 PM], Wednesday: [4-9 PM], Thursday: [4-9 PM], Friday: [12-10 PM], Saturday: [10:30 AM-10 PM]"
   },
   {
@@ -857,6 +919,7 @@
     "longitude": -122.35665979999999,
     "website": "https://bz-restaurant.com/",
     "has_patio": false,
+    "cuisine": "Mexican",
     "openingHours": "Sunday: [9 AM-9 PM], Monday: [9 AM-9 PM], Tuesday: [9 AM-9 PM], Wednesday: [9 AM-9 PM], Thursday: [9 AM-9 PM], Friday: [9 AM-9 PM], Saturday: [9 AM-9 PM]"
   },
   {
@@ -871,6 +934,7 @@
     "longitude": -122.350945,
     "website": "http://www.elcaminorestaurant.com/",
     "has_patio": true,
+    "cuisine": "Mexican",
     "openingHours": "Sunday: [11 AM-9 PM], Monday: [4-9 PM], Tuesday: [4-9 PM], Wednesday: [4-9 PM], Thursday: [4-9 PM], Friday: [4-10 PM], Saturday: [11 AM-10 PM]"
   },
   {
@@ -884,6 +948,7 @@
     "longitude": -122.3256991,
     "website": "http://www.pecadobueno.com/",
     "has_patio": true,
+    "cuisine": "Mexican",
     "openingHours": "Sunday: [11 AM-9 PM], Monday: [11 AM-10 PM], Tuesday: [11 AM-10 PM], Wednesday: [11 AM-10 PM], Thursday: [11 AM-10 PM], Friday: [11 AM-10 PM], Saturday: [11 AM-10 PM]"
   },
   {
@@ -898,6 +963,7 @@
     "longitude": -122.3556886,
     "website": "http://elchupacabraseattle.com/",
     "has_patio": true,
+    "cuisine": "Mexican",
     "openingHours": "Sunday: [11 AM-11 PM], Monday: [11:30 AM-11 PM], Tuesday: [11:30 AM-11 PM], Wednesday: [11:30 AM-11 PM], Thursday: [11:30 AM-11 PM], Friday: [11:30 AM-11 PM], Saturday: [11 AM-11 PM]"
   },
   {
@@ -912,6 +978,7 @@
     "longitude": -122.33292309999999,
     "website": "http://www.tnttaqueria.com/",
     "has_patio": true,
+    "cuisine": "Mexican",
     "openingHours": "Sunday: [8 AM-9 PM], Monday: [8 AM-9 PM], Tuesday: [8 AM-9 PM], Wednesday: [8 AM-9 PM], Thursday: [8 AM-9 PM], Friday: [8 AM-9 PM], Saturday: [8 AM-9 PM]"
   },
   {
@@ -925,6 +992,7 @@
     "latitude": 47.663211499999996,
     "longitude": -122.3475946,
     "has_patio": false,
+    "cuisine": "Mexican",
     "openingHours": "Sunday: [12-9 PM], Monday: [Closed], Tuesday: [12-10 PM], Wednesday: [12-10 PM], Thursday: [12-10 PM], Friday: [12-10 PM], Saturday: [12-10 PM]"
   },
   {
@@ -938,6 +1006,7 @@
     "longitude": -122.28740669999999,
     "website": "http://www.elcamionseattle.com/",
     "has_patio": true,
+    "cuisine": "Mexican",
     "openingHours": "Sunday: [11 AM-9 PM], Monday: [11 AM-9 PM], Tuesday: [11 AM-9 PM], Wednesday: [11 AM-9 PM], Thursday: [11 AM-9 PM], Friday: [11 AM-9 PM], Saturday: [11 AM-9 PM]"
   },
   {
@@ -952,6 +1021,7 @@
     "longitude": -122.3504054,
     "website": "http://www.pecadobueno.com/",
     "has_patio": true,
+    "cuisine": "Mexican",
     "openingHours": "Sunday: [11 AM-9 PM], Monday: [11 AM-10 PM], Tuesday: [11 AM-10 PM], Wednesday: [11 AM-10 PM], Thursday: [11 AM-10 PM], Friday: [11 AM-10 PM], Saturday: [11 AM-10 PM]"
   },
   {
@@ -966,6 +1036,7 @@
     "longitude": -122.3133929,
     "website": "https://memosmexicanrestaurantwa.com/",
     "has_patio": false,
+    "cuisine": "Mexican",
     "openingHours": "Sunday: [6 AM-1 AM], Monday: [6 AM-1 AM], Tuesday: [6 AM-1 AM], Wednesday: [6 AM-1 AM], Thursday: [6 AM-1 AM], Friday: [6 AM-2 AM], Saturday: [6 AM-2 AM]"
   },
   {
@@ -980,6 +1051,7 @@
     "longitude": -122.3127679,
     "website": "http://justburgersco.com/",
     "has_patio": false,
+    "cuisine": "American",
     "openingHours": "Sunday: [11 AM-11 PM], Monday: [11 AM-11 PM], Tuesday: [11 AM-11 PM], Wednesday: [11 AM-11 PM], Thursday: [11 AM-11 PM], Friday: [11 AM-11 PM], Saturday: [11 AM-11 PM]"
   },
   {
@@ -994,6 +1066,7 @@
     "longitude": -122.2990801,
     "website": "http://eurekarestaurantgroup.com/blog/locations/seattle-u-village/",
     "has_patio": true,
+    "cuisine": "American",
     "openingHours": "Sunday: [11 AM-11 PM], Monday: [11 AM-11 PM], Tuesday: [11 AM-11 PM], Wednesday: [11 AM-11 PM], Thursday: [11 AM-11 PM], Friday: [11 AM-12 AM], Saturday: [11 AM-12 AM]"
   },
   {
@@ -1008,6 +1081,7 @@
     "longitude": -122.29394289999999,
     "website": "https://burgermaster.com/",
     "has_patio": false,
+    "cuisine": "American",
     "openingHours": "Sunday: [7 AM-9 PM], Monday: [7 AM-9 PM], Tuesday: [7 AM-9 PM], Wednesday: [7 AM-9 PM], Thursday: [7 AM-10 PM], Friday: [7 AM-10 PM], Saturday: [7 AM-10 PM]"
   },
   {
@@ -1022,6 +1096,7 @@
     "longitude": -122.3277773,
     "website": "http://www.ddir.com/",
     "has_patio": true,
+    "cuisine": "American",
     "openingHours": "Sunday: [10:30 AM-2 AM], Monday: [10:30 AM-2 AM], Tuesday: [10:30 AM-2 AM], Wednesday: [10:30 AM-2 AM], Thursday: [10:30 AM-2 AM], Friday: [10:30 AM-2 AM], Saturday: [10:30 AM-2 AM]"
   },
   {
@@ -1036,6 +1111,7 @@
     "longitude": -122.3176081,
     "website": "http://www.raincityburgers.com/",
     "has_patio": false,
+    "cuisine": "American",
     "openingHours": "Sunday: [11 AM-9 PM], Monday: [11 AM-9 PM], Tuesday: [11 AM-9 PM], Wednesday: [11 AM-9 PM], Thursday: [11 AM-9 PM], Friday: [11 AM-9 PM], Saturday: [11 AM-9 PM]"
   },
   {
@@ -1049,6 +1125,7 @@
     "longitude": -122.3408635,
     "website": "http://www.206burgercompany.com/",
     "has_patio": false,
+    "cuisine": "American",
     "openingHours": "Sunday: [11 AM-8 PM], Monday: [11 AM-9 PM], Tuesday: [11 AM-9 PM], Wednesday: [11 AM-9 PM], Thursday: [11 AM-9 PM], Friday: [11 AM-9 PM], Saturday: [11 AM-9 PM]"
   },
   {
@@ -1062,6 +1139,7 @@
     "latitude": 47.6580787,
     "longitude": -122.31303079999999,
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [12 PM-3 AM], Monday: [12 PM-2 AM], Tuesday: [12 PM-2 AM], Wednesday: [12 PM-2 AM], Thursday: [12 PM-2 AM], Friday: [12 PM-3 AM], Saturday: [12 PM-3 AM]"
   },
   {
@@ -1076,6 +1154,7 @@
     "longitude": -122.2886195,
     "website": "http://www.greatstateburger.com/",
     "has_patio": true,
+    "cuisine": "American",
     "openingHours": "Sunday: [9:30 AM-9 PM], Monday: [11 AM-9 PM], Tuesday: [11 AM-9 PM], Wednesday: [11 AM-9 PM], Thursday: [11 AM-9 PM], Friday: [11 AM-9 PM], Saturday: [9:30 AM-9 PM]"
   },
   {
@@ -1090,6 +1169,7 @@
     "longitude": -122.2998148,
     "website": "https://www.shakeshack.com/location/university-village-wa?utm_source=G&utm_medium=local&utm_campaign=google-local",
     "has_patio": true,
+    "cuisine": "American",
     "openingHours": "Sunday: [10:30 AM-9 PM], Monday: [10:30 AM-9 PM], Tuesday: [10:30 AM-9 PM], Wednesday: [10:30 AM-9 PM], Thursday: [10:30 AM-9 PM], Friday: [10:30 AM-10 PM], Saturday: [10:30 AM-10 PM]"
   },
   {
@@ -1104,6 +1184,7 @@
     "longitude": -122.34096729999999,
     "website": "https://www.kiddvalley.com/",
     "has_patio": false,
+    "cuisine": "American",
     "openingHours": "Sunday: [11 AM-9 PM], Monday: [11 AM-9 PM], Tuesday: [11 AM-9 PM], Wednesday: [11 AM-9 PM], Thursday: [11 AM-9 PM], Friday: [11 AM-9 PM], Saturday: [11 AM-9 PM]"
   },
   {
@@ -1116,6 +1197,7 @@
     "latitude": 47.6641967,
     "longitude": -122.3128768,
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [Open 24 hours], Monday: [Open 24 hours], Tuesday: [Open 24 hours], Wednesday: [Open 24 hours], Thursday: [Open 24 hours], Friday: [Open 24 hours], Saturday: [Open 24 hours]"
   },
   {
@@ -1130,6 +1212,7 @@
     "longitude": -122.31306819999999,
     "website": "http://chilissouthindianrestaurant.com/",
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [11:30 AM-9 PM], Monday: [Closed], Tuesday: [11:30 AM-9 PM], Wednesday: [11:30 AM-9 PM], Thursday: [11:30 AM-9 PM], Friday: [11:30 AM-9 PM], Saturday: [11:30 AM-9 PM]"
   },
   {
@@ -1144,6 +1227,7 @@
     "longitude": -122.31454029999999,
     "website": "http://cedarsseattle.com/",
     "has_patio": true,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [11 AM-10 PM], Monday: [11 AM-9:30 PM], Tuesday: [11 AM-10 PM], Wednesday: [11 AM-10 PM], Thursday: [11 AM-10 PM], Friday: [11 AM-10 PM], Saturday: [11 AM-10 PM]"
   },
   {
@@ -1158,6 +1242,7 @@
     "longitude": -122.313424,
     "website": "https://jewelofindiawa.com/",
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [10:30 AM-11 PM], Monday: [10:30 AM-11 PM], Tuesday: [10:30 AM-11 PM], Wednesday: [10:30 AM-11 PM], Thursday: [10:30 AM-11 PM], Friday: [10:30 AM-11 PM], Saturday: [10:30 AM-11 PM]"
   },
   {
@@ -1172,6 +1257,7 @@
     "longitude": -122.31291209999999,
     "website": "https://maggiepoints.com/orderonline.html",
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [Open 24 hours], Monday: [Open 24 hours], Tuesday: [Open 24 hours], Wednesday: [Open 24 hours], Thursday: [Open 24 hours], Friday: [Open 24 hours], Saturday: [Open 24 hours]"
   },
   {
@@ -1186,6 +1272,7 @@
     "longitude": -122.31757789999999,
     "website": "https://tasteofindiaseattle.com/",
     "has_patio": true,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [11 AM-9 PM], Monday: [11 AM-9 PM], Tuesday: [11 AM-9 PM], Wednesday: [11 AM-9 PM], Thursday: [11 AM-9 PM], Friday: [11 AM-9 PM], Saturday: [11 AM-9 PM]"
   },
   {
@@ -1199,6 +1286,7 @@
     "longitude": -122.3134082,
     "website": "https://www.tacotwistseattle.com/",
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [12 PM-1 AM], Monday: [12 PM-1 AM], Tuesday: [12 PM-1 AM], Wednesday: [12 PM-1 AM], Thursday: [12 PM-1 AM], Friday: [12 PM-2 AM], Saturday: [12 PM-2 AM]"
   },
   {
@@ -1213,6 +1301,7 @@
     "longitude": -122.3178717,
     "website": "https://www.indiabistroroosevelt.com/",
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [11 AM-9 PM], Monday: [11 AM-9 PM], Tuesday: [11 AM-9 PM], Wednesday: [11 AM-9 PM], Thursday: [11 AM-9 PM], Friday: [11 AM-9 PM], Saturday: [11 AM-9 PM]"
   },
   {
@@ -1227,6 +1316,7 @@
     "longitude": -122.33585199999999,
     "website": "http://www.chutneysbistro.com/",
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [11 AM-2:30 PM, 4:30-8:30 PM], Monday: [11 AM-2:30 PM, 4:30-8:30 PM], Tuesday: [11 AM-2:30 PM, 4:30-8:30 PM], Wednesday: [11 AM-2:30 PM, 4:30-8:30 PM], Thursday: [11 AM-2:30 PM, 4:30-8:30 PM], Friday: [11 AM-2:30 PM, 4:30-8:30 PM], Saturday: [11 AM-2:30 PM, 4:30-8:30 PM]"
   },
   {
@@ -1241,6 +1331,7 @@
     "longitude": -122.3409413,
     "website": "http://www.motherindiaseattle.com/",
     "has_patio": false,
+    "cuisine": "Indian",
     "openingHours": "Sunday: [11 AM-9:30 PM], Monday: [11 AM-9:30 PM], Tuesday: [11 AM-9:30 PM], Wednesday: [11 AM-9:30 PM], Thursday: [11 AM-9:30 PM], Friday: [11 AM-9:30 PM], Saturday: [11 AM-9:30 PM]"
   },
   {
@@ -1254,6 +1345,7 @@
     "latitude": 47.6590237,
     "longitude": -122.31290349999999,
     "has_patio": false,
+    "cuisine": "Mediterranean",
     "openingHours": "Sunday: [11 AM-1:30 AM], Monday: [11 AM-1:30 AM], Tuesday: [11 AM-1:30 AM], Wednesday: [11 AM-1:30 AM], Thursday: [11 AM-1:30 AM], Friday: [11 AM-2 AM], Saturday: [11 AM-2 AM]"
   },
   {
@@ -1268,6 +1360,7 @@
     "longitude": -122.3369791,
     "website": "https://www.almanqalgrill.com/",
     "has_patio": false,
+    "cuisine": "Mediterranean",
     "openingHours": "Sunday: [11 AM-9 PM], Monday: [12-9 PM], Tuesday: [12-9 PM], Wednesday: [12-9 PM], Thursday: [11 AM-9 PM], Friday: [11 AM-10 PM], Saturday: [11 AM-10 PM]"
   },
   {
@@ -1282,6 +1375,7 @@
     "longitude": -122.32034759999999,
     "website": "https://www.gyrohouseone.com/",
     "has_patio": false,
+    "cuisine": "Mediterranean",
     "openingHours": "Sunday: [11 AM-9 PM], Monday: [10 AM-9 PM], Tuesday: [10 AM-9 PM], Wednesday: [10 AM-9 PM], Thursday: [10 AM-9 PM], Friday: [10 AM-9 PM], Saturday: [10 AM-9 PM]"
   },
   {
@@ -1296,6 +1390,7 @@
     "longitude": -122.3133361,
     "website": "https://mohsoliman1.wixsite.com/shawarma-king",
     "has_patio": false,
+    "cuisine": "Mediterranean",
     "openingHours": "Sunday: [11 AM-2 AM], Monday: [11 AM-2 AM], Tuesday: [11 AM-2 AM], Wednesday: [11 AM-2 AM], Thursday: [11 AM-2 AM], Friday: [11 AM-3 AM], Saturday: [11 AM-3 AM]"
   },
   {
@@ -1309,6 +1404,7 @@
     "longitude": -122.3135131,
     "website": "https://samirsmediterranean.com/",
     "has_patio": true,
+    "cuisine": "Mediterranean",
     "openingHours": "Sunday: [Closed], Monday: [9:30 AM-8 PM], Tuesday: [9:30 AM-8 PM], Wednesday: [9:30 AM-8 PM], Thursday: [9:30 AM-8 PM], Friday: [9:30 AM-8 PM], Saturday: [10 AM-8 PM]"
   },
   {
@@ -1323,6 +1419,7 @@
     "longitude": -122.3210733,
     "website": "https://www.albachabroadway.com/",
     "has_patio": false,
+    "cuisine": "Mediterranean",
     "openingHours": "Sunday: [10 AM-12 AM], Monday: [10 AM-12 AM], Tuesday: [10 AM-12 AM], Wednesday: [10 AM-12 AM], Thursday: [10 AM-12 AM], Friday: [10 AM-2:30 AM], Saturday: [10 AM-2:30 AM]"
   },
   {
@@ -1337,6 +1434,7 @@
     "longitude": -122.3133074,
     "website": "https://www.costasseattle.com/",
     "has_patio": false,
+    "cuisine": "Mediterranean",
     "openingHours": "Sunday: [7:30 AM-9 PM], Monday: [7:30 AM-9 PM], Tuesday: [7:30 AM-9 PM], Wednesday: [7:30 AM-9 PM], Thursday: [7:30 AM-9 PM], Friday: [7:30 AM-9 PM], Saturday: [7:30 AM-9 PM]"
   },
   {
@@ -1351,6 +1449,7 @@
     "longitude": -122.31336189999999,
     "website": "http://www.aladdingyro.com/",
     "has_patio": false,
+    "cuisine": "Mediterranean",
     "openingHours": "Sunday: [10 AM-2 AM], Monday: [10 AM-2 AM], Tuesday: [10 AM-2 AM], Wednesday: [10 AM-2 AM], Thursday: [10 AM-2 AM], Friday: [10 AM-2:30 AM], Saturday: [10 AM-2:30 AM]"
   },
   {
@@ -1365,6 +1464,7 @@
     "longitude": -122.3132785,
     "website": "https://www.aladdinfalafel.com/",
     "has_patio": false,
+    "cuisine": "Mediterranean",
     "openingHours": "Sunday: [11 AM-11 PM], Monday: [11 AM-11 PM], Tuesday: [11 AM-11 PM], Wednesday: [11 AM-11 PM], Thursday: [11 AM-11 PM], Friday: [11 AM-2 AM], Saturday: [11 AM-2 AM]"
   }
 ]

@@ -17,6 +17,7 @@ class Venue {
     required this.latitude,
     required this.longitude,
     required this.hasPatio,
+    required this.cuisine,
     required this.website,
     required this.reviewCount,
     required this.averageRating,
@@ -34,6 +35,7 @@ class Venue {
   final String? phone;
   final String? description;
   final String fulladdress;
+  final String cuisine;
 
   @JsonKey(name: 'has_patio')
   final bool hasPatio;
@@ -48,7 +50,7 @@ class Venue {
   /// Parameters:
   ///  - latitude: latitude for current location
   ///  - longitude: longitude for current location
-  /// 
+  ///
   /// Returns: relative distance between locations
   double distanceFrom({
     required double latitude,
@@ -62,7 +64,7 @@ class Venue {
   /// Parameters:
   ///  - latitude: latitude for current location
   ///  - longitude: longitude for current location
-  /// 
+  ///
   /// Returns: distance in miles between locations
   double haversineDistanceFrom({
     required double latitude,
@@ -76,12 +78,12 @@ class Venue {
   /// Parameters:
   ///  - latitude: latitude for current location
   ///  - longitude: longitude for current location
-  ///  - ratingFactor: increase score by 'ratingFactor' for every star
+  ///  - ratingFactor: increase score by 'ratingFactor' for every star logarithmically
   ///  - distanceFactor: decreases score by 'distanceFactor' for every mile
   ///  - patioFactor: increases score by 'patioFactor' is it's sunny and venue has a patio
   ///  - reviewCountFactor: increases score by 'reviewCountFactor' for every review
   ///  - isSunny: enbales patioFactor mattering
-  /// 
+  ///
   /// Returns: overall power ranking based on factors
   double powerRanking({
     required double latitude,
@@ -103,7 +105,7 @@ class Venue {
   /// squares number
   /// Parameters:
   ///  - num: any number
-  /// 
+  ///
   /// Returns: num * num
   num _squared(num x) {
     return x * x;
@@ -112,7 +114,7 @@ class Venue {
   /// Builds a widget containg review data
   /// Parameters:
   ///  - context: context of widget build
-  /// 
+  ///
   /// Returns: Stack widget with average review, stars, and review count
   Widget reviewInformationCard(BuildContext context) {
     return Padding(
@@ -152,42 +154,56 @@ class Venue {
   /// Builds a widget containg review data
   /// Parameters:
   ///  - context: context of widget build
-  /// 
+  ///
   /// Returns: Stack widget with average review, stars, and review count
   Widget reviewInformationExpanded(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(1.0),
-      child: Row(
-        children: [
-          AutoSizeText(
-            semanticsLabel: 'Rating: $averageRating',
-            minFontSize: 20,
-            '$averageRating',
-            style: TextStyle(color: Theme.of(context).colorScheme.secondary),
+    return Row(
+      children: [
+        AutoSizeText(
+          semanticsLabel: 'Rating: $averageRating',
+          minFontSize: 20,
+          '$averageRating',
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.secondary,
           ),
-          const SizedBox(
-            width: 10,
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        reviewStars(context),
+        const SizedBox(
+          width: 10,
+        ),
+        AutoSizeText(
+          semanticsLabel: '$reviewCount reviews',
+          minFontSize: 2,
+          '($reviewCount) ',
+          style: TextStyle(
+              color: Theme.of(context).colorScheme.secondary, fontSize: 13),
+        ),
+        const Spacer(),
+        AutoSizeText(
+          semanticsLabel: 'Cuisine: $cuisine',
+          cuisine,
+          maxLines: 2,
+          minFontSize: 10,
+          style: TextStyle(
+            fontWeight: FontWeight.w400,
+            fontSize: 16,
+            color: Theme.of(context).colorScheme.inverseSurface,
           ),
-          reviewStars(context),
-          const SizedBox(
-            width: 10,
-          ),
-          AutoSizeText(
-            semanticsLabel: '$reviewCount reviews',
-            minFontSize: 2,
-            '($reviewCount) ',
-            style: TextStyle(
-                color: Theme.of(context).colorScheme.secondary, fontSize: 13),
-          ),
-        ],
-      ),
+        ),
+        const SizedBox(
+          width: 5,
+        ),
+      ],
     );
   }
 
   /// Builds a widget containg review stars
   /// Parameters:
   ///  - context: context of widget build
-  /// 
+  ///
   /// Returns: Row widget with stars matching rating
   Row reviewStars(BuildContext context) {
     List<Icon> stars = [];
