@@ -114,6 +114,7 @@ class MapView extends StatelessWidget {
                 color: Theme.of(context).colorScheme.secondary),
             child: Center(
               child: Text(
+                semanticsLabel: '${markers.length.toString()} Venues here, Button',
                 markers.length.toString(),
                 style: const TextStyle(
                   color: Colors.white,
@@ -162,16 +163,19 @@ class MapView extends StatelessWidget {
     }
     return GestureDetector(
       onTapDown: (tapDetails) => openPlacePage(context, tapDetails, venue),
-      child: Container(
-        width: 10.0,
-        height: 10.0,
-        decoration: BoxDecoration(
-            color: locationColor.withOpacity(0.8),
-            shape: BoxShape.circle,
-            border: Border.all(
-              width: 2,
-              color: locationColor,
-            )),
+      child: Semantics(
+        label: 'Venue Button',
+        child: Container(
+          width: 10.0,
+          height: 10.0,
+          decoration: BoxDecoration(
+              color: locationColor.withOpacity(0.8),
+              shape: BoxShape.circle,
+              border: Border.all(
+                width: 2,
+                color: locationColor,
+              )),
+        ),
       ),
     );
   }

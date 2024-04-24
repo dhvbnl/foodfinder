@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:food_finder/helpers/haversine.dart';
 import 'package:food_finder/models/venue.dart';
 import 'package:food_finder/providers/position_provider.dart';
@@ -35,14 +36,14 @@ class CustomGridTile extends StatelessWidget {
       color = const Color.fromARGB(255, 153, 170, 160);
       elevation = 0;
     }
-    return Semantics(
-      label: 'Venue: ${venue.name}, Rating: ${venue.averageRating} Stars, It is ${venue.haversineDistanceFrom(latitude: positionProvider.latitude, longitude: positionProvider.longitude)} miles away',
-      child: Card(
-        color: color,
-        elevation: elevation,
-        surfaceTintColor: Colors.white,
-        margin: const EdgeInsets.all(8.0),
-        //sets up child for clickability
+    return Card(
+      color: color,
+      elevation: elevation,
+      surfaceTintColor: Colors.white,
+      margin: const EdgeInsets.all(8.0),
+      //sets up child for clickability
+      child: Semantics(
+        attributedLabel: AttributedString('Button'),
         child: InkWell(
           splashColor: Theme.of(context).colorScheme.background,
           onTap: () {
@@ -67,9 +68,11 @@ class CustomGridTile extends StatelessWidget {
   /// Builds a widget formatting venue Name
   /// Parameters:
   ///  - context: context of widget build
+  /// 
   /// Returns: AutoSizeText widget with venueName
   Widget venueName(BuildContext context) {
     return AutoSizeText(
+      semanticsLabel: 'Venue: ${venue.name}',
       venue.name,
       textAlign: TextAlign.center,
       maxLines: 2,
@@ -82,6 +85,7 @@ class CustomGridTile extends StatelessWidget {
   }
 
   /// Builds a widget containg distance to venue
+  /// 
   /// Returns: FittedBox with formatted distance to venue
   Widget distanceAway() {
     if (!positionProvider.locationFound) {

@@ -48,6 +48,7 @@ class Venue {
   /// Parameters:
   ///  - latitude: latitude for current location
   ///  - longitude: longitude for current location
+  /// 
   /// Returns: relative distance between locations
   double distanceFrom({
     required double latitude,
@@ -61,6 +62,7 @@ class Venue {
   /// Parameters:
   ///  - latitude: latitude for current location
   ///  - longitude: longitude for current location
+  /// 
   /// Returns: distance in miles between locations
   double haversineDistanceFrom({
     required double latitude,
@@ -76,9 +78,10 @@ class Venue {
   ///  - longitude: longitude for current location
   ///  - ratingFactor: increase score by 'ratingFactor' for every star
   ///  - distanceFactor: decreases score by 'distanceFactor' for every mile
-  ///  - patioFactor: increases score by 'paioFactor' is it's sunny and venue has a patio
+  ///  - patioFactor: increases score by 'patioFactor' is it's sunny and venue has a patio
   ///  - reviewCountFactor: increases score by 'reviewCountFactor' for every review
   ///  - isSunny: enbales patioFactor mattering
+  /// 
   /// Returns: overall power ranking based on factors
   double powerRanking({
     required double latitude,
@@ -100,6 +103,7 @@ class Venue {
   /// squares number
   /// Parameters:
   ///  - num: any number
+  /// 
   /// Returns: num * num
   num _squared(num x) {
     return x * x;
@@ -108,6 +112,7 @@ class Venue {
   /// Builds a widget containg review data
   /// Parameters:
   ///  - context: context of widget build
+  /// 
   /// Returns: Stack widget with average review, stars, and review count
   Widget reviewInformationCard(BuildContext context) {
     return Padding(
@@ -118,6 +123,7 @@ class Venue {
           Align(
             alignment: Alignment.centerLeft,
             child: AutoSizeText(
+              semanticsLabel: 'Rating: $averageRating stars',
               minFontSize: 20,
               ' $averageRating',
               style: TextStyle(
@@ -129,6 +135,7 @@ class Venue {
           Align(
             alignment: Alignment.centerRight,
             child: AutoSizeText(
+              semanticsLabel: '$reviewCount reviews',
               minFontSize: 2,
               maxFontSize: 12,
               '($reviewCount) ',
@@ -145,6 +152,7 @@ class Venue {
   /// Builds a widget containg review data
   /// Parameters:
   ///  - context: context of widget build
+  /// 
   /// Returns: Stack widget with average review, stars, and review count
   Widget reviewInformationExpanded(BuildContext context) {
     return Padding(
@@ -152,6 +160,7 @@ class Venue {
       child: Row(
         children: [
           AutoSizeText(
+            semanticsLabel: 'Rating: $averageRating',
             minFontSize: 20,
             '$averageRating',
             style: TextStyle(color: Theme.of(context).colorScheme.secondary),
@@ -164,6 +173,7 @@ class Venue {
             width: 10,
           ),
           AutoSizeText(
+            semanticsLabel: '$reviewCount reviews',
             minFontSize: 2,
             '($reviewCount) ',
             style: TextStyle(
@@ -177,6 +187,7 @@ class Venue {
   /// Builds a widget containg review stars
   /// Parameters:
   ///  - context: context of widget build
+  /// 
   /// Returns: Row widget with stars matching rating
   Row reviewStars(BuildContext context) {
     List<Icon> stars = [];

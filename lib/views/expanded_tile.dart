@@ -32,7 +32,7 @@ class ExpandedTile extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: () {
-            if(MediaQuery.of(context).size.aspectRatio < 0.7){
+            if (MediaQuery.of(context).size.aspectRatio < 0.7) {
               return portraitView(context);
             }
             return landscapeView(context);
@@ -41,9 +41,11 @@ class ExpandedTile extends StatelessWidget {
       ),
     );
   }
+
   /// Builds portrait for Expanded Tile View
   /// Parameters:
   ///  - context: context of widget build
+  ///
   /// Returns: Column widget with all data
   Widget portraitView(BuildContext context) {
     return Column(
@@ -85,6 +87,7 @@ class ExpandedTile extends StatelessWidget {
   ///  - text: text to display on button
   ///  - icon: icon to display on button
   ///  - urlLaunch: function to launch when button it tapped
+  ///
   /// Returns: PlatformElevatedButton widget with data embedded
   Widget cardWithVenueData(
     BuildContext context,
@@ -93,23 +96,28 @@ class ExpandedTile extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AutoSizeText(
-              venue.name,
-              minFontSize: 15,
-              maxLines: 2,
-              textAlign: TextAlign.center,
-              style: TextStyle(
+            Center(
+              child: AutoSizeText(
+                semanticsLabel: 'Venue: ${venue.name}',
+                venue.name,
+                minFontSize: 15,
+                maxLines: 2,
+                style: TextStyle(
                   color: Theme.of(context).colorScheme.inverseSurface,
                   decoration: TextDecoration.none,
                   fontWeight: FontWeight.w400,
-                  fontSize: 35),
+                  fontSize: 35,
+                ),
+              ),
             ),
             const SizedBox(height: 5),
             venue.reviewInformationExpanded(context),
             const SizedBox(height: 5),
             if (venue.description != null)
               AutoSizeText(
+                semanticsLabel: 'Description: ${venue.description}',
                 venue.description ?? '',
                 style: const TextStyle(fontSize: 16),
               ),
@@ -122,6 +130,7 @@ class ExpandedTile extends StatelessWidget {
   /// Builds a Card with map data of venue for Expanded Tile View
   /// Parameters:
   ///  - context: context of widget build
+  ///
   /// Returns: Card widget with map embedded using flutter_map
   Widget cardWithMapData(BuildContext context) {
     return Card.outlined(
@@ -136,39 +145,41 @@ class ExpandedTile extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          //height: MediaQuery.of(context).size.width,
-          child: FlutterMap(
-            options: MapOptions(
-                initialCenter: LatLng(
-                  venue.latitude,
-                  venue.longitude,
+          child: Semantics(
+            label: 'Map View, Button',
+            child: FlutterMap(
+              options: MapOptions(
+                  initialCenter: LatLng(
+                    venue.latitude,
+                    venue.longitude,
+                  ),
+                  initialZoom: 15,
+                  maxZoom: 19,
+                  minZoom: 13,
+                  interactionOptions: const InteractionOptions(
+                    flags: InteractiveFlag.pinchZoom,
+                  ),
+                  onTap: (a, b) =>
+                      MapsLauncher.launchQuery(venue.fulladdress).ignore()),
+              children: [
+                TileLayer(
+                  urlTemplate:
+                      'https://api.mapbox.com/styles/v1/mapbox/light-v11/tiles/512/{z}/{x}/{y}@2x?access_token=$mapboxApiKey',
+                  userAgentPackageName: 'com.food_finder.app',
+                  tileProvider: CancellableNetworkTileProvider(),
                 ),
-                initialZoom: 15,
-                maxZoom: 19,
-                minZoom: 13,
-                interactionOptions: const InteractionOptions(
-                  flags: InteractiveFlag.pinchZoom,
-                ),
-                onTap: (a, b) =>
-                    MapsLauncher.launchQuery(venue.fulladdress).ignore()),
-            children: [
-              TileLayer(
-                urlTemplate:
-                    'https://api.mapbox.com/styles/v1/mapbox/light-v11/tiles/512/{z}/{x}/{y}@2x?access_token=$mapboxApiKey',
-                userAgentPackageName: 'com.food_finder.app',
-                tileProvider: CancellableNetworkTileProvider(),
-              ),
-              MarkerLayer(
-                markers: [
-                  Marker(
-                      point: LatLng(venue.latitude, venue.longitude),
-                      width: 20,
-                      height: 20,
-                      alignment: Alignment.topCenter,
-                      child: const Icon(Icons.location_on))
-                ],
-              )
-            ],
+                MarkerLayer(
+                  markers: [
+                    Marker(
+                        point: LatLng(venue.latitude, venue.longitude),
+                        width: 20,
+                        height: 20,
+                        alignment: Alignment.topCenter,
+                        child: const Icon(Icons.location_on))
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -178,8 +189,17 @@ class ExpandedTile extends StatelessWidget {
   /// Builds a Row for Expanded Tile View with all buttons possible with data
   /// Parameters:
   ///  - context: context of widget build
+  ///
   /// Returns: Row widget with buttons evenly placed
   Widget formattedButtonRow(BuildContext context) {
+    var powerRanking = venue
+        .powerRanking(
+          latitude: positionProvider.latitude,
+          longitude: positionProvider.longitude,
+          isSunny: isSunny,
+        )
+        .toStringAsFixed(2);
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -187,6 +207,7 @@ class ExpandedTile extends StatelessWidget {
           formattedButton(
             context,
             'Website',
+            'Opens Website',
             Icons.language,
             () => Url.openUrl(venue.website ?? ''),
           ),
@@ -194,23 +215,24 @@ class ExpandedTile extends StatelessWidget {
           formattedButton(
             context,
             'Call',
+            'Calls Venue',
             Icons.call,
             () => Url.openUrl(
               'tel: ${venue.phone ?? ''}',
             ),
           ),
         if (venue.hasPatio)
-          powerRankingToolTip(context, 'Patio', 'This venue has a patio!',
-              Icons.deck, () => null),
+          formattedButton(
+            context,
+            'Patio',
+            'Venue has a patio',
+            Icons.deck,
+            () => null,
+          ),
         formattedButton(
           context,
-          venue
-              .powerRanking(
-                latitude: positionProvider.latitude,
-                longitude: positionProvider.longitude,
-                isSunny: isSunny,
-              )
-              .toStringAsFixed(2),
+          powerRanking,
+          'Power Ranking: $powerRanking',
           Icons.analytics,
           () => null,
         ),
@@ -221,6 +243,7 @@ class ExpandedTile extends StatelessWidget {
   /// Builds a Column for Expanded Tile View with all buttons possible with data
   /// Parameters:
   ///  - context: context of widget build
+  ///
   /// Returns: Column widget with buttons evenly placed
   Widget formattedButtonColumn(BuildContext context) {
     return Column(
@@ -229,21 +252,33 @@ class ExpandedTile extends StatelessWidget {
         if (venue.website != null)
           formattedButtonNoText(
             context,
+            'Opens Website',
             Icons.language,
             () => Url.openUrl(venue.website ?? ''),
           ),
         if (venue.phone != null)
           formattedButtonNoText(
             context,
+            'Calls Venue',
             Icons.call,
             () => Url.openUrl(
               'tel: ${venue.phone ?? ''}',
             ),
           ),
         if (venue.hasPatio)
-          formattedButtonNoText(context, Icons.deck, () => null),
+          formattedButtonNoText(
+            context,
+            'Venue has a Patio',
+            Icons.deck,
+            () => null,
+          ),
         formattedButtonNoText(
           context,
+          'Power Ranking: ${venue.powerRanking(
+                latitude: positionProvider.latitude,
+                longitude: positionProvider.longitude,
+                isSunny: isSunny,
+              ).toStringAsFixed(2)}',
           Icons.analytics,
           () => null,
         ),
@@ -255,12 +290,15 @@ class ExpandedTile extends StatelessWidget {
   /// Parameters:
   ///  - context: context of widget build
   ///  - text: text to display on button
+  ///  - semanticsLabel: text for screen reader
   ///  - icon: icon to display on button
   ///  - urlLaunch: function to launch when button it tapped
+  ///
   /// Returns: PlatformElevatedButton widget with data embedded
   Widget formattedButton(
     BuildContext context,
     String? text,
+    String semanticsLabel,
     IconData icon,
     Function() function,
   ) {
@@ -280,6 +318,7 @@ class ExpandedTile extends StatelessWidget {
             ),
           if (text != null)
             AutoSizeText(
+              semanticsLabel: semanticsLabel,
               text,
               style: TextStyle(
                 fontSize: 15,
@@ -295,11 +334,14 @@ class ExpandedTile extends StatelessWidget {
   /// Builds a PlatformElevatedButton for Expanded Tile View Landscape with no text
   /// Parameters:
   ///  - context: context of widget build
+  ///  - semanticsLabel: text for screen reader
   ///  - icon: icon to display on button
   ///  - urlLaunch: function to launch when button it tapped
+  ///
   /// Returns: PlatformElevatedButton widget with data embedded
   Widget formattedButtonNoText(
     BuildContext context,
+    String semanticsLabel,
     IconData icon,
     Function() function,
   ) {
@@ -310,25 +352,14 @@ class ExpandedTile extends StatelessWidget {
         onPressed: function,
         padding: const EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 0),
         color: const Color.fromARGB(255, 198, 219, 207),
-        child: Icon(
-          icon,
-          color: Theme.of(context).colorScheme.inverseSurface,
+        child: Semantics(
+          label: semanticsLabel,
+          child: Icon(
+            icon,
+            color: Theme.of(context).colorScheme.inverseSurface,
+          ),
         ),
       ),
-    );
-  }
-
-  Widget powerRankingToolTip(
-    BuildContext context,
-    String? text,
-    String message,
-    IconData icon,
-    Function() function,
-  ) {
-    return Tooltip(
-      message: message,
-      preferBelow: false,
-      child: formattedButton(context, text, icon, function),
     );
   }
 }
