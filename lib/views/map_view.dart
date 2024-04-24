@@ -88,8 +88,9 @@ class MapView extends StatelessWidget {
     return MarkerClusterLayerWidget(
       options: MarkerClusterLayerOptions(
         disableClusteringAtZoom: 18,
-        maxClusterRadius: 60,
         size: const Size(40, 40),
+        zoomToBoundsOnClick: false,
+
         alignment: Alignment.center,
         padding: const EdgeInsets.all(50),
         maxZoom: 15,
