@@ -22,7 +22,13 @@ Tell us about what your design vision was.
     I'm nudging people towards patios on sunny days by changing the colors of certain elements. On the main list view,
     this comprises of creating a darker color for the places without patios so that implicitly people are attracted to
     the lighter tiles. On the map, I grayed out the places without a patio. They are still accessible, but they seem
-    'worse' therefore nudging them to those with patios. 
+    'worse' therefore nudging them to those with patios.
+    After implementing this, a couple of days later I realzied I wanted a bit better of a recommendation engine so I decided
+    to make my own sorting function that gave each venue a 'power ranking' of sorts. The exact function is available in my
+    venue.dart or can be found by navigating to the power ranking page of each venue via the graph button in the bottom
+    left of my expanded venue view. I used all factors including distance, if it has a patio, and it's rating in order
+    to provide the user with a custom ranking based on their situation. In the future, I want to expand this to include
+    cusine preferences as well as weather temperature.   
 
 Where in your repo can we find the sketches that you made? 
 assets folder
@@ -30,8 +36,11 @@ assets folder
 If your final design changed from your initial sketches please explain what changed and why.
 My design mostly stayed the same throughout. Halfway through it, I realized I wanted more data than the standard JSON
 that was shared. This resulted in me adding review data as well. For the map view, I freestyled most of it. I did know
-for sure I wanted some marker over the locations, but I wasn't sure what I had access to in flutter. Eventually I realzied
-it made the most sense to create a little pop up window which is what you can see right now. 
+for sure I wanted some marker over the locations, but I wasn't sure what I had access to in flutter. Eventually I realized
+it made the most sense to create a little pop up window which is what you can see right now.
+Another design that changed was that of my expanded card view. At first, I wanted it to be a popup overlay over the main list view.
+I played around with an overlay, but didn't end up liking how the elements looked in the background on different devices. Ultimately,
+I used the Navigator.push to make a whole new page with the elements from the inital Expanded sketch. 
 
 ## Resources Used
 Cite anything (website or other resource) or anyone that assisted you in creating your solution to this assignment.
@@ -69,6 +78,8 @@ https://stackoverflow.com/questions/71119493/how-can-i-properly-remove-an-overla
 https://stackoverflow.com/questions/50756745/custom-card-shape-flutter-sdk
 https://stackoverflow.com/questions/63232038/how-to-add-elements-to-a-column-if-there-is-a-condition-in-flutter
 https://stackoverflow.com/questions/49713189/how-to-use-conditional-statement-within-child-attribute-of-a-flutter-widget-cen
+https://itnext.io/flutter-mainaxissize-max-vs-min-d9095d8f7914
+https://stackoverflow.com/questions/57992926/how-to-use-new-line-character-in-text-widget-flutter
 
 Online Tools:
 https://gmapsextractor.com/

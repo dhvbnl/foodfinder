@@ -1,6 +1,8 @@
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
@@ -8,6 +10,7 @@ import 'package:food_finder/helpers/url.dart';
 import 'package:food_finder/models/venue.dart';
 import 'package:food_finder/providers/position_provider.dart';
 import 'package:food_finder/views/map_view.dart';
+import 'package:food_finder/views/power_ranking_info.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 
@@ -105,6 +108,7 @@ class ExpandedTile extends StatelessWidget {
                 venue.name,
                 minFontSize: 15,
                 maxLines: 2,
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.inverseSurface,
                   decoration: TextDecoration.none,
@@ -235,7 +239,7 @@ class ExpandedTile extends StatelessWidget {
           powerRanking,
           'Power Ranking: $powerRanking',
           Icons.analytics,
-          () => null,
+          () => buttonAction(context),
         ),
       ],
     );
@@ -281,7 +285,7 @@ class ExpandedTile extends StatelessWidget {
                 isSunny: isSunny,
               ).toStringAsFixed(2)}',
           Icons.analytics,
-          () => null,
+          () => buttonAction(context),
         ),
       ],
     );
@@ -362,5 +366,28 @@ class ExpandedTile extends StatelessWidget {
         ),
       ),
     );
+  }
+
+    /// Pushes a ExpandedTile widget onto the NavigatorStack of current venue
+  /// Parameters:
+  ///  - context: context of widget build
+  void buttonAction(
+    BuildContext context,
+  ) {
+    if (Platform.isIOS || Platform.isMacOS) {
+      Navigator.push(
+        context,
+        CupertinoPageRoute(
+          builder: (context) => PowerRankingInfo(venue: venue, positionProvider: positionProvider, isSunny: isSunny,),
+        ),
+      );
+    } else {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => PowerRankingInfo(venue: venue, positionProvider: positionProvider, isSunny: isSunny,),
+        ),
+      );
+    }
   }
 }
