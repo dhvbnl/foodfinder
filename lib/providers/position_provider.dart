@@ -12,7 +12,9 @@ class PositionProvider extends ChangeNotifier {
 
   PositionProvider() {
     _timer = Timer.periodic(
-      const Duration(seconds: 1),
+      const Duration(
+        seconds: 1,
+      ),
       (timer) => _determinePosition().then(
         (position) => _updatePosition(position),
         onError: (error) => _locationNotFound(),

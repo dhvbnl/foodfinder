@@ -52,6 +52,7 @@ class _FoodFinderAppState extends State<FoodFinderApp> {
   /// Builds the food_finder view as well as establishes the theme
   /// Parameters:
   ///  - context: context for build
+  /// 
   /// Returns: Widget of whole app view
   @override
   Widget build(BuildContext context) {

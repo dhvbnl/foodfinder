@@ -13,7 +13,7 @@ Venue _$VenueFromJson(Map<String, dynamic> json) => Venue(
       hasPatio: json['has_patio'] as bool,
       cuisine: json['cuisine'] as String,
       website: json['website'] as String?,
-      reviewCount: json['reviewCount'] as int,
+      reviewCount: (json['reviewCount'] as num).toInt(),
       averageRating: (json['averageRating'] as num).toDouble(),
       phone: json['phone'] as String?,
       description: json['description'] as String?,
