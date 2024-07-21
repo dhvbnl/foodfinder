@@ -5,9 +5,21 @@ import 'package:food_finder/keys.dart';
 restaurantSearch() async {
   var headers = {
     'Content-Type': 'application/json',
-    'X-Goog-Api-Key': googleMapApiKey,
+    'X-Goog-Api-Key': googleMapsApiKey,
     'X-Goog-FieldMask':
-        'places.displayName,places.formattedAddress,places.primaryTypeDisplayName,places.websiteUri,places.rating,places.userRatingCount,places.nationalPhoneNumber,places.servesVegetarianFood,places.goodForGroups,places.outdoorSeating,places.location,places.editorialSummary,places.priceLevel'
+        'places.displayName,'
+        'places.formattedAddress,'
+        'places.primaryTypeDisplayName,'
+        'places.websiteUri,'
+        'places.rating,'
+        'places.userRatingCount,'
+        'places.nationalPhoneNumber,'
+        'places.servesVegetarianFood,'
+        'places.goodForGroups,'
+        'places.outdoorSeating,'
+        'places.location,'
+        'places.editorialSummary,'
+        'places.priceLevel',
   };
   var request = http.Request('POST',
       Uri.parse('https://places.googleapis.com/v1/places:searchNearby'));
