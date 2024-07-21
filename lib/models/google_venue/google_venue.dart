@@ -1,4 +1,4 @@
-class NearbyVenue {
+class GoogleVenue {
   String? nationalPhoneNumber;
   String? formattedAddress;
   Location? location;
@@ -13,20 +13,21 @@ class NearbyVenue {
   bool? outdoorSeating;
   bool? goodForGroups;
 
-  NearbyVenue(
-      {String? nationalPhoneNumber,
-      String? formattedAddress,
-      Location? location,
-      double? rating,
-      String? websiteUri,
-      String? priceLevel,
-      int? userRatingCount,
-      DisplayName? displayName,
-      DisplayName? primaryTypeDisplayName,
-      DisplayName? editorialSummary,
-      bool? servesVegetarianFood,
-      bool? outdoorSeating,
-      bool? goodForGroups}) {
+  GoogleVenue({
+    String? nationalPhoneNumber,
+    String? formattedAddress,
+    Location? location,
+    double? rating,
+    String? websiteUri,
+    String? priceLevel,
+    int? userRatingCount,
+    DisplayName? displayName,
+    DisplayName? primaryTypeDisplayName,
+    DisplayName? editorialSummary,
+    bool? servesVegetarianFood,
+    bool? outdoorSeating,
+    bool? goodForGroups,
+  }) {
     if (nationalPhoneNumber != null) {
       nationalPhoneNumber = nationalPhoneNumber;
     }
@@ -68,12 +69,11 @@ class NearbyVenue {
     }
   }
 
-  NearbyVenue.fromJson(Map<String, dynamic> json) {
+  GoogleVenue.fromJson(Map<String, dynamic> json) {
     nationalPhoneNumber = json['nationalPhoneNumber'];
     formattedAddress = json['formattedAddress'];
-    location = json['location'] != null
-        ? Location.fromJson(json['location'])
-        : null;
+    location =
+        json['location'] != null ? Location.fromJson(json['location']) : null;
     rating = json['rating'];
     websiteUri = json['websiteUri'];
     priceLevel = json['priceLevel'];
