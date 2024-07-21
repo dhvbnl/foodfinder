@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:food_finder/helpers/haversine.dart';
-import 'package:food_finder/models/venue.dart';
+import 'package:food_finder/models/json_venue/venue.dart';
 import 'package:food_finder/providers/position_provider.dart';
 import 'package:food_finder/views/expanded_tile.dart';
 
@@ -45,7 +45,7 @@ class CustomGridTile extends StatelessWidget {
       child: Semantics(
         attributedLabel: AttributedString('Button'),
         child: InkWell(
-          splashColor: Theme.of(context).colorScheme.background,
+          splashColor: Theme.of(context).colorScheme.surface,
           onTap: () {
             buttonAction(context);
           },

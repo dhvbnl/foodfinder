@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_finder/models/venues_db.dart';
+import 'package:food_finder/models/json_venue/venues_db.dart';
 import 'package:food_finder/helpers/weather_checker.dart';
 import 'package:food_finder/views/custom_grid_tile.dart';
 import 'package:food_finder/views/custom_grid_view.dart';

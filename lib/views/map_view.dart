@@ -2,18 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
-import 'package:food_finder/models/venue.dart';
-import 'package:food_finder/models/venues_db.dart';
+import 'package:food_finder/keys.dart';
+import 'package:food_finder/models/json_venue/venue.dart';
+import 'package:food_finder/models/json_venue/venues_db.dart';
 import 'package:food_finder/providers/position_provider.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:food_finder/helpers/url.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
-
-//API Key to get access to Mapbox maps
-var mapboxApiKey =
-    'pk.eyJ1IjoiZGh2YmFuc2FsIiwiYSI6ImNsdjhqZnBxeDBrMHcya254cGtvajhycTAifQ.WN0eHO9lxwtu_otR_5Au-w';
 
 //Creates a map using flutter_map and associated packages
 class MapView extends StatelessWidget {

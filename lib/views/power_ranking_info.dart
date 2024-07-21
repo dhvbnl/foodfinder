@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
-import 'package:food_finder/models/venue.dart';
+import 'package:food_finder/models/json_venue/venue.dart';
 import 'package:food_finder/providers/position_provider.dart';
 
 /// creates an view for more details of power ranking calculation

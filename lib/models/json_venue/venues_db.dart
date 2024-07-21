@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:food_finder/models/venue.dart';
+import 'package:food_finder/models/json_venue/venue.dart';
 
 class VenuesDB {
   final List<Venue> _venues;
