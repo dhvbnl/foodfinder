@@ -368,7 +368,7 @@ class ExpandedTile extends StatelessWidget {
     );
   }
 
-    /// Pushes a ExpandedTile widget onto the NavigatorStack of current venue
+  /// Pushes a ExpandedTile widget onto the NavigatorStack of current venue
   /// Parameters:
   ///  - context: context of widget build
   void buttonAction(
@@ -378,14 +378,22 @@ class ExpandedTile extends StatelessWidget {
       Navigator.push(
         context,
         CupertinoPageRoute(
-          builder: (context) => PowerRankingInfo(venue: venue, positionProvider: positionProvider, isSunny: isSunny,),
+          builder: (context) => PowerRankingInfo(
+            venue: venue,
+            positionProvider: positionProvider,
+            isSunny: isSunny,
+          ),
         ),
       );
     } else {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => PowerRankingInfo(venue: venue, positionProvider: positionProvider, isSunny: isSunny,),
+          builder: (context) => PowerRankingInfo(
+            venue: venue,
+            positionProvider: positionProvider,
+            isSunny: isSunny,
+          ),
         ),
       );
     }

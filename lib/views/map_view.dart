@@ -87,7 +87,6 @@ class MapView extends StatelessWidget {
         disableClusteringAtZoom: 18,
         size: const Size(40, 40),
         zoomToBoundsOnClick: false,
-
         alignment: Alignment.center,
         padding: const EdgeInsets.all(50),
         maxZoom: 15,
@@ -113,7 +112,8 @@ class MapView extends StatelessWidget {
                 color: Theme.of(context).colorScheme.secondary),
             child: Center(
               child: Text(
-                semanticsLabel: '${markers.length.toString()} Venues here, Button',
+                semanticsLabel:
+                    '${markers.length.toString()} Venues here, Button',
                 markers.length.toString(),
                 style: const TextStyle(
                   color: Colors.white,
